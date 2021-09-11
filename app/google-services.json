@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "376572505455",
+    "project_id": "cosapa-f7a4b",
+    "storage_bucket": "cosapa-f7a4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376572505455:android:9740b439837149ec9e4c9a",
+        "android_client_info": {
+          "package_name": "com.skywalkers.cosapa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376572505455-piq7530idlqpqqpgsovlkg426d739cjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv2MwmJ7p3ie-Thmam4Syl9HVeUpnWumQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376572505455-piq7530idlqpqqpgsovlkg426d739cjc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
