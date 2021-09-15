@@ -58,20 +58,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.memories:
-                    item.setIcon(R.drawable.ic_launcher_background);
+                case R.id.home:
+
                     fm.beginTransaction().hide(active).show(fragment1).commit();
                     active = fragment1;
                     return true;
 
-                case R.id.memories2:
+                case R.id.nearby:
 
                     fm.beginTransaction().hide(active).show(fragment2).commit();
                     active = fragment2;
                     return true;
 
-                case R.id.profile:
-                    item.setIcon(R.drawable.ic_launcher_background);
+                case R.id.health_dashboard:
+
                     fm.beginTransaction().hide(active).show(fragment3).commit();
                     active = fragment3;
                     return true;

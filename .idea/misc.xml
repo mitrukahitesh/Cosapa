@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/grad1.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/grad2.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/ic_bp.xml" value="0.27447916666666666" />
+        <entry key="app/src/main/res/drawable/ic_house.xml" value="0.27025641025641023" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.20244565217391305" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
-        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.25833333333333336" />
-        <entry key="app/src/main/res/layout/fragment_health_dashboard.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_health_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_nearby.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25833333333333336" />
       </map>

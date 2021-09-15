@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:elevation="0dp"
+            app:itemIconSize="32sp"
             app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
 
 

@@ -2,6 +2,7 @@ package com.skywalkers.cosapa.fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ public class FeedFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    CardView card1,card2;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -44,7 +46,10 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+        card1= view.findViewById(R.id.card1);
+        card2=view.findViewById(R.id.card2);
+        return view;
     }
 }
