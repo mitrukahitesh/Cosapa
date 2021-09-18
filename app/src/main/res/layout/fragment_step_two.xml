@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:src="@drawable/stepthreeimg" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Connect with doctors"
+        android:textColor="#7C7990"
+        android:padding="10sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:fontFamily="@font/poppins_regular" />
+    <TextView
+        android:id="@+id/skiptv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF595B"
+        android:textSize="20sp"
+        android:text="Skip"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="32sp"
+        android:layout_marginTop="32sp"/>
+
+
+</LinearLayout>
