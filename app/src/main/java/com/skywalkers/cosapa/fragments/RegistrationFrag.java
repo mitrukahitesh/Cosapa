@@ -13,11 +13,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.skywalkers.cosapa.R;
+
+import java.util.concurrent.TimeUnit;
 
 public class RegistrationFrag extends Fragment {
 
@@ -83,13 +91,13 @@ public class RegistrationFrag extends Fragment {
                     return;
                 }
                 String num = phone.getText().toString();
-                requestCode(num);
+                num ="+91" + num;
+                Bundle bundle = new Bundle();
+                bundle.putString("number", num);
+                bundle.putBoolean("register", true);
+                Navigation.findNavController(view).navigate(R.id.action_registrationFrag2_to_OTPFrag2, bundle);
             }
         });
         return view;
-    }
-
-    private void requestCode(String num) {
-//        PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder()
     }
 }

@@ -18,23 +18,9 @@ import com.skywalkers.cosapa.fragments.RegistrationFrag;
 
 public class LoginActivity extends AppCompatActivity {
 
-    final Fragment registerfrag = new RegistrationFrag();
-    final Fragment otpfrag = new OTPFrag();
-    final Fragment moredetfrag = new MoreDetails();
-
-    final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = registerfrag;
-    private Context contextOfApplication;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        contextOfApplication = getApplicationContext();
-
-        fm.beginTransaction().add(R.id.main_container2, moredetfrag, "3").hide(moredetfrag).commit();
-        fm.beginTransaction().add(R.id.main_container2, otpfrag, "2").hide(otpfrag).commit();
-        fm.beginTransaction().add(R.id.main_container2,registerfrag, "1").commit();
     }
 }
