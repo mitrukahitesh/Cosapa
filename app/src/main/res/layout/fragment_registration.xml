@@ -91,12 +91,14 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="(+91) 901-234-5086"
                     android:padding="10sp"
+                    android:inputType="number"
                     android:textColor="@color/grey2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

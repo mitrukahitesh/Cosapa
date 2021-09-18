@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.skywalkers.cosapa.LoginActivity;
 import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 
@@ -48,16 +49,17 @@ public class StepTwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_step_one, container, false);
+        View view = inflater.inflate(R.layout.fragment_step_two, container, false);
 
-        /*skiptv2 = view.findViewById(R.id.skiptv2);
+        skiptv2 = view.findViewById(R.id.skiptv2);
         skiptv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
-        });*/
+        });
         return view;
     }
 }

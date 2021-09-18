@@ -10,10 +10,13 @@ import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.skywalkers.cosapa.R;
 
 public class RegistrationFrag extends Fragment {
@@ -21,6 +24,8 @@ public class RegistrationFrag extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private TextView signintv;
+    private Button cont;
+    private TextInputEditText phone;
 
     private String mParam1;
     private String mParam2;
@@ -52,21 +57,39 @@ public class RegistrationFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_registration, container, false);
-        signintv=view.findViewById(R.id.sign_in_tv);
+        signintv = view.findViewById(R.id.sign_in_tv);
+        cont = view.findViewById(R.id.register1);
+        phone = view.findViewById(R.id.phone);
         String text = "Already have a account? sign-in";
-
         SpannableString ss = new SpannableString(text);
-
         ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-               //onclick
+                //onclick
             }
         };
-        ss.setSpan(clickableSpan1, 25, 31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan1, 24, 31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         signintv.setText(ss);
         signintv.setMovementMethod(LinkMovementMethod.getInstance());
-
+        cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (phone.getText() == null) {
+                    phone.requestFocus();
+                    return;
+                }
+                if (phone.getText().toString().length() != 10) {
+                    phone.requestFocus();
+                    return;
+                }
+                String num = phone.getText().toString();
+                requestCode(num);
+            }
+        });
         return view;
+    }
+
+    private void requestCode(String num) {
+        PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder()
     }
 }
