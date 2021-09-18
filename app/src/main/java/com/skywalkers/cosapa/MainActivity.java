@@ -18,12 +18,6 @@ import com.skywalkers.cosapa.fragments.NearbyFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*final FeedFragment fragment1 =new FeedFragment();
-    final NearbyFragment fragment2 = new NearbyFragment();
-    final Doctors fragment3 = new Doctors();
-    final HealthDashboard fragment4= new HealthDashboard();
-    final FragmentManager fm = getSupportFragmentManager();
-    FeedFragment active = fragment1;*/
 
     final Fragment fragment1 = new FeedFragment();
     final Fragment fragment2 = new NearbyFragment();

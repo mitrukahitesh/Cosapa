@@ -3,17 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/buttonbg.xml" value="0.27447916666666666" />
+        <entry key="app/src/main/res/drawable/default_dot.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/drawable/flagindia.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/grad1.xml" value="0.24814814814814815" />
         <entry key="app/src/main/res/drawable/grad2.xml" value="0.24814814814814815" />
         <entry key="app/src/main/res/drawable/ic_bp.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/drawable/ic_house.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/drawable/registeredittextbg.xml" value="0.24722222222222223" />
+        <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.20244565217391305" />
+        <entry key="app/src/main/res/layout/contentmain2.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_health_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_nearby.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_o_t_p.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_step_one.xml" value="0.25435897435897437" />
+        <entry key="app/src/main/res/layout/fragment_step_three.xml" value="0.25435897435897437" />
+        <entry key="app/src/main/res/layout/fragment_step_two.xml" value="0.25435897435897437" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25833333333333336" />
       </map>
     </option>
