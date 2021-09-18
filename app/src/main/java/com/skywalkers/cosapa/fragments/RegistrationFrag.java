@@ -90,6 +90,6 @@ public class RegistrationFrag extends Fragment {
     }
 
     private void requestCode(String num) {
-        PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder()
+//        PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder()
     }
 }
