@@ -14,4 +14,6 @@
     <string name="seedoctor2">So why are you waiting?</string>
     <string name="resend_code_in">Resend code in </string>
     <string name="resend_code">Resend code</string>
+    <string name="well_i_think">Well I think...</string>
+    <string name="add_post">ADD POST</string>
 </resources>

@@ -6,11 +6,17 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/drawable/grad1.xml" value="0.24814814814814815" />
         <entry key="app/src/main/res/drawable/grad2.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2851851851851852" />
         <entry key="app/src/main/res/drawable/ic_bp.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/drawable/ic_house.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/drawable/new_post_bg.xml" value="0.2851851851851852" />
+        <entry key="app/src/main/res/drawable/offline.xml" value="0.2851851851851852" />
+        <entry key="app/src/main/res/drawable/online.xml" value="0.2851851851851852" />
+        <entry key="app/src/main/res/drawable/registeredittextbg.xml" value="0.2851851851851852" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/add_post_button.xml" value="0.29528985507246375" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.20244565217391305" />
         <entry key="app/src/main/res/layout/contentmain2.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
@@ -21,6 +27,7 @@
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_step_one.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_step_three.xml" value="0.3026041666666667" />
+        <entry key="app/src/main/res/layout/post_view.xml" value="0.29528985507246375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25833333333333336" />
       </map>
     </option>

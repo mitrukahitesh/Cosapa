@@ -167,8 +167,8 @@ public class OTPFrag extends Fragment {
                         if (task.isSuccessful()) {
                             verified = true;
                             FirebaseUser user = task.getResult().getUser();
-//                            getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
-//                            getActivity().finish();
+                            getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+                            getActivity().finish();
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Log.i("Cosapa", "Incorrect OTP");
