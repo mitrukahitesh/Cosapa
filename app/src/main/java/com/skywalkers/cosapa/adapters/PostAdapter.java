@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
@@ -46,6 +47,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final Set<Integer> updatedAt = new HashSet<>();
     private final Map<String, ListenerRegistration> listeners = new HashMap<>();
+    private final Set<String> viewed = new HashSet<>();
 
     public PostAdapter(Context context) {
         this.context = context;
@@ -118,6 +120,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
             if ((position + 1) % 15 == 0 && !updatedAt.contains(position)) {
                 fetchData();
                 updatedAt.add(position);
+            }
+            if (!viewed.contains(post.getId())) {
+                FirebaseFirestore.getInstance().collection("posts").document(post.getId()).update("views", FieldValue.increment(1));
+                viewed.add(post.getId());
             }
             title.setText(post.getTitle());
             name.setText(post.getName());

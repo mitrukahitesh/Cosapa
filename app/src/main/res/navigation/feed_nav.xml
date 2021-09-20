@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_feedFragment_to_addPost"
             app:destination="@id/addPost" />
+        <action
+            android:id="@+id/action_feedFragment_to_addChallenge"
+            app:destination="@id/addChallenge" />
     </fragment>
     <fragment
         android:id="@+id/addPost"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_add_post" >
         <action
             android:id="@+id/action_addPost_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addChallenge"
+        android:name="com.skywalkers.cosapa.fragments.AddChallenge"
+        android:label="fragment_add_challenge"
+        tools:layout="@layout/fragment_add_challenge" >
+        <action
+            android:id="@+id/action_addChallenge_to_feedFragment"
             app:destination="@id/feedFragment" />
     </fragment>
 </navigation>
