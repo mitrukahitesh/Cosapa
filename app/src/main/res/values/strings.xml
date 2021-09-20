@@ -23,4 +23,9 @@
     <string name="requirement">Add requirement</string>
     <string name="add_a_challenge">Add a Challenge</string>
     <string name="occupationgreet">Hey! Naaz</string>
+    <string name="title">Title</string>
+    <string name="dumble_squat">Dumble squat</string>
+    <string name="steps">Steps</string>
+    <string name="step_1_n_step_2_n_step_3">- Step 1\n- Step 2\n- Step 3</string>
+    <string name="add_media_files">Add media / files</string>
 </resources>

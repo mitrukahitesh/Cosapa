@@ -60,6 +60,12 @@ public class FeedFragment extends Fragment {
         postOption = view.findViewById(R.id.post_option);
         ll_c = view.findViewById(R.id.ll_challenge);
         ll_p = view.findViewById(R.id.ll_post);
+        ll_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_feedFragment_to_addChallenge);
+            }
+        });
         ll_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
