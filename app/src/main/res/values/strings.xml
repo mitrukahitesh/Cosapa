@@ -12,6 +12,14 @@
     <string name="health_status">Your Health is Good</string>
     <string name="seedoctor">Want to consult Doctor?</string>
     <string name="seedoctor2">So why are you waiting?</string>
-    <string name="occupationgreet">Hey! Naaz</string>
-
+    <string name="resend_code_in">Resend code in </string>
+    <string name="resend_code">Resend code</string>
+    <string name="well_i_think">Well I think...</string>
+    <string name="add_post">ADD POST</string>
+    <string name="add_a_post">Add a post</string>
+    <string name="post">Post</string>
+    <string name="what_do_you_want_to_post">What do you want to post?</string>
+    <string name="city">Add city</string>
+    <string name="requirement">Add requirement</string>
+    <string name="add_a_challenge">Add a Challenge</string>
 </resources>

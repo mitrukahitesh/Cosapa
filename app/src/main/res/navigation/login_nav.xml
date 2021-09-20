@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav"
+    app:startDestination="@id/registrationFrag2">
+
+    <fragment
+        android:id="@+id/registrationFrag2"
+        android:name="com.skywalkers.cosapa.fragments.RegistrationFrag"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFrag2_to_OTPFrag2"
+            app:destination="@id/OTPFrag2"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/registrationFrag2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/OTPFrag2"
+        android:name="com.skywalkers.cosapa.fragments.OTPFrag"
+        android:label="OTPFrag" />
+</navigation>

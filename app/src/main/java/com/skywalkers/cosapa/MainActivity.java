@@ -7,14 +7,21 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.fragments.Doctors;
 import com.skywalkers.cosapa.fragments.FeedFragment;
 import com.skywalkers.cosapa.fragments.HealthDashboard;
 import com.skywalkers.cosapa.fragments.NearbyFragment;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
     private Context contextOfApplication;
+    public static String NAME = "Ramesh Kumar";
+    public static String POSITION = "Health worker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +49,26 @@ public class MainActivity extends AppCompatActivity {
 
         contextOfApplication = getApplicationContext();
 
-        fm.beginTransaction().add(R.id.main_container,fragment4,"4").hide(fragment4).commit();
-        fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
-        fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
-        fm.beginTransaction().add(R.id.main_container,fragment1, "1").commit();
+//        fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
+//        fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
+//        fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
+//        fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("status", true);
+        FirebaseFirestore.getInstance().collection("online").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).set(map);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("status", false);
+        FirebaseFirestore.getInstance().collection("online").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).set(map);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -77,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
 
-
             }
             return false;
         }
@@ -88,10 +112,10 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
 
 
         return super.onOptionsItemSelected(item);
