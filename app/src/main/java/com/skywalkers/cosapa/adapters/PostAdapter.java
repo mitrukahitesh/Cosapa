@@ -10,13 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -24,9 +28,12 @@ import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Post;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,6 +45,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
     private Long last = System.currentTimeMillis();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final Set<Integer> updatedAt = new HashSet<>();
+    private final Map<String, ListenerRegistration> listeners = new HashMap<>();
 
     public PostAdapter(Context context) {
         this.context = context;
@@ -57,11 +65,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
                         return;
                     for (QueryDocumentSnapshot snapshot : task.getResult()) {
                         posts.add(snapshot.toObject(Post.class));
+                        posts.get(posts.size() - 1).setId(snapshot.getId());
                         notifyItemInserted(posts.size() - 1);
                     }
                     if (!task.getResult().isEmpty())
                         last = posts.get(posts.size() - 1).getTime();
-                    Log.i("Cosapa", "fetched" + last);
+                    Log.i("Cosapa", "fetched " + task.getResult().size() + " " + last);
                 } else {
                     Log.i("Cosapa", "get failed with ", task.getException());
                 }
@@ -88,9 +97,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
 
     public class CustomVH extends RecyclerView.ViewHolder {
 
-        private TextView title, name, text, reactions, views, pos;
-        private CircleImageView dp;
-        private LinearLayout on, off;
+        private final TextView title, name, text, reactions, views, pos;
+        private final CircleImageView dp;
+        private final LinearLayout on, off;
 
         public CustomVH(@NonNull View itemView) {
             super(itemView);
@@ -106,7 +115,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
         }
 
         public void setPost(Post post, int position) {
-            if (position % 15 == 0 && !updatedAt.contains(position)) {
+            if ((position + 1) % 15 == 0 && !updatedAt.contains(position)) {
                 fetchData();
                 updatedAt.add(position);
             }
@@ -124,6 +133,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
             }
             reactions.setText(String.format(Locale.getDefault(), "%d", post.getReactions()));
             views.setText(String.format(Locale.getDefault(), "%d", post.getViews()));
+            if (!listeners.containsKey(post.getId())) {
+                ListenerRegistration registration = FirebaseFirestore.getInstance().collection("online").document(post.getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (value.exists()) {
+                            if (post.isOnline() == value.getBoolean("status"))
+                                return;
+                            post.setOnline(value.getBoolean("status"));
+                            notifyItemChanged(position);
+                        }
+                    }
+                });
+                listeners.put(post.getId(), registration);
+            }
         }
     }
 }

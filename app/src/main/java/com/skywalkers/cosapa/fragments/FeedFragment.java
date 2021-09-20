@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +34,7 @@ public class FeedFragment extends Fragment {
     private RecyclerView recyclerView;
     private PostAdapter adapter;
     private FloatingActionButton fab;
+    private LinearLayout postOption, ll_c, ll_p;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -54,29 +57,20 @@ public class FeedFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         fab = view.findViewById(R.id.fab);
+        postOption = view.findViewById(R.id.post_option);
+        ll_c = view.findViewById(R.id.ll_challenge);
+        ll_p = view.findViewById(R.id.ll_post);
+        ll_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_feedFragment_to_addPost);
+            }
+        });
         fab.setOnClickListener(v -> {
-            Post post = new Post();
-            post.setTitle("Oxygen cylinder in Punjab");
-            post.setUid(FirebaseAuth.getInstance().getUid());
-            post.setPosition("Health worker");
-            post.setName("Ramesh Kumar");
-            post.setText("Hello ! Guy’s my son was infected by covid.\n" +
-                    "His health was so serious,aurgent requirement\n" +
-                    "of oxygen cylinder");
-            post.setReactions(120);
-            post.setViews(680);
-            post.setTime(System.currentTimeMillis());
-            FirebaseFirestore.getInstance().collection("posts").add(post).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentReference> task) {
-                    if (task.isSuccessful()) {
-                        Log.i("Cosapa", "successful");
-                    } else {
-                        Log.i("Cosapa", "get failed with ", task.getException());
-                    }
-                }
-            });
-            recyclerView.setAdapter(new PostAdapter(getContext()));
+            if (postOption.getVisibility() == View.GONE)
+                postOption.setVisibility(View.VISIBLE);
+            else
+                postOption.setVisibility(View.GONE);
         });
         return view;
     }

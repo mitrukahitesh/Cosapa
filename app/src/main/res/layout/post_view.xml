@@ -86,7 +86,7 @@
                         android:layout_height="10dp"
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/online"
+                        android:background="@drawable/offline"
                         android:orientation="horizontal"
                         android:src="@drawable/verified"
                         android:visibility="gone"
