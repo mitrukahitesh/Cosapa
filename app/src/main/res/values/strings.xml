@@ -12,4 +12,6 @@
     <string name="health_status">Your Health is Good</string>
     <string name="seedoctor">Want to consult Doctor?</string>
     <string name="seedoctor2">So why are you waiting?</string>
+    <string name="occupationgreet">Hey! Naaz</string>
+
 </resources>

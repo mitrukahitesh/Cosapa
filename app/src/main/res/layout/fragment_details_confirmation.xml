@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.UserDetails.DetailsConfirmation">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:fillViewport="true">
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:paddingBottom="32sp"
+               >
+
+               <TextView
+                   android:id="@+id/tvworkprof"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="40dp"
+                   android:fontFamily="@font/poppins_semibold"
+                   android:padding="10sp"
+                   android:text="@string/occupationgreet"
+                   android:textSize="20sp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/tvsteps"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/poppins_regular"
+                   android:padding="10sp"
+                   android:text="Please do each step given\nbelow to verify your profile"
+                   android:textSize="16sp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.178"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvworkprof" />
+
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/detcard1"
+                   android:layout_width="0dp"
+                   android:layout_height="160sp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="32dp"
+                   android:layout_marginEnd="32dp"
+                   app:cardCornerRadius="16sp"
+                   app:cardElevation="8sp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvsteps">
+
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:id="@+id/imageView3"
+                           android:layout_width="80sp"
+                           android:layout_height="80sp"
+                           android:layout_marginStart="24dp"
+                           android:src="@drawable/purplecircle"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <TextView
+                           android:id="@+id/textView9"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Capture your\nPhoto"
+                           android:fontFamily="@font/poppins_semibold"
+                           android:textSize="16sp"
+                           android:padding="10sp"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintStart_toEndOf="@+id/imageView3"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <ImageView
+                           android:id="@+id/imageView4"
+                           android:layout_width="44dp"
+                           android:layout_height="46dp"
+                           app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                           app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                           app:layout_constraintStart_toStartOf="@+id/imageView3"
+                           app:layout_constraintTop_toTopOf="@+id/imageView3"
+                           tools:src="@tools:sample/avatars" />
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+               </androidx.cardview.widget.CardView>
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/detcard2"
+                   android:layout_width="0dp"
+                   android:layout_height="160sp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="32dp"
+                   android:layout_marginEnd="32dp"
+                   app:cardCornerRadius="16sp"
+                   app:cardElevation="8sp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/detcard1">
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:id="@+id/imgupload2"
+                           android:layout_width="80sp"
+                           android:layout_height="80sp"
+                           android:layout_marginStart="24dp"
+                           android:src="@drawable/purplecircle"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <TextView
+                           android:id="@+id/tvupload2"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Upload your\naadhar card"
+                           android:fontFamily="@font/poppins_semibold"
+                           android:textSize="16sp"
+                           android:padding="10sp"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintStart_toEndOf="@+id/imgupload2"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <ImageView
+                           android:id="@+id/imguploadicon2"
+                           android:layout_width="44dp"
+                           android:layout_height="46dp"
+                           app:layout_constraintBottom_toBottomOf="@+id/imgupload2"
+                           app:layout_constraintEnd_toEndOf="@+id/imgupload2"
+                           app:layout_constraintStart_toStartOf="@+id/imgupload2"
+                           app:layout_constraintTop_toTopOf="@+id/imgupload2"
+                           tools:src="@tools:sample/avatars" />
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+               </androidx.cardview.widget.CardView>
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/detcard3"
+                   android:layout_width="0dp"
+                   android:layout_height="160sp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="32dp"
+                   android:layout_marginEnd="32dp"
+                   app:cardCornerRadius="16sp"
+                   app:cardElevation="8sp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/detcard2">
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:id="@+id/imgupload3"
+                           android:layout_width="80sp"
+                           android:layout_height="80sp"
+                           android:layout_marginStart="24dp"
+                           android:src="@drawable/purplecircle"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <TextView
+                           android:id="@+id/tvupload3"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Add your\ndetails"
+                           android:fontFamily="@font/poppins_semibold"
+                           android:textSize="16sp"
+                           android:padding="10sp"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintStart_toEndOf="@+id/imgupload3"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <ImageView
+                           android:id="@+id/imgupp"
+                           android:layout_width="44dp"
+                           android:layout_height="46dp"
+                           app:layout_constraintBottom_toBottomOf="@+id/imgupload3"
+                           app:layout_constraintEnd_toEndOf="@+id/imgupload3"
+                           app:layout_constraintStart_toStartOf="@+id/imgupload3"
+                           app:layout_constraintTop_toTopOf="@+id/imgupload3"
+                           tools:src="@tools:sample/avatars" />
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+               </androidx.cardview.widget.CardView>
+           </androidx.constraintlayout.widget.ConstraintLayout>
+       </ScrollView>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
