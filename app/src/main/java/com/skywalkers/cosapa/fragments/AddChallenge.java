@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,6 +39,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.models.Challenge;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -110,7 +112,7 @@ public class AddChallenge extends Fragment {
                             if (progress == 100) {
                                 try {
                                     Snackbar.make(root, "Challenge Posted", Snackbar.LENGTH_SHORT).show();
-                                    NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.addPost, true).build();
+                                    NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
                                     Navigation.findNavController(view).navigate(R.id.action_addChallenge_to_feedFragment, null, navOptions);
                                 } catch (Exception e) {
                                     Log.i("Cosapa", e.getMessage());
@@ -118,10 +120,15 @@ public class AddChallenge extends Fragment {
                             }
                         }
                     });
-                    Map<String, String> map = new HashMap<>();
-                    map.put("title", title.getText().toString().trim());
-                    map.put("steps", steps.getText().toString().trim());
-                    reference.set(map);
+                    Challenge challenge = new Challenge();
+                    challenge.setTitle(title.getText().toString().trim());
+                    challenge.setText(steps.getText().toString().trim());
+                    challenge.setUid(FirebaseAuth.getInstance().getUid());
+                    challenge.setPosition(MainActivity.POSITION);
+                    challenge.setName(MainActivity.NAME);
+                    challenge.setViews(0);
+                    challenge.setTime(System.currentTimeMillis());
+                    reference.set(challenge);
                 } catch (Exception e) {
                     Log.i("Cosapa", e.getMessage());
                 }

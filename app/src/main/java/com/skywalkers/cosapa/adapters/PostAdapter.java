@@ -56,9 +56,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
     }
 
     public void fetchData() {
-        Log.i("Cosapa", "fetched" + last);
         CollectionReference reference = db.collection("posts");
-        Query query = reference.orderBy("time", Query.Direction.DESCENDING).whereLessThanOrEqualTo("time", last).limit(20);
+        Query query = reference.orderBy("time", Query.Direction.DESCENDING).whereLessThan("time", last).limit(20);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {

@@ -101,7 +101,7 @@ public class AddPost extends Fragment {
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
                     Log.i("Cosapa", "successful");
-                    NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.addPost, true).build();
+                    NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
                     controller.navigate(R.id.action_addPost_to_feedFragment, null, navOptions);
                 } else {
                     Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();

@@ -28,4 +28,7 @@
     <string name="steps">Steps</string>
     <string name="step_1_n_step_2_n_step_3">- Step 1\n- Step 2\n- Step 3</string>
     <string name="add_media_files">Add media / files</string>
+    <string name="challenges">Challenges</string>
+    <string name="challenge_image">CHALLENGE IMAGE</string>
+    <string name="done">DONE</string>
 </resources>

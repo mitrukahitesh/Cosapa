@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.adapters.ChallengeAdapter;
 import com.skywalkers.cosapa.adapters.PostAdapter;
 import com.skywalkers.cosapa.models.Post;
 
@@ -30,9 +31,9 @@ public class FeedFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private CardView card1, card2;
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerView, recyclerChallenge;
     private PostAdapter adapter;
+    private ChallengeAdapter challengeAdapter;
     private FloatingActionButton fab;
     private LinearLayout postOption, ll_c, ll_p;
 
@@ -50,12 +51,14 @@ public class FeedFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
-        card1 = view.findViewById(R.id.card1);
-        card2 = view.findViewById(R.id.card2);
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new PostAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        recyclerChallenge = view.findViewById(R.id.recycler_challenge);
+        challengeAdapter = new ChallengeAdapter(getContext());
+        recyclerChallenge.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        recyclerChallenge.setAdapter(challengeAdapter);
         fab = view.findViewById(R.id.fab);
         postOption = view.findViewById(R.id.post_option);
         ll_c = view.findViewById(R.id.ll_challenge);
