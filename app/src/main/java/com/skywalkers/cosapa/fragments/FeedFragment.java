@@ -55,6 +55,7 @@ public class FeedFragment extends Fragment {
         adapter = new PostAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerChallenge = view.findViewById(R.id.recycler_challenge);
         challengeAdapter = new ChallengeAdapter(getContext());
         recyclerChallenge.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
