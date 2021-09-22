@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,29 +18,48 @@ import com.skywalkers.cosapa.fragments.Doctors;
 import com.skywalkers.cosapa.fragments.home.FeedFragment;
 import com.skywalkers.cosapa.fragments.HealthDashboard;
 import com.skywalkers.cosapa.fragments.NearbyFragment;
+import com.skywalkers.cosapa.models.lab.Lab;
+import com.skywalkers.cosapa.models.lab.RequestBody;
+import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
+import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
+import com.skywalkers.cosapa.rootfragments.HomeFragment;
+import com.skywalkers.cosapa.rootfragments.MapFragment;
+import com.skywalkers.cosapa.utility.RetrofitCustom;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
 
-    final Fragment fragment1 = new FeedFragment();
-    final Fragment fragment2 = new NearbyFragment();
-    final Fragment fragment3 = new HealthDashboard();
-    final Fragment fragment4 = new Doctors();
+    final Fragment fragment1 = new HomeFragment();
+    final Fragment fragment2 = new MapFragment();
+    final Fragment fragment3 = new HealthDashboardFragment();
+    final Fragment fragment4 = new DoctorsFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragment1;
+    private Fragment active = fragment1;
     private Context contextOfApplication;
     public static String NAME = "Ramesh Kumar";
     public static String POSITION = "Health worker";
+    public static final String BASE_URL = "http://13.235.139.60/sandbox/";
+    private Retrofit retrofit;
+    public RetrofitCustom retrofitCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -47,11 +67,21 @@ public class MainActivity extends AppCompatActivity {
         navigation.setBackground(null);
 
         contextOfApplication = getApplicationContext();
+        setRetrofit();
 
-//        fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
-//        fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
-//        fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
-//        fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
+        fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
+        fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
+        fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
+        fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
+        active = fragment1;
+    }
+
+    private void setRetrofit() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitCustom = retrofit.create(RetrofitCustom.class);
     }
 
     @Override
@@ -97,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.profile2:
 
                     fm.beginTransaction().hide(active).show(fragment4).commit();
-                    active = fragment2;
+                    active = fragment4;
                     return true;
 
 
