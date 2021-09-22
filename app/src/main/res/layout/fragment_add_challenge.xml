@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root"
-    tools:context=".fragments.AddChallenge">
+    tools:context=".fragments.home.AddChallenge">
 
     <LinearLayout
         android:id="@+id/ll1"

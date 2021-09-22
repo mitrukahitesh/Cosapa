@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments;
+package com.skywalkers.cosapa.fragments.home;
 
 import android.os.Bundle;
 
@@ -57,7 +57,7 @@ public class FeedFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerChallenge = view.findViewById(R.id.recycler_challenge);
-        challengeAdapter = new ChallengeAdapter(getContext());
+        challengeAdapter = new ChallengeAdapter(getContext(), view);
         recyclerChallenge.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         recyclerChallenge.setAdapter(challengeAdapter);
         fab = view.findViewById(R.id.fab);

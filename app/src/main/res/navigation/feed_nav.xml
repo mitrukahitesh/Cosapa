@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.skywalkers.cosapa.fragments.FeedFragment"
+        android:name="com.skywalkers.cosapa.fragments.home.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
         <action
@@ -16,10 +16,13 @@
         <action
             android:id="@+id/action_feedFragment_to_addChallenge"
             app:destination="@id/addChallenge" />
+        <action
+            android:id="@+id/action_feedFragment_to_startChallenge"
+            app:destination="@id/startChallenge" />
     </fragment>
     <fragment
         android:id="@+id/addPost"
-        android:name="com.skywalkers.cosapa.fragments.AddPost"
+        android:name="com.skywalkers.cosapa.fragments.home.AddPost"
         android:label="fragment_add_post"
         tools:layout="@layout/fragment_add_post" >
         <action
@@ -28,11 +31,25 @@
     </fragment>
     <fragment
         android:id="@+id/addChallenge"
-        android:name="com.skywalkers.cosapa.fragments.AddChallenge"
+        android:name="com.skywalkers.cosapa.fragments.home.AddChallenge"
         android:label="fragment_add_challenge"
         tools:layout="@layout/fragment_add_challenge" >
         <action
             android:id="@+id/action_addChallenge_to_feedFragment"
             app:destination="@id/feedFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/startChallenge"
+        android:name="com.skywalkers.cosapa.fragments.home.StartChallenge"
+        android:label="fragment_start_challenge"
+        tools:layout="@layout/fragment_start_challenge" >
+        <action
+            android:id="@+id/action_startChallenge_to_completeChallenge"
+            app:destination="@id/completeChallenge" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeChallenge"
+        android:name="com.skywalkers.cosapa.fragments.home.CompleteChallenge"
+        android:label="fragment_complete_challenge"
+        tools:layout="@layout/fragment_complete_challenge" />
 </navigation>

@@ -1,7 +1,7 @@
 package com.skywalkers.cosapa.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,7 +25,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
-import com.skywalkers.cosapa.models.Post;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,13 +36,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.CustomVH> {
 
     private final Context context;
+    private final View rootView;
     private final List<Challenge> challenges = new ArrayList<>();
     private Long last = System.currentTimeMillis();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final Set<Integer> updatedAt = new HashSet<>();
 
-    public ChallengeAdapter(Context context) {
+    public ChallengeAdapter(Context context, View rootView) {
         this.context = context;
+        this.rootView = rootView;
         fetchData();
     }
 
@@ -99,6 +101,15 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
             image = itemView.findViewById(R.id.image);
             title = itemView.findViewById(R.id.title);
             dp = itemView.findViewById(R.id.dp);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("challenge", challenges.get(pos));
+                    Navigation.findNavController(rootView).navigate(R.id.action_feedFragment_to_startChallenge, bundle);
+                }
+            });
         }
 
         public void setView(Challenge challenge, int position) {

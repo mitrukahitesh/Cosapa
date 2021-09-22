@@ -1,15 +1,12 @@
 package com.skywalkers.cosapa;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.fragments.Doctors;
-import com.skywalkers.cosapa.fragments.FeedFragment;
+import com.skywalkers.cosapa.fragments.home.FeedFragment;
 import com.skywalkers.cosapa.fragments.HealthDashboard;
 import com.skywalkers.cosapa.fragments.NearbyFragment;
 

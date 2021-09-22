@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2953703703703704" />
+        <entry key="app/src/main/res/drawable/button_bg_challenge.xml" value="0.2851851851851852" />
         <entry key="app/src/main/res/drawable/circle_outer.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/drawable/circle_outer_colored.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/drawable/fab_bg.xml" value="0.2814814814814815" />
@@ -17,6 +18,8 @@
         <entry key="app/src/main/res/drawable/offline.xml" value="0.2851851851851852" />
         <entry key="app/src/main/res/drawable/online.xml" value="0.2851851851851852" />
         <entry key="app/src/main/res/drawable/registeredittextbg.xml" value="0.2851851851851852" />
+        <entry key="app/src/main/res/drawable/trainsparent_grad2.xml" value="0.28888888888888886" />
+        <entry key="app/src/main/res/drawable/transparent_grad1.xml" value="0.28888888888888886" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.25833333333333336" />
@@ -27,6 +30,7 @@
         <entry key="app/src/main/res/layout/contentmain2.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_add_challenge.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/fragment_add_post.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/fragment_complete_challenge.xml" value="0.296195652173913" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_health_dashboard.xml" value="0.25" />
@@ -34,6 +38,7 @@
         <entry key="app/src/main/res/layout/fragment_o_t_p.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_select_occupation.xml" value="0.22870370370370371" />
+        <entry key="app/src/main/res/layout/fragment_start_challenge.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/layout/fragment_step_one.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_step_three.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/post_view.xml" value="0.29528985507246375" />

@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments;
+package com.skywalkers.cosapa.fragments.home;
 
 import android.os.Bundle;
 
