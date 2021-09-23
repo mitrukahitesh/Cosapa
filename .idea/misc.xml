@@ -33,6 +33,8 @@
         <entry key="app/src/main/res/layout/contentmain2.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_add_challenge.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/fragment_add_post.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/fragment_challenge_completed.xml" value="0.26403985507246375" />
+        <entry key="app/src/main/res/layout/fragment_challenge_repetition.xml" value="0.26403985507246375" />
         <entry key="app/src/main/res/layout/fragment_complete_challenge.xml" value="0.296195652173913" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/fragment_doctors2.xml" value="0.29030797101449274" />

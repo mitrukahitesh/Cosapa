@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
@@ -18,8 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,8 +32,11 @@ import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -41,11 +49,35 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
     private Long last = System.currentTimeMillis();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final Set<Integer> updatedAt = new HashSet<>();
+    private final Map<String, Long> completed = new HashMap();
 
     public ChallengeAdapter(Context context, View rootView) {
         this.context = context;
         this.rootView = rootView;
+        fetchCompleted();
         fetchData();
+    }
+
+    private void fetchCompleted() {
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .collection("challenges_completed")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+                            Log.i("Cosapa: Challenge Adapter", error.getLocalizedMessage());
+                            return;
+                        }
+                        if (value == null)
+                            return;
+                        completed.clear();
+                        for (DocumentSnapshot snapshot : value) {
+                            completed.put(snapshot.getId(), (Long) snapshot.get("count"));
+                        }
+                    }
+                });
     }
 
     @NonNull
@@ -91,7 +123,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
     public class CustomVH extends RecyclerView.ViewHolder {
 
         private CardView cardView;
-        private ImageView image;
+        private ImageView image, done;
         private TextView title;
         private CircleImageView dp;
 
@@ -101,6 +133,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
             image = itemView.findViewById(R.id.image);
             title = itemView.findViewById(R.id.title);
             dp = itemView.findViewById(R.id.dp);
+            done = itemView.findViewById(R.id.done);
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -116,6 +149,11 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
             if ((position + 1) % 15 == 0 && !updatedAt.contains(position)) {
                 fetchData();
                 updatedAt.add(position);
+            }
+            if (completed.containsKey(challenge.getId())) {
+                done.setVisibility(View.VISIBLE);
+            } else {
+                done.setVisibility(View.GONE);
             }
             title.setText(challenge.getTitle());
             if (position % 2 == 0) {

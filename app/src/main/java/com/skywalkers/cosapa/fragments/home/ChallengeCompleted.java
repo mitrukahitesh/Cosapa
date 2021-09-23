@@ -6,6 +6,8 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -14,28 +16,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.skywalkers.cosapa.R;
-import com.skywalkers.cosapa.models.Challenge;
 
-public class CompleteChallenge extends Fragment {
+public class ChallengeCompleted extends Fragment {
 
-    private TextView steps, completed;
-    private Challenge challenge;
+    private TextView save;
 
-    public CompleteChallenge() {
+    public ChallengeCompleted() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null && getArguments().getParcelable("challenge") != null) {
-            challenge = getArguments().getParcelable("challenge");
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_complete_challenge, container, false);
+        return inflater.inflate(R.layout.fragment_challenge_completed, container, false);
     }
 
     @Override
@@ -44,19 +41,20 @@ public class CompleteChallenge extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Navigation.findNavController(view).popBackStack();
+                navigateToHome(Navigation.findNavController(view));
             }
         });
-        completed = view.findViewById(R.id.complete);
-        steps = view.findViewById(R.id.steps);
-        steps.setText(challenge.getText());
-        completed.setOnClickListener(new View.OnClickListener() {
+        save = view.findViewById(R.id.save);
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("challenge", challenge);
-                Navigation.findNavController(view).navigate(R.id.action_completeChallenge_to_challengeRepetition, bundle);
+                navigateToHome(Navigation.findNavController(view));
             }
         });
+    }
+
+    private void navigateToHome(NavController controller) {
+        NavOptions options = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
+        controller.navigate(R.id.action_challengeCompleted_to_feedFragment, new Bundle(), options);
     }
 }

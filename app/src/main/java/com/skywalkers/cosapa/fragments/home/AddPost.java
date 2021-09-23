@@ -109,7 +109,7 @@ public class AddPost extends Fragment {
                 if (task.isSuccessful()) {
                     Log.i("Cosapa", "successful");
                     NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
-                    controller.navigate(R.id.action_addPost_to_feedFragment, null, navOptions);
+                    controller.navigate(R.id.action_addPost_to_feedFragment, new Bundle(), navOptions);
                 } else {
                     Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
                     Log.i("Cosapa", "get failed with ", task.getException());

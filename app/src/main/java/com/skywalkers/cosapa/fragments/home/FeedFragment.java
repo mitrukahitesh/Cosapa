@@ -3,6 +3,7 @@ package com.skywalkers.cosapa.fragments.home;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -49,15 +50,27 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_feed, container, false);
+    }
 
-        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (recyclerView == null) {
+            adapter = new PostAdapter(getContext());
+        } else {
+            adapter = (PostAdapter) recyclerView.getAdapter();
+        }
         recyclerView = view.findViewById(R.id.recycler);
-        adapter = new PostAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
+        if (recyclerChallenge == null) {
+            challengeAdapter = new ChallengeAdapter(getContext(), view);
+        } else {
+            challengeAdapter = (ChallengeAdapter) recyclerChallenge.getAdapter();
+        }
         recyclerChallenge = view.findViewById(R.id.recycler_challenge);
-        challengeAdapter = new ChallengeAdapter(getContext(), view);
         recyclerChallenge.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         recyclerChallenge.setAdapter(challengeAdapter);
         fab = view.findViewById(R.id.fab);
@@ -82,6 +95,5 @@ public class FeedFragment extends Fragment {
             else
                 postOption.setVisibility(View.GONE);
         });
-        return view;
     }
 }
