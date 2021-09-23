@@ -7,12 +7,14 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.skywalkers.cosapa.models.doctor.Doctor;
 import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.rootfragments.HomeFragment;
@@ -20,10 +22,14 @@ import com.skywalkers.cosapa.rootfragments.MapFragment;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 import com.skywalkers.cosapa.utility.RetrofitCustom;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -65,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
         Map<String, Boolean> map = new HashMap<>();
         map.put("status", true);
         FirebaseFirestore.getInstance().collection("online").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).set(map);
+//        RetrofitAccessObject.getRetrofitAccessObject().getDoctorsByNameOfSymptom(RetrofitAccessObject.getBodyDoctor()).enqueue(new Callback<ArrayList<Doctor>>() {
+//            @Override
+//            public void onResponse(Call<ArrayList<Doctor>> call, Response<ArrayList<Doctor>> response) {
+//                Log.i("Cosapa", response.body().get(0).getMessage().getCatalog().getBppProviders().get(0).getDescriptor().getName());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ArrayList<Doctor>> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     @Override
