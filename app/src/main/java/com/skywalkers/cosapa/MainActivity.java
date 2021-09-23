@@ -17,6 +17,7 @@ import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.rootfragments.MapFragment;
+import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 import com.skywalkers.cosapa.utility.RetrofitCustom;
 
 import java.util.HashMap;
@@ -38,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private Context contextOfApplication;
     public static String NAME = "Ramesh Kumar";
     public static String POSITION = "Health worker";
-    public static final String BASE_URL = "http://13.235.139.60/sandbox/";
-    private Retrofit retrofit;
-    public RetrofitCustom retrofitCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +51,12 @@ public class MainActivity extends AppCompatActivity {
         navigation.setBackground(null);
 
         contextOfApplication = getApplicationContext();
-        setRetrofit();
 
         fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
         active = fragment1;
-    }
-
-    private void setRetrofit() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitCustom = retrofit.create(RetrofitCustom.class);
     }
 
     @Override
