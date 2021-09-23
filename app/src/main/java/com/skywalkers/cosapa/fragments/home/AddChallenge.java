@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -36,6 +37,7 @@ import com.google.firebase.storage.UploadTask;
 import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
+import com.skywalkers.cosapa.rootfragments.HomeFragment;
 
 public class AddChallenge extends Fragment {
 
@@ -65,6 +67,12 @@ public class AddChallenge extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
         title = view.findViewById(R.id.title);
         steps = view.findViewById(R.id.steps);
         media = view.findViewById(R.id.media_choose);

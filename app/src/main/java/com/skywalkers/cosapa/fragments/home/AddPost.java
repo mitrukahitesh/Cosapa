@@ -2,6 +2,7 @@ package com.skywalkers.cosapa.fragments.home;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -53,6 +54,12 @@ public class AddPost extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
         name = view.findViewById(R.id.name);
         position = view.findViewById(R.id.position);
         dp = view.findViewById(R.id.dp);
@@ -102,7 +109,7 @@ public class AddPost extends Fragment {
                 if (task.isSuccessful()) {
                     Log.i("Cosapa", "successful");
                     NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
-                    controller.navigate(R.id.action_addPost_to_feedFragment, null, navOptions);
+                    controller.navigate(R.id.action_addPost_to_feedFragment, new Bundle(), navOptions);
                 } else {
                     Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
                     Log.i("Cosapa", "get failed with ", task.getException());

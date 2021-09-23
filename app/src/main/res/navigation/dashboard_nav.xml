@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doctor_nav"
+    app:startDestination="@id/healthDashboard">
+
+    <fragment
+        android:id="@+id/healthDashboard"
+        android:name="com.skywalkers.cosapa.fragments.HealthDashboard"
+        android:label="fragment_health_dashboard"
+        tools:layout="@layout/fragment_health_dashboard" />
+</navigation>

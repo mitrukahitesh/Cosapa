@@ -33,4 +33,9 @@
     <string name="done">DONE</string>
     <string name="start_now">Start Now</string>
     <string name="completed">Completed</string>
+    <string name="count">Count</string>
+    <string name="save">Save</string>
+    <string name="challenge_completed">Challenge completed</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="party_popper">🎉</string>
 </resources>
