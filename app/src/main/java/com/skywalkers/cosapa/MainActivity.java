@@ -7,36 +7,22 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.skywalkers.cosapa.fragments.Doctors;
-import com.skywalkers.cosapa.fragments.home.FeedFragment;
-import com.skywalkers.cosapa.fragments.HealthDashboard;
-import com.skywalkers.cosapa.fragments.NearbyFragment;
-import com.skywalkers.cosapa.models.lab.Lab;
-import com.skywalkers.cosapa.models.lab.RequestBody;
 import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.rootfragments.MapFragment;
 import com.skywalkers.cosapa.utility.RetrofitCustom;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

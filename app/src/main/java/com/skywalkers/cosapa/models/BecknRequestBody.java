@@ -1,9 +1,9 @@
-package com.skywalkers.cosapa.models.lab;
+package com.skywalkers.cosapa.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RequestBody {
+public class BecknRequestBody {
 
     @SerializedName("domain")
     @Expose
