@@ -20,6 +20,6 @@ public interface RetrofitCustom {
     Call<ArrayList<Store>> getStoresByNameOfMedicine(@Body BecknRequestBody obj);
 
     @POST("bap/trigger/search")
-    Call<ArrayList<Doctor>> getDoctorsByNameOfSymptom(@Body BecknRequestBody obj);
+    Call<ArrayList<Doctor>> getDoctorsByNameOfCategory(@Body BecknRequestBody obj);
 
 }

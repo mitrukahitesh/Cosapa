@@ -7,15 +7,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.adapters.DoctorAdapter;
 
 
 public class Doctors extends Fragment {
+
+    private RecyclerView recyclerView;
 
     public Doctors() {
     }
@@ -40,5 +45,8 @@ public class Doctors extends Fragment {
                 Navigation.findNavController(view).popBackStack();
             }
         });
+        recyclerView = view.findViewById(R.id.recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new DoctorAdapter(getContext(), "", view.findViewById(R.id.root)));
     }
 }
