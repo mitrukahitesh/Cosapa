@@ -41,4 +41,6 @@
     <string name="doctor_name">Dr. Jubin Nautiyal</string>
     <string name="doctor_category">General Surgeon</string>
     <string name="doctor_price">500$</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="get_details">Get Details</string>
 </resources>

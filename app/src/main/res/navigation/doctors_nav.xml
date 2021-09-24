@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/doctors2"
-        android:name="com.skywalkers.cosapa.fragments.Doctors"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Doctors"
         android:label="fragment_doctors"
         tools:layout="@layout/fragment_doctors" />
 </navigation>

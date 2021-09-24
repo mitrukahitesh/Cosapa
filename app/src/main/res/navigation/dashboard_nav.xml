@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/healthDashboard"
-        android:name="com.skywalkers.cosapa.fragments.HealthDashboard"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.HealthDashboard"
         android:label="fragment_health_dashboard"
-        tools:layout="@layout/fragment_health_dashboard" />
+        tools:layout="@layout/fragment_health_dashboard" >
+        <action
+            android:id="@+id/action_healthDashboard_to_doctors3"
+            app:destination="@id/doctors3" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctors3"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Doctors"
+        android:label="fragment_doctors"
+        tools:layout="@layout/fragment_doctors" />
 </navigation>
