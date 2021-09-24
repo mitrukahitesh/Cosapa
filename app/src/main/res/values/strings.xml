@@ -38,4 +38,7 @@
     <string name="challenge_completed">Challenge completed</string>
     <string name="congratulations">Congratulations!</string>
     <string name="party_popper">🎉</string>
+    <string name="doctor_name">Dr. Jubin Nautiyal</string>
+    <string name="doctor_category">General Surgeon</string>
+    <string name="doctor_price">500$</string>
 </resources>
