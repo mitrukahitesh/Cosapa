@@ -1,6 +1,7 @@
 package com.skywalkers.cosapa.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                                 for (Category category : provider.getCategories()) {
                                     categories.put(category.getId(), category.getDescriptor().getName());
                                 }
-                                Doctor doctor = new Doctor();
                                 for (Item item : provider.getItems()) {
+                                    Doctor doctor = new Doctor();
                                     if (item.getParentItemId() != null) {
                                         for (int i = 0; i < doctors.size(); ++i) {
                                             Doctor docInList = doctors.get(i);
@@ -65,7 +66,6 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                                                 docInList.setCost(item.getPrice().getValue());
                                                 docInList.setCurrency(item.getPrice().getCurrency());
                                                 notifyItemChanged(i);
-                                                break;
                                             }
                                         }
                                         continue;

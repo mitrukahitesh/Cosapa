@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +45,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.CustomVH> {
 
     private final Context context;
-    private final View rootView;
+    private final NavController controller;
     private final List<Challenge> challenges = new ArrayList<>();
     private Long last = System.currentTimeMillis();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -53,7 +54,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
 
     public ChallengeAdapter(Context context, View rootView) {
         this.context = context;
-        this.rootView = rootView;
+        this.controller = Navigation.findNavController(rootView);
         fetchCompleted();
         fetchData();
     }
@@ -140,7 +141,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                     int pos = getAdapterPosition();
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("challenge", challenges.get(pos));
-                    Navigation.findNavController(rootView).navigate(R.id.action_feedFragment_to_startChallenge, bundle);
+                    controller.navigate(R.id.action_feedFragment_to_startChallenge, bundle);
                 }
             });
         }

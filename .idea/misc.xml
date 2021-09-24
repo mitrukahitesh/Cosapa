@@ -39,8 +39,10 @@
         <entry key="app/src/main/res/layout/fragment_add_post.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/fragment_details_confirmation.xml" value="0.25435897435897437" />
         <entry key="app/src/main/res/layout/fragment_doctors.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_doctors2.xml" value="0.14656912209889" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_health_dashboard.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_health_dashboard2.xml" value="0.14656912209889" />
         <entry key="app/src/main/res/layout/fragment_nearby.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/fragment_o_t_p.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.3026041666666667" />

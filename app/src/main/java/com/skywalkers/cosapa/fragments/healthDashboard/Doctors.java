@@ -47,6 +47,7 @@ public class Doctors extends Fragment {
         });
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(new DoctorAdapter(getContext(), "", view.findViewById(R.id.root)));
     }
 }
