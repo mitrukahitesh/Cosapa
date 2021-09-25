@@ -26,5 +26,14 @@
     <fragment
         android:id="@+id/doctorDetails"
         android:name="com.skywalkers.cosapa.fragments.healthDashboard.DoctorDetails"
-        android:label="DoctorDetails" />
+        android:label="DoctorDetails" >
+        <action
+            android:id="@+id/action_doctorDetails_to_checkout"
+            app:destination="@id/checkout" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkout"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Checkout"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" />
 </navigation>

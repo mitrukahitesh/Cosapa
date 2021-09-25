@@ -30,7 +30,7 @@ public class DoctorDetails extends Fragment {
     private DoctorAdapter.Doctor doctor;
     private RadioGroup radioGroup;
     private TextView docPrice, name, category, clinic;
-    private final List<Pair<String, String>> prices = new ArrayList<>();
+    private final List<Pair<Pair<String, String>, String>> prices = new ArrayList<>();
     private String selectedId = "";
     private String selectedSlot = "";
 
@@ -49,6 +49,12 @@ public class DoctorDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_doctor_details, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        selectedId = "";
     }
 
     @Override
@@ -75,8 +81,8 @@ public class DoctorDetails extends Fragment {
                 --checkedId;
                 docPrice.setVisibility(View.VISIBLE);
                 docPrice.setText(prices.get(checkedId).second);
-                selectedId = prices.get(checkedId).first;
-                selectedSlot = prices.get(checkedId).second;
+                selectedId = prices.get(checkedId).first.first;
+                selectedSlot = prices.get(checkedId).first.second;
             }
         });
         setRadioButtons();
@@ -85,11 +91,13 @@ public class DoctorDetails extends Fragment {
             public void onClick(View v) {
                 if (selectedId.equals("")) {
                     Snackbar.make(view.findViewById(R.id.root2), "Please select a slot", Snackbar.LENGTH_SHORT).show();
+                    return;
                 }
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("doctor", doctor);
                 bundle.putString("id", selectedId);
                 bundle.putString("slot", selectedSlot);
+                Navigation.findNavController(view).navigate(R.id.action_doctorDetails_to_checkout, bundle);
             }
         });
     }
@@ -102,7 +110,7 @@ public class DoctorDetails extends Fragment {
             RadioButton button = new RadioButton(getContext());
             button.setText(String.format("%s - %s", timing.getStart(), timing.getEnd()));
             radioGroup.addView(button, i, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            prices.add(new Pair<>(timing.getId(), timing.getCost() + " " + timing.getCurrency()));
+            prices.add(new Pair<>(new Pair<>(timing.getId(), String.format("%s - %s", timing.getStart(), timing.getEnd())), timing.getCost() + " " + timing.getCurrency()));
             ++i;
         }
     }
