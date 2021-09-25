@@ -24,8 +24,11 @@ import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,9 +73,10 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                                     if (item.getParentItemId() != null) {
                                         Timing timing = new Timing();
                                         timing.setCost(item.getPrice().getValue());
+                                        timing.setId(item.getId());
                                         timing.setCurrency(item.getPrice().getCurrency());
-                                        timing.setStart(item.getTime().getRange().getStart().substring(16, 21));
-                                        timing.setEnd(item.getTime().getRange().getEnd().substring(16, 21));
+                                        timing.setStart(item.getTime().getRange().getStart().substring(11, 16));
+                                        timing.setEnd(item.getTime().getRange().getEnd().substring(11, 16));
                                         for (int i = 0; i < doctors.size(); ++i) {
                                             Doctor docInList = doctors.get(i);
                                             if (item.getParentItemId().equals(docInList.getId())) {
@@ -154,12 +158,12 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("doctor", doctors.get(getAdapterPosition()));
+                    controller.navigate(R.id.action_doctors3_to_doctorDetails, bundle);
                 }
             });
         }
 
         public void setView(Doctor d, int pos) {
-            Log.i("Cosapa", d.getCategory());
             name.setText(d.getName());
             category.setText(d.getCategory());
             clinic.setText(d.getClinic());
@@ -168,7 +172,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
     public class Doctor implements Parcelable {
         private String name, category, id, clinic;
-        private final List<Timing> timings = new ArrayList<>();
+        private final Set<Timing> timings = new HashSet<>();
 
         protected Doctor(Parcel in) {
             name = in.readString();
@@ -197,7 +201,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
             this.clinic = clinic;
         }
 
-        public List<Timing> getTimings() {
+        public Set<Timing> getTimings() {
             return timings;
         }
 
@@ -243,7 +247,15 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
     }
 
     public class Timing {
-        private String start, end, cost, currency;
+        private String start, end, cost, currency, id;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
 
         public String getStart() {
             return start;
@@ -275,6 +287,19 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
         public void setCurrency(String currency) {
             this.currency = currency;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (!o.getClass().equals(this.getClass()))
+                return false;
+            Timing timing = (Timing) o;
+            return this.start.equals(timing.getStart()) && this.end.equals(timing.getEnd());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(start, end, cost, currency);
         }
     }
 }
