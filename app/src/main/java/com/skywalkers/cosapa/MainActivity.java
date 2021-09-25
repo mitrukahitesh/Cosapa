@@ -15,12 +15,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.models.doctor.Doctor;
+import com.skywalkers.cosapa.models.doctorSelect.DoctorSelect;
 import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.rootfragments.MapFragment;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 import com.skywalkers.cosapa.utility.RetrofitCustom;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;

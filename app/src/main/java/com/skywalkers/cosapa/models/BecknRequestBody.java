@@ -14,6 +14,28 @@ public class BecknRequestBody {
     @SerializedName("ttl")
     @Expose
     private Integer ttl;
+    @SerializedName("bpp_uri")
+    @Expose
+    private String bppUri;
+    @SerializedName("transaction_id")
+    @Expose
+    private String transactionId;
+
+    public String getBppUri() {
+        return bppUri;
+    }
+
+    public void setBppUri(String bppUri) {
+        this.bppUri = bppUri;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
 
     public String getDomain() {
         return domain;
