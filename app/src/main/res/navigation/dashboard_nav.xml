@@ -35,5 +35,18 @@
         android:id="@+id/checkout"
         android:name="com.skywalkers.cosapa.fragments.healthDashboard.Checkout"
         android:label="fragment_checkout"
-        tools:layout="@layout/fragment_checkout" />
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkout_to_confirmation"
+            app:destination="@id/confirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmation_to_healthDashboard"
+            app:destination="@id/healthDashboard" />
+    </fragment>
 </navigation>

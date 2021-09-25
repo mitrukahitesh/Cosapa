@@ -109,6 +109,16 @@
         android:layout_margin="30dp"
         android:text="Pay"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/progress" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="#FF0479"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

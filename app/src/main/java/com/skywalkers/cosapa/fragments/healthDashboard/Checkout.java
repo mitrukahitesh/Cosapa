@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.snackbar.Snackbar;
 import com.skywalkers.cosapa.Payment;
 import com.skywalkers.cosapa.R;
@@ -58,6 +59,8 @@ public class Checkout extends Fragment {
     private final List<TextView> charges = new ArrayList<>();
     private final List<TextView> values = new ArrayList<>();
     private Button pay;
+    private DoctorConfirm doctorConfirm;
+    private LinearProgressIndicator progressIndicator;
 
     public Checkout() {
     }
@@ -108,6 +111,7 @@ public class Checkout extends Fragment {
         total = view.findViewById(R.id.total);
         totalVal = view.findViewById(R.id.totalVal);
         pay = view.findViewById(R.id.pay);
+        progressIndicator = view.findViewById(R.id.progress);
         fetchData();
         ActivityResultLauncher<PaymentOption> launcher = registerForActivityResult(new Checkout.Contract(), new ActivityResultCallback<Boolean>() {
             @Override
@@ -117,25 +121,15 @@ public class Checkout extends Fragment {
                     return;
                 }
                 Log.i("Cosapa: Checkout", "Payment Success");
-                RetrofitAccessObject
-                        .getRetrofitAccessObject()
-                        .checkDoctorBookingStatus(RetrofitAccessObject.getBodyDoctorStatus())
-                        .enqueue(new Callback<ArrayList<DoctorStatus>>() {
-                            @Override
-                            public void onResponse(Call<ArrayList<DoctorStatus>> call, Response<ArrayList<DoctorStatus>> response) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Call<ArrayList<DoctorStatus>> call, Throwable t) {
-
-                            }
-                        });
+                Bundle bundle = new Bundle();
+                bundle.putString("id", doctorConfirm.getMessage().getOrder().getId());
+                Navigation.findNavController(view).navigate(R.id.action_checkout_to_confirmation, bundle);
             }
         });
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressIndicator.setVisibility(View.VISIBLE);
                 RetrofitAccessObject
                         .getRetrofitAccessObject()
                         .confirmDoctorService(RetrofitAccessObject.getBodyDoctorConfirm())
@@ -148,6 +142,7 @@ public class Checkout extends Fragment {
                                         option.setAmount(Double.parseDouble(select.getMessage().getOrder().getQuote().getPrice().getValue()));
                                         option.setCurrency(select.getMessage().getOrder().getQuote().getPrice().getCurrency());
                                         for (DoctorConfirm confirm : response.body()) {
+                                            doctorConfirm = confirm;
                                             option.setTransacId(confirm.getContext().getTransactionId());
                                             option.setName(confirm.getMessage().getOrder().getFulfillment().getAgent().getName());
                                             option.setEmail(confirm.getMessage().getOrder().getBilling().getEmail());
