@@ -1,5 +1,7 @@
 package com.skywalkers.cosapa.fragments.healthDashboard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -73,6 +75,15 @@ public class DoctorDetails extends Fragment {
         name.setText(doctor.getName());
         category.setText(doctor.getCategory());
         clinic.setText(doctor.getClinic());
+        clinic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:" + doctor.getLatLon() + "?q=" + doctor.getClinic());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
         Button book = view.findViewById(R.id.book);
         radioGroup = view.findViewById(R.id.radio_group);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

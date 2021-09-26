@@ -20,6 +20,7 @@ import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.doctor.BppProvider;
 import com.skywalkers.cosapa.models.doctor.Category;
 import com.skywalkers.cosapa.models.doctor.Item;
+import com.skywalkers.cosapa.models.doctor.Location;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 
 import java.util.ArrayList;
@@ -65,8 +66,12 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                         for (com.skywalkers.cosapa.models.doctor.Doctor d : response.body()) {
                             for (BppProvider provider : d.getMessage().getCatalog().getBppProviders()) {
                                 Map<String, String> categories = new HashMap<>();
+                                Map<String, String> locations = new HashMap<>();
                                 for (Category category : provider.getCategories()) {
                                     categories.put(category.getId(), category.getDescriptor().getName());
+                                }
+                                for (Location location : provider.getLocations()) {
+                                    locations.put(location.getId(), location.getGps());
                                 }
                                 for (Item item : provider.getItems()) {
                                     Doctor doctor = new Doctor();
@@ -96,6 +101,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                                     if (repeat)
                                         continue;
                                     doctor.setId(item.getId());
+                                    doctor.setLatLon(locations.get(item.getLocationId()));
                                     doctor.setClinic(provider.getDescriptor().getName());
                                     doctor.setName(item.getDescriptor().getName());
                                     doctor.setCategory(categories.get(item.getCategoryId()));
@@ -171,7 +177,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
     }
 
     public class Doctor implements Parcelable {
-        private String name, category, id, clinic;
+        private String name, category, id, clinic, latLon;
         private final Set<Timing> timings = new HashSet<>();
 
         protected Doctor(Parcel in) {
@@ -179,6 +185,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
             category = in.readString();
             id = in.readString();
             clinic = in.readString();
+            latLon = in.readString();
         }
 
         public final Creator<Doctor> CREATOR = new Creator<Doctor>() {
@@ -213,6 +220,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
             this.id = id;
         }
 
+        public String getLatLon() {
+            return latLon;
+        }
+
+        public void setLatLon(String latLon) {
+            this.latLon = latLon;
+        }
+
         public Doctor() {
         }
 
@@ -243,6 +258,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
             dest.writeString(category);
             dest.writeString(id);
             dest.writeString(clinic);
+            dest.writeString(latLon);
         }
     }
 
