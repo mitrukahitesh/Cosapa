@@ -54,6 +54,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'org.jetbrains:annotations:15.0'
 
 
     testImplementation 'junit:junit:4.+'
@@ -87,4 +88,7 @@ dependencies {
 
     //For pojo annotation
     implementation 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Razorpay
+    implementation 'com.razorpay:checkout:1.6.6'
 }

@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/profile_picture"
-                android:src="@drawable/profilepic" />
+                android:src="@drawable/stepthreeimg" />
 
         </androidx.cardview.widget.CardView>
 
@@ -45,7 +45,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/doc_name"
+            android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -61,33 +61,7 @@
             app:layout_constraintEnd_toStartOf="@id/fav"
             app:layout_constraintHorizontal_bias="0.253"
             app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/doc_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/doctor_category"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toBottomOf="@+id/doc_name" />
-
-
-        <TextView
-            android:id="@+id/clinic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="@string/doctor_price"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toBottomOf="@+id/doc_category"
-            app:layout_constraintVertical_bias="0.507" />
+            app:layout_constraintTop_toTopOf="@id/cardView4" />
 
         <Button
             android:id="@+id/button"
@@ -98,7 +72,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/buttonbg3"
             android:fontFamily="@font/poppins_semibold"
-            android:text="@string/get_details"
+            android:text="@string/navigate"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"

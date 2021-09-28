@@ -18,5 +18,35 @@
         android:id="@+id/doctors3"
         android:name="com.skywalkers.cosapa.fragments.healthDashboard.Doctors"
         android:label="fragment_doctors"
-        tools:layout="@layout/fragment_doctors" />
+        tools:layout="@layout/fragment_doctors" >
+        <action
+            android:id="@+id/action_doctors3_to_doctorDetails"
+            app:destination="@id/doctorDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorDetails"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.DoctorDetails"
+        android:label="DoctorDetails" >
+        <action
+            android:id="@+id/action_doctorDetails_to_checkout"
+            app:destination="@id/checkout" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkout"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Checkout"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkout_to_confirmation"
+            app:destination="@id/confirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmation_to_healthDashboard"
+            app:destination="@id/healthDashboard" />
+    </fragment>
 </navigation>

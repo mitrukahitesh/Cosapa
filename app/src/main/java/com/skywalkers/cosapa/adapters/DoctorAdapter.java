@@ -1,13 +1,18 @@
 package com.skywalkers.cosapa.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -15,12 +20,16 @@ import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.doctor.BppProvider;
 import com.skywalkers.cosapa.models.doctor.Category;
 import com.skywalkers.cosapa.models.doctor.Item;
+import com.skywalkers.cosapa.models.doctor.Location;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,11 +41,13 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
     private Context context;
     private String searchFor;
     private View root;
+    private NavController controller;
 
-    public DoctorAdapter(Context context, String searchFor, View root) {
+    public DoctorAdapter(Context context, String searchFor, View root, NavController controller) {
         this.context = context;
         this.searchFor = searchFor;
         this.root = root;
+        this.controller = controller;
         searchDoctors();
     }
 
@@ -51,33 +62,58 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
                             snackBarCouldNotFetch();
                             return;
                         }
+                        doctors.clear();
                         for (com.skywalkers.cosapa.models.doctor.Doctor d : response.body()) {
                             for (BppProvider provider : d.getMessage().getCatalog().getBppProviders()) {
                                 Map<String, String> categories = new HashMap<>();
+                                Map<String, String> locations = new HashMap<>();
                                 for (Category category : provider.getCategories()) {
                                     categories.put(category.getId(), category.getDescriptor().getName());
+                                }
+                                for (Location location : provider.getLocations()) {
+                                    locations.put(location.getId(), location.getGps());
                                 }
                                 for (Item item : provider.getItems()) {
                                     Doctor doctor = new Doctor();
                                     if (item.getParentItemId() != null) {
+                                        Timing timing = new Timing();
+                                        timing.setCost(item.getPrice().getValue());
+                                        timing.setId(item.getId());
+                                        timing.setCurrency(item.getPrice().getCurrency());
+                                        timing.setStart(item.getTime().getRange().getStart().substring(11, 16));
+                                        timing.setEnd(item.getTime().getRange().getEnd().substring(11, 16));
                                         for (int i = 0; i < doctors.size(); ++i) {
                                             Doctor docInList = doctors.get(i);
                                             if (item.getParentItemId().equals(docInList.getId())) {
-                                                docInList.setCost(item.getPrice().getValue());
-                                                docInList.setCurrency(item.getPrice().getCurrency());
+                                                docInList.getTimings().add(timing);
                                                 notifyItemChanged(i);
                                             }
                                         }
                                         continue;
                                     }
+                                    boolean repeat = false;
+                                    for (Doctor doctor1 : doctors) {
+                                        if (doctor1.getId().equals(item.getId())) {
+                                            repeat = true;
+                                            break;
+                                        }
+                                    }
+                                    if (repeat)
+                                        continue;
                                     doctor.setId(item.getId());
+                                    doctor.setLatLon(locations.get(item.getLocationId()));
+                                    doctor.setClinic(provider.getDescriptor().getName());
                                     doctor.setName(item.getDescriptor().getName());
                                     doctor.setCategory(categories.get(item.getCategoryId()));
-                                    doctors.add(doctor);
-                                    notifyItemInserted(doctors.size() - 1);
+                                    if (searchFor.equals("") || searchFor.equalsIgnoreCase(doctor.getCategory())) {
+                                        doctors.add(doctor);
+                                        notifyItemInserted(doctors.size() - 1);
+                                    }
                                 }
                             }
                         }
+                        if (doctors.size() == 0)
+                            snackBarNoMatchingResults();
                     }
 
                     @Override
@@ -89,6 +125,10 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
     private void snackBarCouldNotFetch() {
         Snackbar.make(root, "Could not fetch results", Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void snackBarNoMatchingResults() {
+        Snackbar.make(root, "No matching results", Snackbar.LENGTH_SHORT).show();
     }
 
     @NonNull
@@ -109,25 +149,68 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
     public class CustomVH extends RecyclerView.ViewHolder {
 
-        private TextView name, category, price;
+        private final TextView name;
+        private final TextView category;
+        private final TextView clinic;
 
         public CustomVH(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.doc_name);
             category = itemView.findViewById(R.id.doc_category);
-            price = itemView.findViewById(R.id.docprice);
+            clinic = itemView.findViewById(R.id.clinic);
+            Button getDetails = itemView.findViewById(R.id.button);
+            getDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("doctor", doctors.get(getAdapterPosition()));
+                    controller.navigate(R.id.action_doctors3_to_doctorDetails, bundle);
+                }
+            });
         }
 
         public void setView(Doctor d, int pos) {
             name.setText(d.getName());
             category.setText(d.getCategory());
-            price.setText(String.format("%s %s", d.getCost(), d.getCurrency()));
+            clinic.setText(d.getClinic());
         }
     }
 
-    public class Doctor {
-        private String name, category, cost, currency, id;
+    public class Doctor implements Parcelable {
+        private String name, category, id, clinic, latLon;
+        private final Set<Timing> timings = new HashSet<>();
 
+        protected Doctor(Parcel in) {
+            name = in.readString();
+            category = in.readString();
+            id = in.readString();
+            clinic = in.readString();
+            latLon = in.readString();
+        }
+
+        public final Creator<Doctor> CREATOR = new Creator<Doctor>() {
+            @Override
+            public Doctor createFromParcel(Parcel in) {
+                return new Doctor(in);
+            }
+
+            @Override
+            public Doctor[] newArray(int size) {
+                return new Doctor[size];
+            }
+        };
+
+        public String getClinic() {
+            return clinic;
+        }
+
+        public void setClinic(String clinic) {
+            this.clinic = clinic;
+        }
+
+        public Set<Timing> getTimings() {
+            return timings;
+        }
 
         public String getId() {
             return id;
@@ -135,6 +218,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
         public void setId(String id) {
             this.id = id;
+        }
+
+        public String getLatLon() {
+            return latLon;
+        }
+
+        public void setLatLon(String latLon) {
+            this.latLon = latLon;
         }
 
         public Doctor() {
@@ -156,6 +247,48 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
             this.category = category;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(name);
+            dest.writeString(category);
+            dest.writeString(id);
+            dest.writeString(clinic);
+            dest.writeString(latLon);
+        }
+    }
+
+    public class Timing {
+        private String start, end, cost, currency, id;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getStart() {
+            return start;
+        }
+
+        public void setStart(String start) {
+            this.start = start;
+        }
+
+        public String getEnd() {
+            return end;
+        }
+
+        public void setEnd(String end) {
+            this.end = end;
+        }
+
         public String getCost() {
             return cost;
         }
@@ -170,6 +303,19 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.CustomVH> 
 
         public void setCurrency(String currency) {
             this.currency = currency;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (!o.getClass().equals(this.getClass()))
+                return false;
+            Timing timing = (Timing) o;
+            return this.start.equals(timing.getStart()) && this.end.equals(timing.getEnd());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(start, end, cost, currency);
         }
     }
 }
