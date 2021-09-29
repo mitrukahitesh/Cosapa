@@ -13,10 +13,13 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.doctorStatus.DoctorStatus;
+import com.skywalkers.cosapa.models.doctorStatus.Location;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 
 import java.util.ArrayList;
@@ -29,6 +32,8 @@ public class Confirmation extends Fragment {
 
     private String orderId;
     private ConstraintLayout root;
+    private TextView confirmdoctorname,confirmcategory,confirmlocation,confirmtiming;
+    private Button downloadreceiptbtn,callnowbtn;
 
     public Confirmation() {
     }
@@ -58,6 +63,10 @@ public class Confirmation extends Fragment {
             }
         });
         root = view.findViewById(R.id.root);
+        confirmdoctorname=view.findViewById(R.id.confirm_docname);
+        confirmcategory=view.findViewById(R.id.confirmdoccattv);
+        confirmtiming=view.findViewById(R.id.confirmdoctimetv);
+        confirmlocation=view.findViewById(R.id.confirmdocloctv);
         getOrderStatus();
     }
 
@@ -72,6 +81,17 @@ public class Confirmation extends Fragment {
                             if (response.body() != null) {
                                 DoctorStatus status = response.body().get(0);
                                 // Details here in object "status"
+                                String docnamestr= status.getMessage().getOrder().getFulfillment().getAgent().getName();
+                                confirmdoctorname.setText(docnamestr);
+                                Location doclocstr= status.getMessage().getOrder().getFulfillment().getEnd().getLocation();
+                                confirmlocation.setText((CharSequence) doclocstr);
+                                String starttimestr= status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getStart().substring(7,11);
+                                String endtimestr= status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getEnd().substring(7,11);
+                                confirmtiming.setText(starttimestr+endtimestr);
+                                
+
+
+
                             } else {
                                 showErrorMessage();
                             }

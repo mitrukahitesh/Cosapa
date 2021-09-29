@@ -50,4 +50,8 @@
     <string name="navigate">Navigate</string>
     <string name="lab">Lab</string>
     <string name="store">Store</string>
+    <string name="order_id">Order id #2034560</string>
+    <string name="confirmdocname">Consultation with Dr.Veena khan</string>
+    <string name="confirmdoccat">Dermatology</string>
+    <string name="confirmdocloc">Good health clinic</string>
 </resources>
