@@ -124,6 +124,7 @@ public class Checkout extends Fragment {
                 Log.i("Cosapa: Checkout", "Payment Success");
                 Bundle bundle = new Bundle();
                 bundle.putString("id", doctorConfirm.getMessage().getOrder().getId());
+                bundle.putParcelable("doctor", doctor);
                 Navigation.findNavController(view).navigate(R.id.action_checkout_to_confirmation, bundle);
             }
         });

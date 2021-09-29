@@ -102,11 +102,11 @@
 
                 <LinearLayout
                     android:id="@+id/confirmll1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="100dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
@@ -116,28 +116,28 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_marginTop="10dp"
                         android:src="@drawable/category_icon" />
 
                     <TextView
                         android:id="@+id/confirmdoccattv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:padding="10dp"
                         android:text="@string/confirmdoccat"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/confirmll2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="60dp"
                     android:orientation="horizontal"
+                    android:gravity="center_vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -146,27 +146,27 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_marginTop="10dp"
                         android:src="@drawable/location" />
 
                     <TextView
                         android:id="@+id/confirmdocloctv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:padding="10dp"
                         android:text="@string/confirmdocloc"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/confirmll3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="72dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
@@ -176,17 +176,16 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_marginTop="10dp"
                         android:src="@drawable/time" />
 
                     <TextView
                         android:id="@+id/confirmdoctimetv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:padding="10dp"
-                        android:text="04:30 - 05:30 pm"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 

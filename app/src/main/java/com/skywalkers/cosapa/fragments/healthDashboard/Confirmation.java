@@ -1,5 +1,7 @@
 package com.skywalkers.cosapa.fragments.healthDashboard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.adapters.DoctorAdapter;
 import com.skywalkers.cosapa.models.doctorStatus.DoctorStatus;
 import com.skywalkers.cosapa.models.doctorStatus.Location;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
@@ -32,8 +35,9 @@ public class Confirmation extends Fragment {
 
     private String orderId;
     private ConstraintLayout root;
-    private TextView confirmdoctorname,confirmcategory,confirmlocation,confirmtiming;
-    private Button downloadreceiptbtn,callnowbtn;
+    private DoctorAdapter.Doctor doctor;
+    private TextView confirmdoctorname, confirmcategory, confirmlocation, confirmtiming;
+    private Button downloadreceiptbtn, callnowbtn;
 
     public Confirmation() {
     }
@@ -42,6 +46,9 @@ public class Confirmation extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            if (getArguments().getParcelable("doctor") != null) {
+                doctor = getArguments().getParcelable("doctor");
+            }
             orderId = getArguments().getString("id");
         }
     }
@@ -63,10 +70,10 @@ public class Confirmation extends Fragment {
             }
         });
         root = view.findViewById(R.id.root);
-        confirmdoctorname=view.findViewById(R.id.confirm_docname);
-        confirmcategory=view.findViewById(R.id.confirmdoccattv);
-        confirmtiming=view.findViewById(R.id.confirmdoctimetv);
-        confirmlocation=view.findViewById(R.id.confirmdocloctv);
+        confirmdoctorname = view.findViewById(R.id.confirm_docname);
+        confirmcategory = view.findViewById(R.id.confirmdoccattv);
+        confirmtiming = view.findViewById(R.id.confirmdoctimetv);
+        confirmlocation = view.findViewById(R.id.confirmdocloctv);
         getOrderStatus();
     }
 
@@ -80,16 +87,20 @@ public class Confirmation extends Fragment {
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 DoctorStatus status = response.body().get(0);
-                                // Details here in object "status"
-                                String docnamestr= status.getMessage().getOrder().getFulfillment().getAgent().getName();
-                                confirmdoctorname.setText(docnamestr);
-                                Location doclocstr= status.getMessage().getOrder().getFulfillment().getEnd().getLocation();
-                                confirmlocation.setText((CharSequence) doclocstr);
-                                String starttimestr= status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getStart().substring(7,11);
-                                String endtimestr= status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getEnd().substring(7,11);
-                                confirmtiming.setText(starttimestr+endtimestr);
-                                
-
+                                confirmdoctorname.setText(doctor.getName());
+                                confirmlocation.setText(doctor.getClinic());
+                                confirmlocation.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Uri gmmIntentUri = Uri.parse("geo:" + doctor.getLatLon() + "?q=" + doctor.getClinic());
+                                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                        mapIntent.setPackage("com.google.android.apps.maps");
+                                        requireContext().startActivity(mapIntent);
+                                    }
+                                });
+                                String startTime = status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getStart().substring(11, 16);
+                                String endTime = status.getMessage().getOrder().getFulfillment().getEnd().getTime().getRange().getEnd().substring(11, 16);
+                                confirmtiming.setText(String.format("%s - %s", startTime, endTime));
 
 
                             } else {
