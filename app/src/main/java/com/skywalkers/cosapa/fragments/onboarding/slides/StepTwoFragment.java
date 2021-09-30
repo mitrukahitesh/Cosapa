@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments;
+package com.skywalkers.cosapa.fragments.onboarding.slides;
 
 import androidx.fragment.app.Fragment;
 
@@ -10,24 +10,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.skywalkers.cosapa.LoginActivity;
-import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 
-public class StepThreeFragment extends Fragment {
+public class StepTwoFragment extends Fragment {
 
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView skiptv2;
 
-    TextView dontv;
     private String mParam1;
     private String mParam2;
-    public StepThreeFragment() {
+
+    public StepTwoFragment() {
         // Required empty public constructor
     }
 
-    public static StepThreeFragment newInstance(String param1, String param2) {
-        StepThreeFragment fragment = new StepThreeFragment();
+    public static StepTwoFragment newInstance(String param1, String param2) {
+        StepTwoFragment fragment = new StepTwoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -48,10 +48,10 @@ public class StepThreeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_step_three, container, false);
+        View view = inflater.inflate(R.layout.fragment_step_two, container, false);
 
-        dontv = view.findViewById(R.id.readytv);
-        dontv.setOnClickListener(new View.OnClickListener() {
+        skiptv2 = view.findViewById(R.id.skiptv2);
+        skiptv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);

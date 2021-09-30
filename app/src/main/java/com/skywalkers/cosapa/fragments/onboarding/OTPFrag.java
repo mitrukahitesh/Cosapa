@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments;
+package com.skywalkers.cosapa.fragments.onboarding;
 
 import android.content.Intent;
 import android.os.Bundle;

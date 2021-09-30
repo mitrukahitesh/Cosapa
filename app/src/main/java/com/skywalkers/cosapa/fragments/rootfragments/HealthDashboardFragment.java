@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.rootfragments;
+package com.skywalkers.cosapa.fragments.rootfragments;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.skywalkers.cosapa.R;
 
-public class DoctorsFragment extends Fragment {
+public class HealthDashboardFragment extends Fragment {
 
-    public DoctorsFragment() {
+    public HealthDashboardFragment() {
     }
 
     @Override
@@ -23,6 +23,6 @@ public class DoctorsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_doctors2, container, false);
+        return inflater.inflate(R.layout.fragment_health_dashboard2, container, false);
     }
 }

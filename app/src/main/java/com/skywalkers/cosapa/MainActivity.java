@@ -7,34 +7,20 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.skywalkers.cosapa.models.doctor.Doctor;
-import com.skywalkers.cosapa.models.doctorSelect.DoctorSelect;
-import com.skywalkers.cosapa.rootfragments.DoctorsFragment;
-import com.skywalkers.cosapa.rootfragments.HealthDashboardFragment;
-import com.skywalkers.cosapa.rootfragments.HomeFragment;
-import com.skywalkers.cosapa.rootfragments.MapFragment;
-import com.skywalkers.cosapa.utility.RetrofitAccessObject;
-import com.skywalkers.cosapa.utility.RetrofitCustom;
+import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
+import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
+import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
+import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
 
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 

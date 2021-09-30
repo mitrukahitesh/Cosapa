@@ -37,7 +37,6 @@ import com.google.firebase.storage.UploadTask;
 import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
-import com.skywalkers.cosapa.rootfragments.HomeFragment;
 
 public class AddChallenge extends Fragment {
 
