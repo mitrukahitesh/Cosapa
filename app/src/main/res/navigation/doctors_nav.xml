@@ -6,6 +6,6 @@
     app:startDestination="@id/stepOneFragment">
     <fragment
         android:id="@+id/stepOneFragment"
-        android:name="com.skywalkers.cosapa.fragments.StepOneFragment"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.slides.StepOneFragment"
         android:label="StepOneFragment" />
 </navigation>

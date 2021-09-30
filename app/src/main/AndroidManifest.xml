@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Onboarding"
+            android:name=".Slides"
             android:exported="true" />
         <activity android:name=".MainActivity" />
     </application>

@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments.UserDetails;
+package com.skywalkers.cosapa.fragments.onboarding;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.skywalkers.cosapa.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link IDverification#newInstance} factory method to
+ * Use the {@link verifiedsplash#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IDverification extends Fragment {
+public class verifiedsplash extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class IDverification extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public IDverification() {
+    public verifiedsplash() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class IDverification extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment IDverification.
+     * @return A new instance of fragment verifiedsplash.
      */
     // TODO: Rename and change types and number of parameters
-    public static IDverification newInstance(String param1, String param2) {
-        IDverification fragment = new IDverification();
+    public static verifiedsplash newInstance(String param1, String param2) {
+        verifiedsplash fragment = new verifiedsplash();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class IDverification extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_i_dverification, container, false);
+        return inflater.inflate(R.layout.fragment_verifiedsplash, container, false);
     }
 }

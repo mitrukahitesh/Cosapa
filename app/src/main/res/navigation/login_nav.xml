@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/registrationFrag2"
-        android:name="com.skywalkers.cosapa.fragments.RegistrationFrag"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.RegistrationFrag"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -19,6 +19,6 @@
     </fragment>
     <fragment
         android:id="@+id/OTPFrag2"
-        android:name="com.skywalkers.cosapa.fragments.OTPFrag"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.OTPFrag"
         android:label="OTPFrag" />
 </navigation>

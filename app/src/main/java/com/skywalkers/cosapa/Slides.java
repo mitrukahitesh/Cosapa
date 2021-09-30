@@ -7,14 +7,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
-import com.skywalkers.cosapa.fragments.StepOneFragment;
-import com.skywalkers.cosapa.fragments.StepThreeFragment;
-import com.skywalkers.cosapa.fragments.StepTwoFragment;
+import com.skywalkers.cosapa.fragments.onboarding.slides.StepOneFragment;
+import com.skywalkers.cosapa.fragments.onboarding.slides.StepThreeFragment;
+import com.skywalkers.cosapa.fragments.onboarding.slides.StepTwoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Onboarding extends AppCompatActivity {
+public class Slides extends AppCompatActivity {
 
 
 
