@@ -20,41 +20,23 @@ import com.skywalkers.cosapa.R;
 
 public class RegistrationFrag extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private TextView signintv;
     private Button cont;
     private TextInputEditText phone;
 
-    private String mParam1;
-    private String mParam2;
-
     public RegistrationFrag() {
-        // Required empty public constructor
-    }
-
-    public static RegistrationFrag newInstance(String param1, String param2) {
-        RegistrationFrag fragment = new RegistrationFrag();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_registration, container, false);
         signintv = view.findViewById(R.id.sign_in_tv);
         cont = view.findViewById(R.id.register1);
@@ -82,7 +64,7 @@ public class RegistrationFrag extends Fragment {
                     return;
                 }
                 String num = phone.getText().toString();
-                num ="+91" + num;
+                num = "+91" + num;
                 Bundle bundle = new Bundle();
                 bundle.putString("number", num);
                 bundle.putBoolean("register", true);

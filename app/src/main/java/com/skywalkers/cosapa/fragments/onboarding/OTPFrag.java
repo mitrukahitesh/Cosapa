@@ -32,6 +32,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -172,7 +174,9 @@ public class OTPFrag extends Fragment {
                         if (task.isSuccessful()) {
                             verified = true;
                             NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.moreDetails, true).build();
-                            controller.navigate(R.id.action_OTPFrag2_to_moreDetails, new Bundle(), navOptions);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("number", number);
+                            controller.navigate(R.id.action_OTPFrag2_to_selectOccupation, bundle, navOptions);
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Log.i("Cosapa", "Incorrect OTP");

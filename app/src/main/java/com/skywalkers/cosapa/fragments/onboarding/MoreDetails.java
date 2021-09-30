@@ -31,6 +31,7 @@ public class MoreDetails extends Fragment {
 
     private TextInputEditText name, email;
     private Button button;
+    private Bundle bundle;
     private NavController controller;
     private FrameLayout frameLayout;
 
@@ -41,6 +42,7 @@ public class MoreDetails extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            bundle = getArguments();
         }
     }
 
@@ -73,6 +75,8 @@ public class MoreDetails extends Fragment {
                 Map<String, String> details = new HashMap<>();
                 details.put("name", name.getText().toString());
                 details.put("email", email.getText().toString());
+                details.put("number", bundle.getString("number"));
+                details.put("occupation", bundle.getString("occupation"));
                 FirebaseFirestore.getInstance()
                         .collection("users")
                         .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
