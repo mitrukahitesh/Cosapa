@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,6 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OTPFrag extends Fragment {
 
+    private NavController controller;
     private LinearLayout ll;
     private TextView sec, resend;
     private String number;
@@ -86,6 +90,7 @@ public class OTPFrag extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        controller = Navigation.findNavController(view);
         requestCode();
     }
 
@@ -153,7 +158,7 @@ public class OTPFrag extends Fragment {
         PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder()
                 .setPhoneNumber(number)
                 .setTimeout(60L, TimeUnit.SECONDS)
-                .setActivity(getActivity())
+                .setActivity(requireActivity())
                 .setCallbacks(callbacks)
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(phoneAuthOptions);
@@ -161,14 +166,13 @@ public class OTPFrag extends Fragment {
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         FirebaseAuth.getInstance().signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             verified = true;
-                            FirebaseUser user = task.getResult().getUser();
-                            getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
-                            getActivity().finish();
+                            NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.moreDetails, true).build();
+                            controller.navigate(R.id.action_OTPFrag2_to_moreDetails, new Bundle(), navOptions);
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Log.i("Cosapa", "Incorrect OTP");

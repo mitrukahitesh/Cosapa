@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profile_nav"
-    app:startDestination="@id/stepOneFragment">
+    app:startDestination="@id/profilefrag">
     <fragment
-        android:id="@+id/stepOneFragment"
-        android:name="com.skywalkers.cosapa.fragments.onboarding.slides.StepOneFragment"
-        android:label="StepOneFragment" />
+        android:id="@+id/profilefrag"
+        android:name="com.skywalkers.cosapa.fragments.profile.ProfileDetails"
+        android:label="fragment_profilefrag"
+        tools:layout="@layout/fragment_profilefrag" />
 </navigation>

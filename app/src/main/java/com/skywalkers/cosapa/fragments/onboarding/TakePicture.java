@@ -1,66 +1,131 @@
 package com.skywalkers.cosapa.fragments.onboarding;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.fragments.home.AddChallenge;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TakePicture#newInstance} factory method to
- * create an instance of this fragment.
- */
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class TakePicture extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private CircleImageView img;
+    private Button upload;
+    private Uri uri;
+    public static final int MEDIA_SELECT = 1;
+    private FrameLayout frameLayout;
 
     public TakePicture() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TakePicture.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TakePicture newInstance(String param1, String param2) {
-        TakePicture fragment = new TakePicture();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_take_picture, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        img = view.findViewById(R.id.img);
+        upload = view.findViewById(R.id.upload);
+        frameLayout = view.findViewById(R.id.root);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select image"), MEDIA_SELECT);
+            }
+        });
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (uri == null) {
+                    completeRegistration();
+                }
+                try {
+                    Snackbar.make(frameLayout, "Uploading...", Snackbar.LENGTH_LONG).show();
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("profile_pic").child(FirebaseAuth.getInstance().getUid() + getExtension(uri));
+                    storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                completeRegistration();
+                            } else {
+                                Snackbar.make(frameLayout, "Please try again", Snackbar.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    Snackbar.make(frameLayout, "Please try again", Snackbar.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void completeRegistration() {
+        Intent intent = new Intent(requireContext(), MainActivity.class);
+        startActivity(intent);
+        requireActivity().finish();
+    }
+
+    public String getExtension(Uri uri) throws Exception {
+        if (getContext() == null)
+            throw new Exception("No extension");
+        ContentResolver resolver = getContext().getContentResolver();
+        MimeTypeMap map = MimeTypeMap.getSingleton();
+        return map.getExtensionFromMimeType(resolver.getType(uri));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == MEDIA_SELECT) {
+                if (data == null || data.getData() == null)
+                    return;
+                uri = data.getData();
+                Log.i("Cosapa", data.getData().toString());
+                img.setImageURI(uri);
+                Glide.with(TakePicture.this).load(uri).centerCrop().into(img);
+            }
+        }
     }
 }

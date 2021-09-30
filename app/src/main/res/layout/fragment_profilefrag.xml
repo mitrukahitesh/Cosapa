@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Profilefrag">
+    tools:context=".fragments.profile.ProfileDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,13 +13,13 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
             android:layout_marginBottom="32dp"
-           app:layout_constraintTop_toTopOf="parent">
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
 
                 <ImageView
@@ -125,7 +125,7 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="Occupation"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@+id/imageView2"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -135,13 +135,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="Male"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.87"
-                            app:layout_constraintStart_toEndOf="@+id/textView2"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
@@ -162,7 +161,7 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="Location"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -171,10 +170,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="16sp"
+                            android:layout_margin="16dp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="Patiala"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -287,13 +286,11 @@
                 </androidx.cardview.widget.CardView>
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </FrameLayout>
