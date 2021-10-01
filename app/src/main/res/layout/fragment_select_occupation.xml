@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
                     android:padding="10dp"
-                    android:text="Doctors"
+                    android:text="Doctor"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@id/doctors"

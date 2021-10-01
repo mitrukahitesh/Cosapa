@@ -32,6 +32,8 @@ import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.fragments.home.AddChallenge;
 
+import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class TakePicture extends Fragment {
@@ -81,7 +83,7 @@ public class TakePicture extends Fragment {
                 }
                 try {
                     Snackbar.make(frameLayout, "Uploading...", Snackbar.LENGTH_LONG).show();
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("profile_pic").child(FirebaseAuth.getInstance().getUid() + getExtension(uri));
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("profile_pic").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()));
                     storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -106,14 +108,6 @@ public class TakePicture extends Fragment {
         requireActivity().finish();
     }
 
-    public String getExtension(Uri uri) throws Exception {
-        if (getContext() == null)
-            throw new Exception("No extension");
-        ContentResolver resolver = getContext().getContentResolver();
-        MimeTypeMap map = MimeTypeMap.getSingleton();
-        return map.getExtensionFromMimeType(resolver.getType(uri));
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -124,7 +118,7 @@ public class TakePicture extends Fragment {
                 uri = data.getData();
                 Log.i("Cosapa", data.getData().toString());
                 img.setImageURI(uri);
-                Glide.with(TakePicture.this).load(uri).centerCrop().into(img);
+                Glide.with(TakePicture.this).load(uri).fitCenter().into(img);
             }
         }
     }

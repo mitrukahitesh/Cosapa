@@ -55,6 +55,7 @@ public class OTPFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        assert getArguments() != null;
         number = getArguments().getString("number");
     }
 
