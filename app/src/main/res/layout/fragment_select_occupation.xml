@@ -184,6 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="50dp"
+                        app:tint="@color/white"
                         android:src="@drawable/ic_grommet_icons_user_worker" />
 
                 </androidx.cardview.widget.CardView>
@@ -223,7 +224,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="50dp"
-                        android:src="@drawable/ic_ri_government_line" />
+                        android:src="@drawable/ic_baseline_fitness_center"
+                        app:tint="@color/white" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -233,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
                     android:padding="10dp"
-                    android:text="NGO"
+                    android:text="Fitness Expert"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@id/ngo"
@@ -262,7 +264,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="50dp"
-                        android:src="@drawable/ic_clarity_employee_group_line" />
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_nutrition" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -272,7 +275,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
                     android:padding="10dp"
-                    android:text="Fitness Expert"
+                    android:text="Dietician"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@id/fitnessexperts"
