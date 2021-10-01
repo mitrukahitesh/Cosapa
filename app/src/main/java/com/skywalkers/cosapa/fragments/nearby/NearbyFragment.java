@@ -64,17 +64,11 @@ public class NearbyFragment extends Fragment {
         //expand layout
         ExpandableLinearLayout expandableLayout
                 = view.findViewById(R.id.expandableLayout);
-        ImageView filterimg= view.findViewById(R.id.filter);
+        ImageView filterimg = view.findViewById(R.id.filter);
         filterimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 expandableLayout.toggle();
-                expandableLayout.moveChild(0);
-// move optional position
-                expandableLayout.move(400);
-
-// set base position which is close position
-                expandableLayout.setClosePosition(400);
 
                 expandableLayout.setListener(new ExpandableLayoutListener() {
                     @Override
@@ -85,8 +79,6 @@ public class NearbyFragment extends Fragment {
                     public void onAnimationEnd() {
                     }
 
-                    // You can get notification that your expandable layout is going to open or close.
-                    // So, you can set the animation synchronized with expanding animation.
                     @Override
                     public void onPreOpen() {
                     }

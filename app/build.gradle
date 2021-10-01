@@ -96,6 +96,6 @@ dependencies {
     //Exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
 
-    //expandlayout
-    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
+    //ExpandLayout
+    implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
 }
