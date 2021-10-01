@@ -17,9 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.github.aakira.expandablelayout.ExpandableLayoutListener;
+import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.skywalkers.cosapa.R;
@@ -58,6 +61,53 @@ public class NearbyFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //expand layout
+        ExpandableLinearLayout expandableLayout
+                = view.findViewById(R.id.expandableLayout);
+        ImageView filterimg= view.findViewById(R.id.filter);
+        filterimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                expandableLayout.toggle();
+                expandableLayout.moveChild(0);
+// move optional position
+                expandableLayout.move(400);
+
+// set base position which is close position
+                expandableLayout.setClosePosition(400);
+
+                expandableLayout.setListener(new ExpandableLayoutListener() {
+                    @Override
+                    public void onAnimationStart() {
+                    }
+
+                    @Override
+                    public void onAnimationEnd() {
+                    }
+
+                    // You can get notification that your expandable layout is going to open or close.
+                    // So, you can set the animation synchronized with expanding animation.
+                    @Override
+                    public void onPreOpen() {
+                    }
+
+                    @Override
+                    public void onPreClose() {
+                    }
+
+                    @Override
+                    public void onOpened() {
+                    }
+
+                    @Override
+                    public void onClosed() {
+                    }
+                });
+
+            }
+        });
+
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
