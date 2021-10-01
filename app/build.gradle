@@ -92,4 +92,8 @@ dependencies {
 
     //Razorpay
     implementation 'com.razorpay:checkout:1.6.6'
+
+    //Exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
+    
 }

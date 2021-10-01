@@ -20,5 +20,31 @@
     <fragment
         android:id="@+id/OTPFrag2"
         android:name="com.skywalkers.cosapa.fragments.onboarding.OTPFrag"
-        android:label="OTPFrag" />
+        android:label="OTPFrag" >
+        <action
+            android:id="@+id/action_OTPFrag2_to_selectOccupation"
+            app:destination="@id/selectOccupation" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreDetails"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.MoreDetails"
+        android:label="MoreDetails" >
+        <action
+            android:id="@+id/action_moreDetails_to_takePicture"
+            app:destination="@id/takePicture" />
+    </fragment>
+    <fragment
+        android:id="@+id/takePicture"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.TakePicture"
+        android:label="fragment_take_picture"
+        tools:layout="@layout/fragment_take_picture" />
+    <fragment
+        android:id="@+id/selectOccupation"
+        android:name="com.skywalkers.cosapa.fragments.onboarding.SelectOccupation"
+        android:label="fragment_select_occupation"
+        tools:layout="@layout/fragment_select_occupation" >
+        <action
+            android:id="@+id/action_selectOccupation_to_moreDetails"
+            app:destination="@id/moreDetails" />
+    </fragment>
 </navigation>

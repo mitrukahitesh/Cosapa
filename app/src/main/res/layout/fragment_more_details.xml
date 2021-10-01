@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root"
     tools:context=".fragments.onboarding.RegistrationFrag">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,14 +74,14 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_fullname"
+                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="Your Full name"
+                    android:inputType="text"
                     android:padding="10sp"
-                    android:inputType="number"
                     android:textColor="@color/grey2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +90,9 @@
 
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/emailcard"
             android:layout_width="0dp"
@@ -113,14 +116,14 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/email"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="Your Email"
+                    android:inputType="textEmailAddress"
                     android:padding="10sp"
-                    android:inputType="number"
                     android:textColor="@color/grey2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -132,16 +135,16 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/register1"
+            android:id="@+id/continue_btn"
             android:layout_width="0dp"
             android:layout_height="60sp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="44dp"
+            android:background="@drawable/buttonbg"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Continue"
             android:textSize="16sp"
-            android:fontFamily="@font/poppins_semibold"
-            android:background="@drawable/buttonbg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailcard" />
@@ -152,14 +155,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            android:text="help@cosapa.com"
             android:fontFamily="@font/poppins_regular"
             android:padding="10sp"
+            android:text="help@cosapa.com"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register1" />
+            app:layout_constraintTop_toBottomOf="@+id/continue_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

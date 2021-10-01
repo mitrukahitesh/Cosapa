@@ -22,7 +22,7 @@
     <string name="city">Add city</string>
     <string name="requirement">Add requirement</string>
     <string name="add_a_challenge">Add a Challenge</string>
-    <string name="occupationgreet">Hey! Naaz</string>
+    <string name="occupationgreet">Hey!</string>
     <string name="title">Title</string>
     <string name="dumble_squat">Dumble squat</string>
     <string name="steps">Steps</string>
@@ -54,4 +54,5 @@
     <string name="confirmdocname">Consultation with Dr.Veena khan</string>
     <string name="confirmdoccat">Dermatology</string>
     <string name="confirmdocloc">Good health clinic</string>
+    <string name="watch_video">Watch Video</string>
 </resources>
