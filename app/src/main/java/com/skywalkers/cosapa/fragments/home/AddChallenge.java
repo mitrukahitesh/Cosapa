@@ -103,7 +103,7 @@ public class AddChallenge extends Fragment {
                     progressIndicator.setVisibility(View.VISIBLE);
                     progressIndicator.setProgress(0, true);
                     DocumentReference reference = FirebaseFirestore.getInstance().collection("challenges").document();
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("challenges").child(reference.getId()).child("steps." + getExtension(uri));
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("challenges").child(reference.getId()).child("steps");
                     storageReference.putFile(uri).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
