@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
@@ -37,7 +38,7 @@ public class Confirmation extends Fragment {
     private ConstraintLayout root;
     private DoctorAdapter.Doctor doctor;
     private TextView confirmdoctorname, confirmcategory, confirmlocation, confirmtiming;
-    private Button downloadreceiptbtn, callnowbtn;
+    private AppCompatButton downloadreceiptbtn, callnowbtn;
 
     public Confirmation() {
     }
@@ -74,7 +75,18 @@ public class Confirmation extends Fragment {
         confirmcategory = view.findViewById(R.id.confirmdoccattv);
         confirmtiming = view.findViewById(R.id.confirmdoctimetv);
         confirmlocation = view.findViewById(R.id.confirmdocloctv);
+        callnowbtn = view.findViewById(R.id.callnowbtn);
         getOrderStatus();
+        callnowbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://api.whatsapp.com/send?phone=" + "+917396650812";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setPackage("com.whatsapp");
+                i.setData(Uri.parse(url));
+                requireContext().startActivity(i);
+            }
+        });
     }
 
     private void getOrderStatus() {
