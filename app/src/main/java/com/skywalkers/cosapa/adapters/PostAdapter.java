@@ -160,7 +160,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
                 off.setVisibility(View.VISIBLE);
             }
             if (post.getDp() == null) {
-                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.profilepic, context.getTheme())).centerCrop().into(dp);
+                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_usercircle, context.getTheme())).centerCrop().into(dp);
             } else {
                 Glide.with(context).load(post.getDp()).centerCrop().into(dp);
             }

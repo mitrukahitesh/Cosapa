@@ -180,7 +180,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
             }
             title.setText(challenge.getTitle());
             if (challenge.getDp() == null || challenge.getDp().equals("")) {
-                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.profilepic, context.getTheme())).centerCrop().into(dp);
+                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_usercircle, context.getTheme())).centerCrop().into(dp);
             } else {
                 Glide.with(context).load(Uri.parse(challenge.getDp())).centerCrop().into(dp);
             }
