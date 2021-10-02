@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_healthDashboard_to_doctors3"
             app:destination="@id/doctors3" />
+        <action
+            android:id="@+id/action_healthDashboard_to_measurement"
+            app:destination="@id/measurement" />
     </fragment>
     <fragment
         android:id="@+id/doctors3"
@@ -47,6 +50,15 @@
         tools:layout="@layout/fragment_confirmation" >
         <action
             android:id="@+id/action_confirmation_to_healthDashboard"
+            app:destination="@id/healthDashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/measurement"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Measurement"
+        android:label="fragment_measurement"
+        tools:layout="@layout/fragment_measurement" >
+        <action
+            android:id="@+id/action_measurement_to_healthDashboard"
             app:destination="@id/healthDashboard" />
     </fragment>
 </navigation>
