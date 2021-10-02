@@ -126,7 +126,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.CustomVH> {
     public class CustomVH extends RecyclerView.ViewHolder {
 
         private TextView name;
-        private Button navigate;
+        private TextView navigate;
 
         public CustomVH(@NonNull View itemView) {
             super(itemView);

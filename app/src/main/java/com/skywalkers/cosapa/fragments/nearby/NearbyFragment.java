@@ -1,5 +1,7 @@
 package com.skywalkers.cosapa.fragments.nearby;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -61,41 +63,24 @@ public class NearbyFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //expand layout
-        ExpandableLinearLayout expandableLayout
-                = view.findViewById(R.id.expandableLayout);
-        ImageView filterimg = view.findViewById(R.id.filter);
-        filterimg.setOnClickListener(new View.OnClickListener() {
+        recyclerView.setAdapter(new StoreAdapter(NearbyFragment.this.requireContext(), store, root));
+        ImageView filterImg = view.findViewById(R.id.filter);
+        filterImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                expandableLayout.toggle();
-
-                expandableLayout.setListener(new ExpandableLayoutListener() {
-                    @Override
-                    public void onAnimationStart() {
-                    }
-
-                    @Override
-                    public void onAnimationEnd() {
-                    }
-
-                    @Override
-                    public void onPreOpen() {
-                    }
-
-                    @Override
-                    public void onPreClose() {
-                    }
-
-                    @Override
-                    public void onOpened() {
-                    }
-
-                    @Override
-                    public void onClosed() {
-                    }
-                });
-
+                if (radioGroup.getVisibility() == View.GONE) {
+                    radioGroup.setVisibility(View.VISIBLE);
+                    radioGroup.setAlpha(0.0f);
+                    radioGroup.animate().alpha(1.0f).setDuration(500);
+                } else {
+                    radioGroup.animate().alpha(0.0f).setDuration(500).setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            radioGroup.setVisibility(View.GONE);
+                        }
+                    });
+                }
             }
         });
 
@@ -112,6 +97,7 @@ public class NearbyFragment extends Fragment {
                 }
             }
         });
+
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
