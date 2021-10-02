@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +22,6 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.github.aakira.expandablelayout.ExpandableLayoutListener;
-import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.skywalkers.cosapa.R;
@@ -59,27 +56,23 @@ public class NearbyFragment extends Fragment {
         search = view.findViewById(R.id.search);
         search.setHint("Search medical stores for");
         radioGroup = view.findViewById(R.id.radio_group);
+        radioGroup.setAlpha(0.0f);
         radioGroup.check(R.id.store);
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new StoreAdapter(NearbyFragment.this.requireContext(), store, root));
+        recyclerView.animate().translationY(-80f);
         ImageView filterImg = view.findViewById(R.id.filter);
         filterImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (radioGroup.getVisibility() == View.GONE) {
-                    radioGroup.setVisibility(View.VISIBLE);
-                    radioGroup.setAlpha(0.0f);
+                if (radioGroup.getAlpha() == 0.0f) {
                     radioGroup.animate().alpha(1.0f).setDuration(500);
+                    recyclerView.animate().translationY(80f);
                 } else {
-                    radioGroup.animate().alpha(0.0f).setDuration(500).setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            super.onAnimationEnd(animation);
-                            radioGroup.setVisibility(View.GONE);
-                        }
-                    });
+                    radioGroup.animate().alpha(0.0f).setDuration(500);
+                    recyclerView.animate().translationY(-60f);
                 }
             }
         });
