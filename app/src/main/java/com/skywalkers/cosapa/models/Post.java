@@ -1,11 +1,14 @@
 package com.skywalkers.cosapa.models;
 
+import android.net.Uri;
+
 public class Post {
-    private String name, text, title, id, dp, position;
+    private String name, text, title, id, position;
     private Integer reactions, views;
     private boolean online;
     private Long time;
     private String uid;
+    private Uri dp;
 
     public String getUid() {
         return uid;
@@ -23,11 +26,11 @@ public class Post {
         this.time = time;
     }
 
-    public String getDp() {
+    public Uri getDp() {
         return dp;
     }
 
-    public void setDp(String dp) {
+    public void setDp(Uri dp) {
         this.dp = dp;
     }
 

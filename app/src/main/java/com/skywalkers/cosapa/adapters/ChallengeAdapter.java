@@ -1,6 +1,7 @@
 package com.skywalkers.cosapa.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,8 +31,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
+import com.skywalkers.cosapa.models.Post;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,6 +103,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                     for (QueryDocumentSnapshot snapshot : task.getResult()) {
                         challenges.add(snapshot.toObject(Challenge.class));
                         challenges.get(challenges.size() - 1).setId(snapshot.getId());
+                        getDpUrl(challenges.get(challenges.size() - 1), challenges.size() - 1);
                         notifyItemInserted(challenges.size() - 1);
                     }
                     if (!task.getResult().isEmpty())
@@ -109,6 +114,23 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                 }
             }
         });
+    }
+
+    private void getDpUrl(Challenge challenge, int pos) {
+        FirebaseStorage.getInstance()
+                .getReference()
+                .child("profile_pic")
+                .child(challenge.getUid())
+                .getDownloadUrl()
+                .addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            challenge.setDp(task.getResult().toString());
+                            notifyItemChanged(pos);
+                        }
+                    }
+                });
     }
 
     @Override
@@ -157,6 +179,11 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                 done.setVisibility(View.GONE);
             }
             title.setText(challenge.getTitle());
+            if (challenge.getDp() == null || challenge.getDp().equals("")) {
+                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.profilepic, context.getTheme())).centerCrop().into(dp);
+            } else {
+                Glide.with(context).load(Uri.parse(challenge.getDp())).centerCrop().into(dp);
+            }
             if (position % 2 == 0) {
                 image.setBackground(AppCompatResources.getDrawable(context, R.drawable.grad1));
                 Glide.with(context).load(AppCompatResources.getDrawable(context, R.drawable.challenge_card_1)).into(image);

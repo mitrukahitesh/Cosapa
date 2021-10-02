@@ -1,6 +1,8 @@
 package com.skywalkers.cosapa.adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +13,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -25,6 +29,7 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Post;
 
@@ -67,6 +72,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
                     for (QueryDocumentSnapshot snapshot : task.getResult()) {
                         posts.add(snapshot.toObject(Post.class));
                         posts.get(posts.size() - 1).setId(snapshot.getId());
+                        getDpUrl(posts.get(posts.size() - 1), posts.size() - 1);
                         notifyItemInserted(posts.size() - 1);
                     }
                     if (!task.getResult().isEmpty())
@@ -77,6 +83,23 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
                 }
             }
         });
+    }
+
+    private void getDpUrl(Post post, int pos) {
+        FirebaseStorage.getInstance()
+                .getReference()
+                .child("profile_pic")
+                .child(post.getUid())
+                .getDownloadUrl()
+                .addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            post.setDp(task.getResult());
+                            notifyItemChanged(pos);
+                        }
+                    }
+                });
     }
 
     @NonNull
@@ -136,14 +159,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
                 on.setVisibility(View.GONE);
                 off.setVisibility(View.VISIBLE);
             }
+            if (post.getDp() == null) {
+                Glide.with(context).load(ResourcesCompat.getDrawable(context.getResources(), R.drawable.profilepic, context.getTheme())).centerCrop().into(dp);
+            } else {
+                Glide.with(context).load(post.getDp()).centerCrop().into(dp);
+            }
             reactions.setText(String.format(Locale.getDefault(), "%d", post.getReactions()));
             views.setText(String.format(Locale.getDefault(), "%d", post.getViews()));
             if (!listeners.containsKey(post.getId())) {
                 ListenerRegistration registration = FirebaseFirestore.getInstance().collection("online").document(post.getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
                     @Override
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (value.exists()) {
-                            if (post.isOnline() == value.getBoolean("status"))
+                        if (value != null && value.exists()) {
+                            if (Boolean.valueOf(post.isOnline()).equals(value.getBoolean("status")))
                                 return;
                             post.setOnline(value.getBoolean("status"));
                             notifyItemChanged(position);
