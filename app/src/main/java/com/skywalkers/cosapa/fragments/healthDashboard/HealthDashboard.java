@@ -32,6 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.fragments.profile.ProfileDetails;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,7 +50,7 @@ public class HealthDashboard extends Fragment {
     public static final String _3 = "Spo2";
     public static final String _7 = "temp";
     public static final String MEASUREMENTS = "measurements";
-    private TextView hbCount, tempCount, oxyLevel, name1, name2;
+    private TextView hbCount, tempCount, oxyLevel, name1, name2, calories;
     private CircleImageView dp;
 
     public HealthDashboard() {
@@ -80,6 +81,7 @@ public class HealthDashboard extends Fragment {
         dp = view.findViewById(R.id.profile_image);
         name1 = view.findViewById(R.id.name1);
         name2 = view.findViewById(R.id.name2);
+        calories = view.findViewById(R.id.cal_count);
         fetchData();
         callNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +137,18 @@ public class HealthDashboard extends Fragment {
     }
 
     private void fetchData() {
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            calories.setText(String.format(Locale.getDefault(), "%.0f Cal", (Double) task.getResult().get("calories")));
+                        }
+                    }
+                });
         FirebaseFirestore.getInstance()
                 .collection("users")
                 .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))

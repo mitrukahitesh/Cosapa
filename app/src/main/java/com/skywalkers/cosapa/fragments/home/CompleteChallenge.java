@@ -29,6 +29,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
@@ -48,6 +49,7 @@ public class CompleteChallenge extends Fragment {
     private ConstraintLayout root;
     private boolean playing = false;
     private Map<String, Pair<String, Integer>> exerciseId = new HashMap<>();
+    private Map<String, Float> calories = new HashMap<>();
 
     public CompleteChallenge() {
     }
@@ -61,6 +63,9 @@ public class CompleteChallenge extends Fragment {
         exerciseId.put("PUSHUPS", new Pair<>("Ex1", 4));
         exerciseId.put("SITUPS", new Pair<>("Ex2", 5));
         exerciseId.put("SQUATS", new Pair<>("Ex3", 6));
+        calories.put("PUSHUPS", 0.3f);
+        calories.put("SITUPS", 0.2f);
+        calories.put("SQUATS", 0.2f);
     }
 
     @Override
@@ -159,6 +164,10 @@ public class CompleteChallenge extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
             }
         });
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .update("calories", FieldValue.increment(calories.get(challenge.getTitle().toUpperCase()) * (float) c));
     }
 
     private void startDevice() {
