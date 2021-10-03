@@ -12,6 +12,7 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
@@ -46,7 +47,7 @@ public class Measurement extends Fragment {
     private Map<Integer, String> keyNames = new HashMap<>();
     private boolean measuring = false;
     private NavController controller;
-    private FrameLayout root;
+    private ConstraintLayout root;
 
     public Measurement() {
     }
