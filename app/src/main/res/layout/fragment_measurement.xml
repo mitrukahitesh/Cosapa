@@ -24,15 +24,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="45"
+                android:text="60"
                 android:textColor="@color/white"
-                android:textSize="80sp"
+                android:textSize="64sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -57,11 +57,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.326"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/confirmreceiptbtn"
+                android:id="@+id/start"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="24dp"
@@ -78,7 +78,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/instruction_tv" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/callnowbtn"
+                android:id="@+id/finish"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="24dp"
@@ -94,7 +94,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmreceiptbtn"
+                app:layout_constraintTop_toBottomOf="@+id/start"
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

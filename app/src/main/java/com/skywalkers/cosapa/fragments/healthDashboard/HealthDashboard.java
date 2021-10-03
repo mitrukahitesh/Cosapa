@@ -1,5 +1,7 @@
 package com.skywalkers.cosapa.fragments.healthDashboard;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.skywalkers.cosapa.R;
 
@@ -23,6 +26,14 @@ public class HealthDashboard extends Fragment {
     private CardView callNow;
     private ConstraintLayout heartbeat, o2, temperature;
     private NavController controller;
+    private String heartbeatIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    private String oxygenIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    private String temperatureIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    public static final String _2 = "heart";
+    public static final String _3 = "Spo2";
+    public static final String _7 = "temp";
+    public static final String MEASUREMENTS = "measurements";
+    private TextView hbCount, tempCount, oxyLevel;
 
     public HealthDashboard() {
     }
@@ -46,6 +57,9 @@ public class HealthDashboard extends Fragment {
         heartbeat = view.findViewById(R.id.heartbeat);
         o2 = view.findViewById(R.id.o2);
         temperature = view.findViewById(R.id.temperature);
+        hbCount = view.findViewById(R.id.hbcount);
+        tempCount = view.findViewById(R.id.tempcount);
+        oxyLevel = view.findViewById(R.id.oxylevel);
         callNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,8 +71,9 @@ public class HealthDashboard extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 Test test = new Test();
-                test.setName("Beats per minute");
+                test.setName("Heartbeat Measurement");
                 test.setId(2);
+                test.setInstruction(heartbeatIns);
                 bundle.putParcelable("test", test);
                 controller.navigate(R.id.action_healthDashboard_to_measurement, bundle);
             }
@@ -68,8 +83,9 @@ public class HealthDashboard extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 Test test = new Test();
-                test.setName("SpO2");
+                test.setName("Oxygen Level Measurement");
                 test.setId(3);
+                test.setInstruction(oxygenIns);
                 bundle.putParcelable("test", test);
                 controller.navigate(R.id.action_healthDashboard_to_measurement, bundle);
             }
@@ -79,21 +95,32 @@ public class HealthDashboard extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 Test test = new Test();
-                test.setName("Temperature");
+                test.setName("Temperature Measurement");
                 test.setId(7);
+                test.setInstruction(temperatureIns);
                 bundle.putParcelable("test", test);
                 controller.navigate(R.id.action_healthDashboard_to_measurement, bundle);
             }
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences preferences = requireContext().getSharedPreferences(MEASUREMENTS, Context.MODE_PRIVATE);
+        hbCount.setText(String.format("%s bpm", preferences.getString(_2, "--")));
+        tempCount.setText(String.format("%s °C", preferences.getString(_7, "--")));
+        oxyLevel.setText(String.format("%s", preferences.getString(_3, "--") + "%"));
+    }
+
     public static class Test implements Parcelable {
         int id;
-        String name;
+        String name, instruction;
 
         protected Test(Parcel in) {
             id = in.readInt();
             name = in.readString();
+            instruction = in.readString();
         }
 
         public Test() {
@@ -127,6 +154,14 @@ public class HealthDashboard extends Fragment {
             this.name = name;
         }
 
+        public String getInstruction() {
+            return instruction;
+        }
+
+        public void setInstruction(String instruction) {
+            this.instruction = instruction;
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -136,6 +171,7 @@ public class HealthDashboard extends Fragment {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeInt(id);
             dest.writeString(name);
+            dest.writeString(instruction);
         }
     }
 }
