@@ -59,7 +59,7 @@ public class ChallengeCompleted extends Fragment {
                 navigateToHome(Navigation.findNavController(view));
             }
         });
-        countDisplay.setText(String.format("Total %s: %s", challenge.getName(), count));
+        countDisplay.setText(String.format("Total %s: %s", challenge.getTitle(), count));
     }
 
     private void navigateToHome(NavController controller) {

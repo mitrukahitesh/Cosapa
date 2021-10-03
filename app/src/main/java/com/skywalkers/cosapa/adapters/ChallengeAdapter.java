@@ -176,9 +176,9 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                 updatedAt.add(position);
             }
             if (completed.containsKey(challenge.getId())) {
-                done.setVisibility(View.VISIBLE);
-            } else {
                 done.setText(String.format(Locale.getDefault(), "%d", completed.get(challenge.getId())));
+            } else {
+                done.setVisibility(View.GONE);
             }
             title.setText(challenge.getTitle());
             if (challenge.getDp() == null || challenge.getDp().equals("")) {

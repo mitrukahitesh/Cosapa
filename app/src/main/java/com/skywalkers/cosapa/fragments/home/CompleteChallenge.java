@@ -165,14 +165,14 @@ public class CompleteChallenge extends Fragment {
         FirebaseDatabase.getInstance()
                 .getReference()
                 .child("ID")
-                .setValue(Objects.requireNonNull(exerciseId.get(challenge.getName().toUpperCase())).second)
+                .setValue(Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).second)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             FirebaseDatabase.getInstance()
                                     .getReference()
-                                    .child(Objects.requireNonNull(exerciseId.get(challenge.getName().toUpperCase())).first)
+                                    .child(Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).first)
                                     .addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
