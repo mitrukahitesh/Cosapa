@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -146,7 +147,8 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
     public class CustomVH extends RecyclerView.ViewHolder {
 
         private CardView cardView;
-        private ImageView image, done;
+        private ImageView image;
+        private TextView done;
         private TextView title;
         private CircleImageView dp;
 
@@ -176,7 +178,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
             if (completed.containsKey(challenge.getId())) {
                 done.setVisibility(View.VISIBLE);
             } else {
-                done.setVisibility(View.GONE);
+                done.setText(String.format(Locale.getDefault(), "%d", completed.get(challenge.getId())));
             }
             title.setText(challenge.getTitle());
             if (challenge.getDp() == null || challenge.getDp().equals("")) {

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,18 +23,31 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
 
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+
 public class CompleteChallenge extends Fragment {
 
-    private TextView steps, completed, play;
+    private TextView steps, completed, play, counter;
     private Challenge challenge;
     private PlayerView playerView;
     private SimpleExoPlayer exoPlayer;
     private ConstraintLayout root;
     private boolean playing = false;
+    private Map<String, Pair<String, Integer>> exerciseId = new HashMap<>();
 
     public CompleteChallenge() {
     }
@@ -44,6 +58,9 @@ public class CompleteChallenge extends Fragment {
         if (getArguments() != null && getArguments().getParcelable("challenge") != null) {
             challenge = getArguments().getParcelable("challenge");
         }
+        exerciseId.put("PUSHUPS", new Pair<>("Ex1", 4));
+        exerciseId.put("SITUPS", new Pair<>("Ex2", 5));
+        exerciseId.put("SQUATS", new Pair<>("Ex3", 6));
     }
 
     @Override
@@ -62,6 +79,7 @@ public class CompleteChallenge extends Fragment {
             }
         });
         playing = false;
+        counter = view.findViewById(R.id.counter);
         root = view.findViewById(R.id.root);
         completed = view.findViewById(R.id.complete);
         steps = view.findViewById(R.id.steps);
@@ -75,7 +93,18 @@ public class CompleteChallenge extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("challenge", challenge);
-                Navigation.findNavController(view).navigate(R.id.action_completeChallenge_to_challengeRepetition, bundle);
+                bundle.putString("count", counter.getText().toString());
+                saveChallengeCompletion(FirebaseAuth.getInstance().getUid(), Integer.parseInt(counter.getText().toString()));
+                FirebaseDatabase.getInstance()
+                        .getReference()
+                        .child("ID")
+                        .setValue(0)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Navigation.findNavController(view).navigate(R.id.action_completeChallenge_to_challengeCompleted, bundle);
+                            }
+                        });
             }
         });
         play.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +148,47 @@ public class CompleteChallenge extends Fragment {
                         });
             }
         });
+        startDevice();
+    }
+
+    private void saveChallengeCompletion(String uid, int c) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("count", c);
+        FirebaseFirestore.getInstance().collection("users").document(uid).collection("challenges_completed").document(challenge.getId()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+            }
+        });
+    }
+
+    private void startDevice() {
+        FirebaseDatabase.getInstance()
+                .getReference()
+                .child("ID")
+                .setValue(Objects.requireNonNull(exerciseId.get(challenge.getName().toUpperCase())).second)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseDatabase.getInstance()
+                                    .getReference()
+                                    .child(Objects.requireNonNull(exerciseId.get(challenge.getName().toUpperCase())).first)
+                                    .addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.exists() && snapshot.getValue() != null) {
+                                                counter.setText(snapshot.getValue().toString());
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                        }
+                    }
+                });
     }
 
     @Override

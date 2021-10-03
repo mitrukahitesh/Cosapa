@@ -16,10 +16,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.models.Challenge;
 
 public class ChallengeCompleted extends Fragment {
 
-    private TextView save;
+    private TextView save, countDisplay;
+    private Challenge challenge;
+    private String count;
 
     public ChallengeCompleted() {
     }
@@ -27,6 +30,10 @@ public class ChallengeCompleted extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            challenge = (Challenge) getArguments().getParcelable("challenge");
+            count = getArguments().getString("count");
+        }
     }
 
     @Override
@@ -45,12 +52,14 @@ public class ChallengeCompleted extends Fragment {
             }
         });
         save = view.findViewById(R.id.save);
+        countDisplay = view.findViewById(R.id.count_display);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateToHome(Navigation.findNavController(view));
             }
         });
+        countDisplay.setText(String.format("Total %s: %s", challenge.getName(), count));
     }
 
     private void navigateToHome(NavController controller) {

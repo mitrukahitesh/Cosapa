@@ -25,19 +25,19 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:background="@drawable/grad1"
-                android:contentDescription="@string/challenge_image" />
+                android:contentDescription="@string/challenge_image"
+                android:scaleType="centerCrop" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:contentDescription="@string/done"
-                android:src="@drawable/ic_group_101"
-                android:visibility="gone"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="#00C78B"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

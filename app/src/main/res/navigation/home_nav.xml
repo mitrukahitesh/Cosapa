@@ -53,16 +53,7 @@
         android:label="fragment_complete_challenge"
         tools:layout="@layout/fragment_complete_challenge" >
         <action
-            android:id="@+id/action_completeChallenge_to_challengeRepetition"
-            app:destination="@id/challengeRepetition" />
-    </fragment>
-    <fragment
-        android:id="@+id/challengeRepetition"
-        android:name="com.skywalkers.cosapa.fragments.home.ChallengeRepetition"
-        android:label="fragment_challenge_repetition"
-        tools:layout="@layout/fragment_challenge_repetition" >
-        <action
-            android:id="@+id/action_challengeRepetition_to_challengeCompleted"
+            android:id="@+id/action_completeChallenge_to_challengeCompleted"
             app:destination="@id/challengeCompleted" />
     </fragment>
     <fragment
