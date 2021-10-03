@@ -2,6 +2,7 @@ package com.skywalkers.cosapa.fragments.healthDashboard;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,12 +15,27 @@ import androidx.navigation.Navigation;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
+import com.skywalkers.cosapa.fragments.profile.ProfileDetails;
+
+import java.util.Map;
+import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HealthDashboard extends Fragment {
 
@@ -33,7 +49,8 @@ public class HealthDashboard extends Fragment {
     public static final String _3 = "Spo2";
     public static final String _7 = "temp";
     public static final String MEASUREMENTS = "measurements";
-    private TextView hbCount, tempCount, oxyLevel;
+    private TextView hbCount, tempCount, oxyLevel, name1, name2;
+    private CircleImageView dp;
 
     public HealthDashboard() {
     }
@@ -60,6 +77,10 @@ public class HealthDashboard extends Fragment {
         hbCount = view.findViewById(R.id.hbcount);
         tempCount = view.findViewById(R.id.tempcount);
         oxyLevel = view.findViewById(R.id.oxylevel);
+        dp = view.findViewById(R.id.profile_image);
+        name1 = view.findViewById(R.id.name1);
+        name2 = view.findViewById(R.id.name2);
+        fetchData();
         callNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +132,41 @@ public class HealthDashboard extends Fragment {
         hbCount.setText(String.format("%s bpm", preferences.getString(_2, "--")));
         tempCount.setText(String.format("%s °C", preferences.getString(_7, "--")));
         oxyLevel.setText(String.format("%s", preferences.getString(_3, "--") + "%"));
+    }
+
+    private void fetchData() {
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null && task.getResult().getData() != null && task.getResult().exists()) {
+                            Map<String, Object> map = task.getResult().getData();
+                            name1.setText((String) map.get("name"));
+                            name2.setText((String) map.get("name"));
+                            // location.setText("");
+                        } else {
+                            Log.i("Cosapa: HealthDashboard", task.getException() == null ? "Some error occurred" : task.getException().getMessage());
+                        }
+                    }
+                });
+        FirebaseStorage.getInstance()
+                .getReference()
+                .child("profile_pic")
+                .child(FirebaseAuth.getInstance().getUid())
+                .getDownloadUrl()
+                .addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+                            Glide.with(HealthDashboard.this).load(task.getResult()).fitCenter().into(dp);
+                        } else {
+                            Log.i("Cosapa: HealthDashboard", task.getException() == null ? "Some error occurred" : task.getException().getMessage());
+                        }
+                    }
+                });
     }
 
     public static class Test implements Parcelable {
