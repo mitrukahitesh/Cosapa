@@ -61,4 +61,9 @@
     <string name="challenge_start_instruction">Wear the device properly\nClick on "Start Now" once comfortable</string>
     <string name="_0">0</string>
     <string name="calories_burned">Calories Burned</string>
+    <string-array name="exercise_category">
+        <item>Pushups</item>
+        <item>Situps</item>
+        <item>Squats</item>
+    </string-array>
 </resources>

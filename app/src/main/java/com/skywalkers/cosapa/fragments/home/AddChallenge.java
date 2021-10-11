@@ -20,8 +20,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -40,7 +43,9 @@ import com.skywalkers.cosapa.models.Challenge;
 
 public class AddChallenge extends Fragment {
 
-    private EditText title, steps;
+    private EditText steps;
+    //    private EditText title;
+    private Spinner spinner;
     private ConstraintLayout media;
     private Uri uri;
     private ImageView img;
@@ -48,6 +53,7 @@ public class AddChallenge extends Fragment {
     public static final int MEDIA_SELECT = 1;
     private LinearProgressIndicator progressIndicator;
     private ConstraintLayout root;
+    private String exercise = "Pushups";
 
     public AddChallenge() {
     }
@@ -72,7 +78,22 @@ public class AddChallenge extends Fragment {
                 Navigation.findNavController(view).popBackStack();
             }
         });
-        title = view.findViewById(R.id.title);
+//        title = view.findViewById(R.id.title);
+        spinner = view.findViewById(R.id.title_spinner);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.exercise_category));
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                exercise = getResources().getStringArray(R.array.exercise_category)[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         steps = view.findViewById(R.id.steps);
         media = view.findViewById(R.id.media_choose);
         img = view.findViewById(R.id.thumbnail);
@@ -93,10 +114,10 @@ public class AddChallenge extends Fragment {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (uri == null || title.getText().toString().length() == 0 || steps.getText().toString().length() == 0)
+                if (uri == null || exercise.length() == 0 || steps.getText().toString().length() == 0)
                     return;
                 try {
-                    title.setEnabled(false);
+                    spinner.setEnabled(false);
                     steps.setEnabled(false);
                     media.setEnabled(false);
                     post.setEnabled(false);
@@ -121,7 +142,7 @@ public class AddChallenge extends Fragment {
                         }
                     });
                     Challenge challenge = new Challenge();
-                    challenge.setTitle(title.getText().toString().trim());
+                    challenge.setTitle(exercise.trim());
                     challenge.setText(steps.getText().toString().trim());
                     challenge.setUid(FirebaseAuth.getInstance().getUid());
                     challenge.setPosition(MainActivity.POSITION);
