@@ -109,6 +109,7 @@
                                     android:maxLines="1"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"
+                                    android:text="Naaz"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toStartOf="@id/pulse"
                                     app:layout_constraintHorizontal_bias="0.0"
@@ -194,7 +195,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:src="@drawable/ic_heartbeat"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -257,7 +258,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="16dp"
+                                android:layout_marginTop="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:src="@drawable/ic_temperature"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -314,22 +315,21 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"/>
 
                             <ImageView
                                 android:id="@+id/cal_img"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="44dp"
 
+                                android:layout_marginTop="4dp"
                                 android:layout_marginEnd="8dp"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ic_heartbeat"
+                                android:src="@drawable/ic_count_calories_svgrepo_com"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toBottomOf="@id/tv_cal" />
 
                             <TextView
                                 android:id="@+id/cal_count"
@@ -339,6 +339,7 @@
                                 android:layout_marginBottom="8dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:textColor="@color/col1"
+                                android:text="50kcal"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
