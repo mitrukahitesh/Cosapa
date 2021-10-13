@@ -82,7 +82,7 @@ public class HealthDashboard extends Fragment {
         name1 = view.findViewById(R.id.name1);
         name2 = view.findViewById(R.id.name2);
         calories = view.findViewById(R.id.cal_count);
-        fetchData();
+
         callNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,10 +130,11 @@ public class HealthDashboard extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        fetchData();
         SharedPreferences preferences = requireContext().getSharedPreferences(MEASUREMENTS, Context.MODE_PRIVATE);
-        hbCount.setText(String.format("%s bpm", preferences.getString(_2, "--")));
-        tempCount.setText(String.format("%s °C", preferences.getString(_7, "--")));
-        oxyLevel.setText(String.format("%s", preferences.getString(_3, "--") + "%"));
+        hbCount.setText(String.format("%s bpm", preferences.getString(_2, "80")));
+        tempCount.setText(String.format("%s °C", preferences.getString(_7, "37")));
+        oxyLevel.setText(String.format("%s", preferences.getString(_3, "98") + "%"));
     }
 
     private void fetchData() {
@@ -145,7 +146,7 @@ public class HealthDashboard extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
-                            calories.setText(String.format(Locale.getDefault(), "%.0f Cal", (Double) task.getResult().get("calories")));
+                            calories.setText(task.getResult().get("calories") + " Cal");
                         }
                     }
                 });

@@ -58,7 +58,7 @@
     <string name="locate_me">Locate me</string>
     <string name="note_please_wear_your_device">Note: Please wear your device</string>
     <string name="make_sure">Make sure</string>
-    <string name="challenge_start_instruction">Wear the device properly\nClick on "Start Now" once comfortable</string>
+    <string name="challenge_start_instruction">Place the device properly\nClick on "Start Now" once comfortable</string>
     <string name="_0">0</string>
     <string name="calories_burned">Calories Burned</string>
     <string-array name="exercise_category">

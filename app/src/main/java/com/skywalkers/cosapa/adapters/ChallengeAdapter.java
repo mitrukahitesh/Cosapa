@@ -191,7 +191,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Cust
                 Glide.with(context).load(AppCompatResources.getDrawable(context, R.drawable.dumble_bg)).into(image);
             } else {
                 image.setBackground(AppCompatResources.getDrawable(context, R.drawable.grad2));
-                Glide.with(context).load(AppCompatResources.getDrawable(context, R.drawable.challenge_card_2)).into(image);
+                Glide.with(context).load(AppCompatResources.getDrawable(context, R.drawable.dumble_bg)).into(image);
             }
 
         }

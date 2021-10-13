@@ -49,7 +49,13 @@
                 app:cardCornerRadius="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputEditText" >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/mapbanner"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
 
             <HorizontalScrollView
                 android:id="@+id/scrollview"
@@ -78,7 +84,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginBottom="8dp"
                         app:cardBackgroundColor="@color/col2"
-                        app:cardCornerRadius="24sp">
+                        app:cardCornerRadius="16dp">
 
                         <TextView
                             android:id="@+id/cardText1"
@@ -97,8 +103,8 @@
                         android:id="@+id/card2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8sp"
-                        app:cardCornerRadius="24sp">
+                        android:layout_marginLeft="8dp"
+                        app:cardCornerRadius="16dp">
 
                         <TextView
                             android:id="@+id/cardText2"
@@ -117,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8sp"
-                        app:cardCornerRadius="24sp">
+                        app:cardCornerRadius="16dp">
 
                         <TextView
                             android:id="@+id/cardText3"
@@ -134,9 +140,9 @@
                         android:id="@+id/card4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8sp"
+                        android:layout_marginLeft="8dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="24sp">
+                        app:cardCornerRadius="16dp">
 
                         <TextView
                             android:id="@+id/cardText4"

@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/grad1"
                 android:contentDescription="@string/challenge_image"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/done"
