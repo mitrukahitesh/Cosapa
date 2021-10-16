@@ -1,4 +1,4 @@
-![resized](https://github.com/mitrukahitesh/Cosapa/blob/main/app/src/main/res/drawable-xxhdpi/cosapalogo.png?raw=true)
+<img src="https://github.com/mitrukahitesh/Cosapa/blob/main/app/src/main/res/drawable-xxhdpi/cosapalogo.png?raw=true" height=300/>
 
   <h1>Cosapa</h1>
   <h2>Built at Beckn-a-thon</h2>
@@ -31,4 +31,38 @@ The .apk file produced on building the project will require an Android device/em
 <li>Clone the repository on your device, and build the project using Android Studio and run on the connected Android device/emulator.</li>
 <li>Download the apk from <a href="https://drive.google.com/file/d/1PqbbqT1YIeG47VoaroCu8dF--aClhEQV/view?usp=sharing">here </a>
    and install and run on your Android device.</li>
+</ol>
+
+<h3>Features</h3>
+<ol>
+  <li><b>Help Posts:</b>seek medical help from the community </li>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-24-47-590_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-20-615_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+  </div>
+  <li><b>Challenges: </b>Add fitness challenge and complete challenges using IoT device</li>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-24-47-590_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-26-848_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-28-726_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-34-736_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-46-024_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+    
+  </div>
+  <li><b>Health Dashboard: </b>Monitor health with our IoT device and keep it updated on dashboard</li>
+  <div style='display:flex;flex-direction:row'>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-26-53-816_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+  </div>
+  <li><b>Online consultation: </b>Appoint a doctor for online consultation</li>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-03-459_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-11-719_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-19-885_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-02-108_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    
+  </div>
+  <li><b>Nearby Services: </b>Search nearby pharmacies and labs for prescribed medicine and test</li>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-46-966_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+  </div>
 </ol>
