@@ -1,31 +1,44 @@
 <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/app/src/main/res/drawable-xxhdpi/cosapalogo.png?raw=true" height=300/>
 
-  <h1>Cosapa</h1>
-  <h2>Built at Beckn-a-thon</h2>
-  <h3>A one stop solution for remote health-care and fitness</h3>
-<h2>What is Cosapa?</h2>
-<p>
-   Cosapa is a platform driven by Android, IoT and Beckn protocol that aims in making health consultation services completely virtual, physical fitness a engaging activity and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during online consultation. Our app, with the help of Beckn protocol, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigate to the exact location of the same.
+### Cosapa
+
+## Built at Beckn-a-thon
+
+# A one stop solution for remote health-care and fitness
+
+## What is Cosapa?
+
+Cosapa is a platform driven by Android, IoT and Beckn protocol that aims in making health consultation services completely virtual, physical fitness a engaging activity and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during online consultation. Our app, with the help of Beckn protocol, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigate to the exact location of the same.
 
 Users can also post help requests like blood requirement, hospital bed requirement, etc which is transmitted to every user of our app in form of feed which helps in attracting help from a larger community.
 
 Additionally, users can post challenges for various exercises which are taken by other users which makes fitness activity fun, interactive and engaging. The best part about this feature is that the number of sets of exercise performed is monitored by our IoT device, thus making our platform more fun and authentic.
 
+### Hardware Used
+
+- ESP8266
+- MAX30100
+- lm34
+- HC-SR04
+
+<p>
+<img height=350px src = "https://github.com/naazkakria/Beckn-a-thon/blob/main/assets/WhatsApp%20Image%202021-10-12%20at%204.34.07%20PM%20(6).jpeg?raw=true" />
+<img height=350px src = "https://github.com/naazkakria/Beckn-a-thon/blob/main/assets/WhatsApp%20Image%202021-10-12%20at%204.34.07%20PM%20(5).jpeg?raw=true" />
 </p>
 
-<h2>Development Setup</h2>
+## Development Setup
 
-<h3>Requirements</h3>
+# Requirements
 
 The project requires Android Studio with Gradle version 4.2.2 to build without errors.
 
-<h3>Testing</h3>
+# Testing
 
 The .apk file produced on building the project will require an Android device/emulator with Android version being Oreo 8.0 or higher.
 
-<h2>Usage</h2>
+## Usage
 
-<h3>Installation</h3>
+# Installation
 
 <ol type='A'>
 <li>Clone the repository on your device, and build the project using Android Studio and run on the connected Android device/emulator.</li>
@@ -33,7 +46,8 @@ The .apk file produced on building the project will require an Android device/em
    and install and run on your Android device.</li>
 </ol>
 
-<h3>Features</h3>
+# Features
+
 <ol>
   <li><b>Help Posts: </b>Seek medical help from the community</li>
   <div>
@@ -74,7 +88,8 @@ The .apk file produced on building the project will require an Android device/em
 
 </ol>
 
-<h2>Architecture of App</h2>
+## Architecture of App
+
   <div>
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/architecture.png?raw=true"  height=480 width=1296/>
   </div>
@@ -90,7 +105,15 @@ The .apk file produced on building the project will require an Android device/em
   <li>Firebase Authentication</li>
 </ol>
 
-<h2>Our Team</h2>
+## Links
+
+[Android App](https://drive.google.com/file/d/1PjXGN77MkfmyZtQnq2E78M0geBRLxJiR/view)<br>
+[IoT Code Repository](https://github.com/naazkakria/Beckn-a-thon)<br>
+[Beckn](https://github.com/beckn)<br>
+[About Cosapa](https://www.youtube.com/watch?v=8h2DhV9YSqw)
+
+## Our Team
+
 <div>
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/naaz.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
     <br>
