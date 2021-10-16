@@ -69,6 +69,7 @@ The .apk file produced on building the project will require an Android device/em
   <li><b>Nearby Services: </b>Search nearby pharmacies and labs for prescribed medicine and test</li>
   <div>
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-46-966_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-28-51-379_com.google.android.apps.maps.jpg?raw=true"  height=300/>
   </div>
 
 </ol>
