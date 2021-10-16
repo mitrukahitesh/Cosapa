@@ -94,7 +94,18 @@ The .apk file produced on building the project will require an Android device/em
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/architecture.png?raw=true"  height=480 width=1296/>
   </div>
 
-<h2>Technologies that have been used in this project</h2>
+## Survey Results
+
+These are the results of survey conducted by us<br>
+<img src=""  height=300/>
+<img src=""  height=300/><br>
+<img src=""  height=300/>
+<img src=""  height=300/><br>
+<img src=""  height=300/>
+<img src=""  height=300/><br>
+<img src=""  height=300/>
+
+## Technologies that have been used in this project
 
 <ol>
   <li>Beckn Protocol</li>
