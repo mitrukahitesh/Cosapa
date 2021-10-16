@@ -53,9 +53,9 @@ The .apk file produced on building the project will require an Android device/em
   <li><b>Health Dashboard: </b>Monitor health with our IoT device and keep it updated on dashboard</li>
   <div style='display:flex;flex-direction:row'>
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-26-53-816_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src=""  height=300/>
-    <img src=""  height=300/>
-    <img src=""  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-29-44-974_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-30-14-738_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-30-20-096_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
   </div>
 
   <li><b>Online consultation: </b>Appoint a doctor for online consultation</li>
@@ -75,7 +75,7 @@ The .apk file produced on building the project will require an Android device/em
 
 <h2>Architecture of App</h2>
   <div>
-    <img src=""  height=480 width=1296/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/architecture.png?raw=true"  height=480 width=1296/>
   </div>
 
 <h2>Technologies that have been used in this project</h2>
