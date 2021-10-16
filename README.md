@@ -1,10 +1,10 @@
 <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/app/src/main/res/drawable-xxhdpi/cosapalogo.png?raw=true" height=300/>
 
-### Cosapa
+# Cosapa
 
 ## Built at Beckn-a-thon
 
-# A one stop solution for remote health-care and fitness
+### A one stop solution for remote health-care and fitness
 
 ## What is Cosapa?
 
