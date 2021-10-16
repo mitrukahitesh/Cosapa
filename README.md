@@ -89,3 +89,29 @@ The .apk file produced on building the project will require an Android device/em
   <li>Firebase Realtime Database</li>
   <li>Firebase Authentication</li>
 </ol>
+
+<h2>Our Team</h2>
+<div>
+    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <br>
+    <a href=""><b>Naaz Kakria</b></a>
+    <br>
+  </div>
+  <div>
+    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <br>
+    <a href=""><b>Shikhar Srivastava</b></a>
+    <br>
+  </div>
+  <div>
+    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <br>
+    <a href=""><b>Hitesh Mitruka</b></a>
+    <br>
+  </div>
+  <div>
+    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <br>
+    <a href=""><b>Sumit Yadav</b></a>
+    <br>
+  </div>
