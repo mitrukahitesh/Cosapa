@@ -92,26 +92,30 @@ The .apk file produced on building the project will require an Android device/em
 
 <h2>Our Team</h2>
 <div>
-    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/naaz.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
     <br>
-    <a href=""><b>Naaz Kakria</b></a>
+    <a href="https://www.linkedin.com/in/naazk3/"><b>Naaz Kakria</b></a>
     <br>
-  </div>
-  <div>
-    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
-    <br>
-    <a href=""><b>Shikhar Srivastava</b></a>
     <br>
   </div>
   <div>
-    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/shikhar.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
     <br>
-    <a href=""><b>Hitesh Mitruka</b></a>
+    <a href="https://www.linkedin.com/in/shikhar236/"><b>Shikhar Srivastava</b></a>
+    <br>
     <br>
   </div>
   <div>
-    <img src=""  height=72 width=72 style="border-radius: 50%;"/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/hitesh.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
     <br>
-    <a href=""><b>Sumit Yadav</b></a>
+    <a href="https://www.linkedin.com/in/mitrukahitesh/"><b>Hitesh Mitruka</b></a>
+    <br>
+    <br>
+  </div>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/sumit.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
+    <br>
+    <a href="https://in.linkedin.com/in/nxsumityadav"><b>Sumit Kumar</b></a>
+    <br>
     <br>
   </div>
