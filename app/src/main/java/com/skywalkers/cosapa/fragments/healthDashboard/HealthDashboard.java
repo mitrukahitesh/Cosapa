@@ -43,9 +43,9 @@ public class HealthDashboard extends Fragment {
     private CardView callNow;
     private ConstraintLayout heartbeat, o2, temperature;
     private NavController controller;
-    private String heartbeatIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
-    private String oxygenIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
-    private String temperatureIns = "Please wear the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    private String heartbeatIns = "Please place the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    private String oxygenIns = "Please place the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
+    private String temperatureIns = "Please place the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
     public static final String _2 = "heart";
     public static final String _3 = "Spo2";
     public static final String _7 = "temp";
