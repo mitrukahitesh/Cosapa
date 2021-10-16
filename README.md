@@ -102,7 +102,6 @@ These are the results of survey conducted by us<br>
 <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/survey%204.png"  height=300/>
 <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/survey%205.png"  height=300/><br>
 <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/survey%206.png"  height=300/>
-<img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/survey%207.png"  height=300/>
 
 ## Technologies that have been used in this project
 
