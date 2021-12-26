@@ -97,4 +97,7 @@ dependencies {
     //Exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
 
+    //Azure maps
+    implementation "com.azure.android:azure-maps-control:1.0.0"
+
 }

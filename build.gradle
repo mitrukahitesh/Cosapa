@@ -16,6 +16,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://atlas.microsoft.com/sdk/android"
+        }
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
