@@ -8,8 +8,12 @@ import static com.azure.android.maps.control.options.CameraOptions.zoom;
 import static com.azure.android.maps.control.options.StyleOptions.style;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
 import com.azure.android.maps.control.controls.TrafficControl;
@@ -17,6 +21,7 @@ import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.AnimationType;
 import com.azure.android.maps.control.options.MapStyle;
 import com.azure.android.maps.control.source.DataSource;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.mapbox.geojson.Point;
 import com.skywalkers.cosapa.R;
 
@@ -30,6 +35,7 @@ public class MapActivity extends AppCompatActivity {
     }
 
     MapControl mapControl;
+    CardView cardViewmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +45,13 @@ public class MapActivity extends AppCompatActivity {
         mapControl = findViewById(R.id.mapcontrol);
 
         mapControl.onCreate(savedInstanceState);
+        cardViewmap= findViewById(R.id.mapcard);
+        cardViewmap.setBackgroundResource(R.drawable.bottomsheet_curved);
 
         //Wait until the map resources are ready.
         mapControl.onReady(map -> {
             //Add your post map load code here.
-            map.setStyle(style(MapStyle.HIGH_CONTRAST_DARK));
+            map.setStyle(style(MapStyle.ROAD));
             map.controls.add(new TrafficControl());
             map.setCamera(center(Point.fromLngLat(81.878357,
                     25.473034)),
@@ -51,6 +59,16 @@ public class MapActivity extends AppCompatActivity {
                     animationType(AnimationType.FLY),
                     animationDuration(3000));
         });
+        Button exploreButton= findViewById(R.id.explorebtn);
+        exploreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MapActivity.this, R.style.TransparentBottomSheetDialogTheme);
+                bottomSheetDialog.setContentView(R.layout.nearby_bottomsheet);
+                bottomSheetDialog.show();
+            }
+        });
+
     }
 
     @Override
