@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,7 +18,9 @@ import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
+import com.skywalkers.cosapa.utility.SocketObject;
 
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -39,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        try {
+            SocketObject.getSocket();
+        } catch (URISyntaxException e) {
+            Log.i("cosapa", "Socket error in main activity");
+            e.printStackTrace();
+            finish();
+        }
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

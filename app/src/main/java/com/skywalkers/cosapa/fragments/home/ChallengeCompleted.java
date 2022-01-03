@@ -65,5 +65,6 @@ public class ChallengeCompleted extends Fragment {
     private void navigateToHome(NavController controller) {
         NavOptions options = new NavOptions.Builder().setPopUpTo(R.id.feedFragment, true).build();
         controller.navigate(R.id.action_challengeCompleted_to_feedFragment, new Bundle(), options);
+//        controller.popBackStack(R.id.feedFragment, false);
     }
 }

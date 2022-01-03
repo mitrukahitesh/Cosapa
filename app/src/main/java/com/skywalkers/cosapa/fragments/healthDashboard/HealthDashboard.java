@@ -146,7 +146,11 @@ public class HealthDashboard extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
-                            calories.setText(task.getResult().get("calories") + " Cal");
+                            String s = "0";
+                            if (task.getResult().get("calories") != null) {
+                                s = task.getResult().get("calories").toString();
+                            }
+                            calories.setText(s.substring(0, s.indexOf('.')) + " Cal");
                         }
                     }
                 });
