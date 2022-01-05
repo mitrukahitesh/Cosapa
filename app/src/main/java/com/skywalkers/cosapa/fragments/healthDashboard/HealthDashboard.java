@@ -150,7 +150,7 @@ public class HealthDashboard extends Fragment {
                             if (task.getResult().get("calories") != null) {
                                 s = task.getResult().get("calories").toString();
                             }
-                            calories.setText(s.substring(0, s.indexOf('.')) + " Cal");
+                            //calories.setText(s.substring(0, s.indexOf('.')) + " Cal");
                         }
                     }
                 });

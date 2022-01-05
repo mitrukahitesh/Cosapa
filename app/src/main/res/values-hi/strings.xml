@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cosapa</string>
 
@@ -45,7 +46,7 @@
     <string name="get_details">Get Details</string>
     <string name="dummytextdocdetails">Dr. Jubin Nautiyal is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
     <string name="book_appointment">Book Appointment</string>
-    <string name="location">Location</string>
+    <string name="location">स्थान</string>
     <string name="total">Total</string>
     <string name="navigate">Navigate</string>
     <string name="lab">Lab</string>
@@ -61,10 +62,10 @@
     <string name="challenge_start_instruction">Place the device properly\nClick on "Start Now" once comfortable</string>
     <string name="_0">0</string>
     <string name="calories_burned">Calories Burned</string>
-    <string name="essentials">Essentials near you</string>
-    <string name="about_me">About Me</string>
-    <string name="occupation">Occupation</string>
-    <string name="contact">Contact</string>
+    <string name="essentials">आपके आस-पास आवश्यक</string>
+    <string name="about_me">मेरे बारे में</string>
+    <string name="occupation">पेशा</string>
+    <string name="contact">संपर्क करें</string>
     <string-array name="exercise_category">
         <item>Pushups</item>
         <item>Situps</item>

@@ -1,5 +1,7 @@
 package com.skywalkers.cosapa.fragments.profile;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.skywalkers.cosapa.LanguageBottomsheet;
+import com.skywalkers.cosapa.LocaleHelper;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.fragments.onboarding.TakePicture;
 
@@ -36,6 +41,8 @@ public class ProfileDetails extends Fragment {
     private TextView name, status, occupation, location, phone, email;
     private FrameLayout root;
     private CircleImageView dp;
+    private ImageView languageSelection;
+    public static final String TAG = "bottom_sheet";
 
     public ProfileDetails() {
     }
@@ -64,9 +71,18 @@ public class ProfileDetails extends Fragment {
         phone = view.findViewById(R.id.phone);
         email = view.findViewById(R.id.email);
         dp = view.findViewById(R.id.profile_image);
+        languageSelection=view.findViewById(R.id.profile_edit);
         view.findViewById(R.id.card1).setBackgroundResource(R.drawable.dashed_border);
         view.findViewById(R.id.card2).setBackgroundResource(R.drawable.dashed_border);
         fetchData();
+
+        languageSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LanguageBottomsheet fragment = new LanguageBottomsheet();
+                fragment.show(getParentFragmentManager(), TAG);
+            }
+        });
     }
 
     private void fetchData() {
@@ -106,4 +122,13 @@ public class ProfileDetails extends Fragment {
                     }
                 });
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        getActivity().finish();
+        System.exit(0);
+    }
+
 }
