@@ -147,10 +147,10 @@ public class HealthDashboard extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
                             String s = "0";
-                            if (task.getResult().get("calories") != null) {
+                            if (task.getResult().get("calories") != null && !task.getResult().get("calories").equals("")) {
                                 s = task.getResult().get("calories").toString();
                             }
-                            calories.setText(s.substring(0, s.indexOf('.')) + " Cal");
+                            calories.setText(s.substring(0, s.indexOf('.') == -1 ? 1 : s.indexOf('.')) + " Cal");
                         }
                     }
                 });

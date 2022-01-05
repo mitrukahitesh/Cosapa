@@ -11,8 +11,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
@@ -35,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
     final FragmentManager fm = getSupportFragmentManager();
     private Fragment active = fragment1;
     private Context contextOfApplication;
-    public static String NAME = "Ramesh Kumar";
-    public static String POSITION = "Health worker";
+    public static String NAME = "Username";
+    public static String POSITION = "Cosapa User";
+    public static String PHONE, EMAIL, STATUS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,29 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
         active = fragment1;
+
+        getPersonalDetails();
+    }
+
+    private void getPersonalDetails() {
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null && task.getResult().getData() != null && task.getResult().exists()) {
+                            Map<String, Object> map = task.getResult().getData();
+                            NAME = (String) map.get("name");
+                            PHONE = (String) map.get("number");
+                            EMAIL = (String) map.get("email");
+                            POSITION = (String) map.get("occupation");
+                            STATUS = String.format("I am %s", (String) map.get("name"));
+                            // location.setText("");
+                        }
+                    }
+                });
     }
 
     @Override
