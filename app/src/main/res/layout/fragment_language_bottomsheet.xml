@@ -51,8 +51,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
-                android:src="@drawable/time"
-                />
+                android:src="@drawable/time" />
 
 
             <TextView

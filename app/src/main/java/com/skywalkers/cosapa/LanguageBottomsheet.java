@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
@@ -25,14 +27,12 @@ import java.util.Locale;
 
 public class LanguageBottomsheet extends BottomSheetDialogFragment{
 
-    ImageView tickEnglish;
-    ImageView tickHindi;
-    ImageView tickRussia;
-    ImageView tickThai;
+
     MainActivity main;
     Locale myLocale;
     String currentLang;
     String currentLanguage = "en";
+    CardView englishCard,hindiCard,urduCard,punjabiCard,teluguCard,gujaratiCard;
 
 
     @SuppressLint("RestrictedApi")
@@ -41,19 +41,17 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
         super.setupDialog(dialog, style);
 
         //Set the custom view
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_language_bottomsheet ,null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.language_content ,null);
         dialog.setContentView(view);
         main = new MainActivity();
 
-        //removing all tick mark from the layout
-        tickEnglish = (ImageView) view.findViewById(R.id.tick_english);
-        tickEnglish.setVisibility(View.GONE);
-        tickHindi = (ImageView) view.findViewById(R.id.tick_hindi);
-        tickHindi.setVisibility(View.GONE);
-        tickRussia = (ImageView) view.findViewById(R.id.tick_russia);
-        tickRussia.setVisibility(View.GONE);
-        tickThai = (ImageView) view.findViewById(R.id.tick_thai);
-        tickThai.setVisibility(view.GONE);
+        englishCard= view.findViewById(R.id.engcard);
+        hindiCard=view.findViewById(R.id.hincard);
+        urduCard=view.findViewById(R.id.urducard);
+        punjabiCard=view.findViewById(R.id.punjabicard);
+        teluguCard=view.findViewById(R.id.telugucard);
+        gujaratiCard=view.findViewById(R.id.gujraticard);
+
 
         currentLanguage = getActivity().getIntent().getStringExtra(currentLang);
 
@@ -61,17 +59,21 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
         switch(LocaleHelper.getLanguage(getContext()))
         {
             case "en":
-                tickEnglish.setVisibility(View.VISIBLE);
+                Toast.makeText(getActivity().getApplicationContext(), "English Selected", Toast.LENGTH_SHORT).show();
                 break;
             case "hi":
-                tickHindi.setVisibility(View.VISIBLE);
+                Toast.makeText(getActivity().getApplicationContext(), "Hindi Selected", Toast.LENGTH_SHORT).show();
                 break;
-            case "ru":
-                tickRussia.setVisibility(View.VISIBLE);
+            case "ur":
+                Toast.makeText(getActivity().getApplicationContext(), "Urdu Selected", Toast.LENGTH_SHORT).show();
                 break;
-            case "th":
-                tickThai.setVisibility(View.VISIBLE);
+            case "pa":
+                Toast.makeText(getActivity().getApplicationContext(), "Punjabi Selected", Toast.LENGTH_SHORT).show();
                 break;
+            case "gu":
+                Toast.makeText(getActivity().getApplicationContext(), "Gujrati Selected", Toast.LENGTH_SHORT).show();
+            case "te":
+                Toast.makeText(getActivity().getApplicationContext(), "Telugu Selected", Toast.LENGTH_SHORT).show();
             default:
                 System.out.println("no match");
         }
@@ -116,21 +118,9 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
                 }
             });
         }
-
-        //close icon of bottom sheet
-        ImageView imageViewClose = (ImageView) view.findViewById(R.id.imageView);
-        imageViewClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //to close the bottom sheet
-                ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
-
-            }
-        });
-
         //onclick on english language
-        ImageView flagEnglish = (ImageView) view.findViewById(R.id.flagView_english);
-        flagEnglish.setOnClickListener(new View.OnClickListener() {
+
+        englishCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setLocale("en");
@@ -138,40 +128,44 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
-
-        //onclick for hindi flag
-        ImageView flagHindi = (ImageView) view.findViewById(R.id.flagView_hindi);
-        flagHindi.setOnClickListener(new View.OnClickListener() {
+        hindiCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setLocale("hi");
                 //to close the bottom sheet
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
-
             }
         });
-
-        //onclick for russia flag
-        ImageView flagRussia = (ImageView) view.findViewById(R.id.flagView_russsia);
-        flagRussia.setOnClickListener(new View.OnClickListener() {
+        urduCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("ru");
+                setLocale("ur");
                 //to close the bottom sheet
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
-
             }
         });
-
-        //onlcik for thai flag
-        ImageView flagThai = (ImageView) view.findViewById(R.id.flagView_thai);
-        flagThai.setOnClickListener(new View.OnClickListener() {
+        punjabiCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("th");
+                setLocale("pa");
                 //to close the bottom sheet
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
-
+            }
+        });
+        teluguCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("te");
+                //to close the bottom sheet
+                ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
+        gujaratiCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("gu");
+                //to close the bottom sheet
+                ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
     }
