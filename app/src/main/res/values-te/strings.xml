@@ -66,6 +66,28 @@
     <string name="about_me">నా గురించి</string>
     <string name="occupation">పేషా</string>
     <string name="contact">సంపర్క్ కరెన్</string>
+    <string name="appointment">నియామకం</string>
+    <string name="appointment_days">3 రోజుల్లో</string>
+    <string name="pay_now">ఇప్పుడు చెల్లించండి</string>
+    <string name="appointment_confirm">అపాయింట్‌మెంట్ నిర్ధారించండి</string>
+    <string name="download_receipt">రసీదుని డౌన్‌లోడ్ చేయండి</string>
+    <string name="call_now">ఇప్పుడే కాల్ చేయండి</string>
+    <string name="timing_details">సమయ వివరాలు</string>
+    <string name="search_doctor">డాక్టర్ వర్గం ద్వారా శోధించండి</string>
+    <string name="category_all">అన్నీ</string>
+    <string name="category_med">కుటుంబ వైద్యం</string>
+    <string name="category_ent">ENT</string>
+    <string name="doctors">వైద్యులు</string>
+    <string name="heartbeat">గుండె చప్పుడు</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">ఉష్ణోగ్రత</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">ముగించు</string>
+    <string name="bio">హాయ్! నేను నాజ్‌ని</string>
+    <string name="country">భారతదేశం</string>
     <string-array name="exercise_category">
         <item>పుషప్స్</item>
         <item>గుంజీళ్ళు</item>

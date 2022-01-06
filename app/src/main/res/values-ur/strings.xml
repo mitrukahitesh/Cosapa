@@ -66,6 +66,28 @@
     <string name="about_me">میرے بارے میں</string>
     <string name="occupation">پیشہ</string>
     <string name="contact">رابطہ کریں۔</string>
+    <string name="appointment">تقرری</string>
+    <string name="appointment_days">3 دن میں</string>
+    <string name="pay_now">اب ادا</string>
+    <string name="appointment_confirm">ملاقات کی تصدیق</string>
+    <string name="download_receipt">رسید ڈاؤن لوڈ کریں۔</string>
+    <string name="call_now">ابھی کال کریں۔</string>
+    <string name="timing_details">ٹائمنگ کی تفصیلات</string>
+    <string name="search_doctor">ڈاکٹر کے زمرے کے لحاظ سے تلاش کریں۔</string>
+    <string name="category_all">تمام</string>
+    <string name="category_med">فیملی میڈیسن</string>
+    <string name="category_ent">ENT</string>
+    <string name="doctors">ڈاکٹروں</string>
+    <string name="heartbeat">دل کی دھڑکن</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">درجہ حرارت</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">ختم کرنا</string>
+    <string name="bio">ہائے! میں ناز ہوں۔</string>
+    <string name="country">انڈیا</string>
     <string-array name="exercise_category">
         <item>پش اپس</item>
         <item>سیٹ اپس</item>

@@ -11,10 +11,10 @@
     <string name="GM">સુપ્રભાત !</string>
     <string name="username">નાઝ</string>
     <string name="health_status">તમારું સ્વાસ્થ્ય સારું છે</string>
-    <string name="seedoctor">Want to consult Doctor?</string>
+    <string name="seedoctor">ડૉક્ટરની સલાહ લેવી છે?</string>
     <string name="seedoctor2">ડૉક્ટરની સલાહ લેવી છે?</string>
     <string name="resend_code_in">માં કોડ ફરીથી મોકલો </string>
-    <string name="resend_code">Resend code</string>
+    <string name="resend_code">કોડ ફરીથી મોકલો</string>
     <string name="well_i_think">કોડ ફરીથી મોકલો...</string>
     <string name="add_post">પોસ્ટ ઉમેરો</string>
     <string name="add_a_post">એક પોસ્ટ ઉમેરો</string>
@@ -66,6 +66,28 @@
     <string name="about_me">.</string>
     <string name="occupation">વ્યવસાય</string>
     <string name="contact">સંપર્ક કરો</string>
+    <string name="appointment">નિમણૂક</string>
+    <string name="appointment_days">3 દિવસમાં</string>
+    <string name="pay_now">હવે પૈસા આપો</string>
+    <string name="appointment_confirm">એપોઇન્ટમેન્ટ કન્ફર્મ</string>
+    <string name="download_receipt">રસીદ ડાઉનલોડ કરો</string>
+    <string name="call_now">હવે કૉલ કરો</string>
+    <string name="timing_details">સમયની વિગતો</string>
+    <string name="search_doctor">ડૉક્ટર શ્રેણી દ્વારા શોધો</string>
+    <string name="category_all">બધા</string>
+    <string name="category_med">કૌટુંબિક દવા</string>
+    <string name="category_ent">ENT</string>
+    <string name="doctors">ડોકટરો</string>
+    <string name="heartbeat">ધબકારા</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">તાપમાન</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">સમાપ્ત કરો</string>
+    <string name="bio">હાય! હું નાઝ છું</string>
+    <string name="country">ભારત</string>
     <string-array name="exercise_category">
         <item>પુશઅપ્સ</item>
         <item>ઉઠક બેઠક</item>

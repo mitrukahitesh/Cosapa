@@ -66,6 +66,28 @@
     <string name="about_me">ਮੇਰੇ ਵਿੱਚ</string>
     <string name="occupation">ਪੇਸ਼ਾ</string>
     <string name="contact">ਸੰਪਰਕ ਕਰੋ</string>
+    <string name="appointment">ਮੁਲਾਕਾਤ</string>
+    <string name="appointment_days">3 ਦਿਨਾਂ ਵਿੱਚ</string>
+    <string name="pay_now">ਹੁਣੇ ਭੁਗਤਾਨ ਕਰੋ</string>
+    <string name="appointment_confirm">ਮੁਲਾਕਾਤ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
+    <string name="download_receipt">ਰਸੀਦ ਡਾਊਨਲੋਡ ਕਰੋ</string>
+    <string name="call_now">ਹੁਣੇ ਕਾਲ ਕਰੋ</string>
+    <string name="timing_details">ਟਾਈਮਿੰਗ ਵੇਰਵੇ</string>
+    <string name="search_doctor">ਡਾਕਟਰ ਸ਼੍ਰੇਣੀ ਦੁਆਰਾ ਖੋਜ ਕਰੋ</string>
+    <string name="category_all">ਸਾਰੇ</string>
+    <string name="category_med">ਪਰਿਵਾਰਕ ਦਵਾਈ</string>
+    <string name="category_ent">ਈ.ਐਨ.ਟੀ</string>
+    <string name="doctors">ਡਾਕਟਰ</string>
+    <string name="heartbeat">ਦਿਲ ਦੀ ਧੜਕਣ</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">ਤਾਪਮਾਨ </string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">ਸਮਾਪਤ</string>
+    <string name="bio">ਹੈਲੋ! ਮੈਂ ਨਾਜ਼ ਹਾਂ</string>
+    <string name="country">ਭਾਰਤ</string>
     <string-array name="exercise_category">
         <item>ਪੁਸ਼ਅਪਸ</item>
         <item>ਸਿਟਅਪਸ</item>

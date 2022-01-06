@@ -39,7 +39,7 @@
     <string name="challenge_completed">चुनौती पूरी की</string>
     <string name="congratulations">बधाई हो!</string>
     <string name="party_popper">🎉</string>
-    <string name="doctor_name">Dr. Jubin Nautiyal</string>
+    <string name="doctor_name">डॉ. जुबिन नौटियाल</string>
     <string name="doctor_category">जनरल सर्जन</string>
     <string name="doctor_price">₹ 500</string>
     <string name="profile_picture">प्रोफ़ाइल फोटो</string>
@@ -66,6 +66,28 @@
     <string name="about_me">मेरे बारे में</string>
     <string name="occupation">पेशा</string>
     <string name="contact">संपर्क करें</string>
+    <string name="appointment">मुलाकात</string>
+    <string name="appointment_days">तीन दिनों में</string>
+    <string name="pay_now">अब भुगतान करें</string>
+    <string name="appointment_confirm">नियुक्ति की पुष्टि</string>
+    <string name="download_receipt">रसीद डाउनलोड करें</string>
+    <string name="call_now">अब कॉल करें</string>
+    <string name="timing_details">समय विवरण</string>
+    <string name="search_doctor">डॉक्टर श्रेणी के आधार पर खोजें</string>
+    <string name="category_all">सभी</string>
+    <string name="category_med">पारिवार की दवा</string>
+    <string name="category_ent">ईएनटी</string>
+    <string name="doctors">डॉक्टरों</string>
+    <string name="heartbeat">दिल की धड़कन</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">तापमान</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">खत्म हो</string>
+    <string name="bio">नमस्ते! मैं नाज़ी हूँ</string>
+    <string name="country">इंडिया</string>
     <string-array name="exercise_category">
         <item>पुश अप</item>
         <item>उठक बैठक</item>
