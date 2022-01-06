@@ -67,8 +67,8 @@
     <string name="occupation">पेशा</string>
     <string name="contact">संपर्क करें</string>
     <string-array name="exercise_category">
-        <item>Pushups</item>
-        <item>Situps</item>
-        <item>Squats</item>
+        <item>పుషప్స్</item>
+        <item>గుంజీళ్ళు</item>
+        <item>స్క్వాట్స్</item>
     </string-array>
 </resources>
