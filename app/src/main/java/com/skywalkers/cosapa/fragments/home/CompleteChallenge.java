@@ -240,24 +240,7 @@ public class CompleteChallenge extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseDatabase.getInstance()
-                                    .getReference()
-                                    .child(Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).first)
-                                    .addValueEventListener(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists() && snapshot.getValue() != null) {
-                                                counter.setText(snapshot.getValue().toString());
-                                            }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
-                        }
                     }
                 });
     }
