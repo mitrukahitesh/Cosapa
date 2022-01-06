@@ -3,6 +3,7 @@ package com.skywalkers.cosapa.adapters;
 import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -47,6 +49,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
 
     private final Context context;
+    private final NavController controller;
     private final List<Post> posts;
     private Long last = System.currentTimeMillis();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -54,8 +57,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
     private final Map<String, ListenerRegistration> listeners = new HashMap<>();
     private final Set<String> viewed = new HashSet<>();
 
-    public PostAdapter(Context context) {
+    public PostAdapter(Context context, NavController controller) {
         this.context = context;
+        this.controller = controller;
         posts = new ArrayList<>();
         fetchData();
     }
@@ -123,7 +127,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
 
         private final TextView title, name, text, reactions, views, pos;
         private final CircleImageView dp;
-        private final LinearLayout on, off;
+        private final LinearLayout on, off, comment;
 
         public CustomVH(@NonNull View itemView) {
             super(itemView);
@@ -136,6 +140,18 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CustomVH> {
             dp = itemView.findViewById(R.id.dp);
             on = itemView.findViewById(R.id.online);
             off = itemView.findViewById(R.id.offline);
+            comment = itemView.findViewById(R.id.comment);
+            comment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", posts.get(getAbsoluteAdapterPosition()).getTitle());
+                    bundle.putString("name", posts.get(getAbsoluteAdapterPosition()).getName());
+                    bundle.putString("dp", posts.get(getAbsoluteAdapterPosition()).getDp() == null ? "" : posts.get(getAbsoluteAdapterPosition()).getDp().toString());
+                    bundle.putString("id", posts.get(getAbsoluteAdapterPosition()).getId());
+                    controller.navigate(R.id.action_feedFragment_to_comments, bundle);
+                }
+            });
         }
 
         public void setPost(Post post, int position) {
