@@ -63,17 +63,26 @@
     <string name="calories_burned">Calories Burned</string>
     <string name="essentials">Essentials near you</string>
     <string name="total_rewards">Total Rewards Earned</string>
-    <string name="rewards_value">₹ 70</string>
+    <string name="total_rewards_value">₹ 70</string>
+    <string name="rewards_value">₹ 100</string>
+    <string name="rewards_value2">₹ 250</string>
+    <string name="rewards_value3">₹ 50</string>
+    <string name="rewards_value4">₹ 10</string>
+    <string name="rewards_value5">₹ 15</string>
     <string name="profile_verification">Profile Verification</string>
     <string name="profile_verify_details">Complete your profile \nand get ₹ 100</string>
     <string name="doctor_consultation">Doctor Consultation</string>
-    <string name="doctor_consultation_details">Book Consultation with a doctor and get ₹ 100</string>
-    <string name="friends_referrals_details">Invite your friends and earn</string>
+    <string name="doctor_consultation_details">Book Consultation with\na doctor and get ₹ 100</string>
+    <string name="friends_referrals_details">Invite your friends\nand earn</string>
     <string name="refer_friends">Invite Friends</string>
-    <string name="challenge_completion">Complete Fitness Challenge</string>
-    <string name="challenge_rewards">Accept and complete a challenge and get ₹ 10 </string>
+    <string name="challenge_completion">Complete Challenge</string>
+    <string name="challenge_rewards">Accept and complete\na challenge</string>
     <string name="volunteer_work">Volunteer Help</string>
-    <string name="volunteer_rewards">When you help our community you get ₹ 15</string>
+    <string name="volunteer_rewards">When you help our\ncommunity you get ₹ 15</string>
+    <string name="verify">Verify</string>
+    <string name="you_won">You won</string>
+    <string name="cpa">CPA mean Cosapa-coins</string>
+    <string name="cpa_info">1 CPA = ₹ 0.2</string>
     <string-array name="exercise_category">
         <item>Pushups</item>
         <item>Situps</item>
