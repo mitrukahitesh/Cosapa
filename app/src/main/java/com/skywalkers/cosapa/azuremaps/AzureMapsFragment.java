@@ -21,9 +21,13 @@ import androidx.fragment.app.Fragment;
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
 import com.azure.android.maps.control.controls.TrafficControl;
+import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.AnimationType;
 import com.azure.android.maps.control.options.MapStyle;
+import com.azure.android.maps.control.options.SymbolLayerOptions;
+import com.azure.android.maps.control.source.DataSource;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.skywalkers.cosapa.R;
 
@@ -78,11 +82,20 @@ public class AzureMapsFragment extends Fragment {
             //Add your post map load code here.
             map.setStyle(style(MapStyle.ROAD));
             map.controls.add(new TrafficControl());
-            map.setCamera(center(Point.fromLngLat(81.878357,
-                    25.473034)),
+            map.setCamera(center(Point.fromLngLat(81.8229,
+                    25.4319)),
                     zoom(30),
                     animationType(AnimationType.FLY),
                     animationDuration(3000));
+
+            //loading geojson
+            map.images.add("hospital",R.drawable.ic_heart);
+            DataSource source = new DataSource();
+            map.sources.add(source);
+            Feature feature = Feature.fromGeometry(Point.fromLngLat(81.8229, 25.4319));
+            source.add(feature);
+
+
         });
         Button exploreButton= view.findViewById(R.id.explorebtn);
         exploreButton.setOnClickListener(new View.OnClickListener() {
