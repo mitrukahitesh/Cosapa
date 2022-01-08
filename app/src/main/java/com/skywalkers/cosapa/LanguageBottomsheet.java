@@ -32,7 +32,7 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
     Locale myLocale;
     String currentLang;
     String currentLanguage = "en";
-    CardView englishCard,hindiCard,urduCard,punjabiCard,teluguCard,gujaratiCard;
+    CardView englishCard,hindiCard,bengalicard,punjabiCard,teluguCard,gujaratiCard;
 
 
     @SuppressLint("RestrictedApi")
@@ -47,7 +47,7 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
 
         englishCard= view.findViewById(R.id.engcard);
         hindiCard=view.findViewById(R.id.hincard);
-        urduCard=view.findViewById(R.id.urducard);
+        bengalicard=view.findViewById(R.id.bengalicard);
         punjabiCard=view.findViewById(R.id.punjabicard);
         teluguCard=view.findViewById(R.id.telugucard);
         gujaratiCard=view.findViewById(R.id.gujraticard);
@@ -64,7 +64,7 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
             case "hi":
                 Toast.makeText(getActivity().getApplicationContext(), "Hindi Selected", Toast.LENGTH_SHORT).show();
                 break;
-            case "ur":
+            case "bn":
                 Toast.makeText(getActivity().getApplicationContext(), "Urdu Selected", Toast.LENGTH_SHORT).show();
                 break;
             case "pa":
@@ -136,10 +136,10 @@ public class LanguageBottomsheet extends BottomSheetDialogFragment{
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
-        urduCard.setOnClickListener(new View.OnClickListener() {
+        bengalicard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLocale("ur");
+                setLocale("bn");
                 //to close the bottom sheet
                 ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
             }

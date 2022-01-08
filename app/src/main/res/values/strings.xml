@@ -65,6 +65,29 @@
     <string name="about_me">About Me</string>
     <string name="occupation">Occupation</string>
     <string name="contact">Contact</string>
+    <string name="appointment">Appointment</string>
+    <string name="appointment_days">In 3 days</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="appointment_confirm">Appointment Confirm</string>
+    <string name="download_receipt">Download Receipt</string>
+    <string name="call_now">Call Now</string>
+    <string name="timing_details">Timing Details</string>
+    <string name="search_doctor">Search by doctor category</string>
+    <string name="category_all">All</string>
+    <string name="category_med">Family Medicine</string>
+    <string name="category_ent">ENT</string>
+    <string name="doctors">Doctors</string>
+    <string name="heartbeat">Heartbeat</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">Temperature</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">Finish</string>
+    <string name="bio">Hi! I am Naaz</string>
+    <string name="country">India</string>
+    <string name="select_lang">Select Preffered Language</string>
     <string-array name="exercise_category">
         <item>Pushups</item>
         <item>Situps</item>

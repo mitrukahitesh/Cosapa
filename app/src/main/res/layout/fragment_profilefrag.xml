@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:padding="16sp"
-                    android:text="I am Naaz"
+                    android:text="@string/bio"
                     android:textAlignment="center"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +190,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
                                 android:includeFontPadding="false"
-                                android:text="India"
+                                android:text="@string/country"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
