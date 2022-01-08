@@ -84,6 +84,7 @@
     <string name="you_won">You won</string>
     <string name="cpa">CPA mean Cosapa-coins</string>
     <string name="cpa_info">1 CPA = ₹ 0.2</string>
+    <string name="comment">Leave a comment</string>
 
     <string name="about_me">About Me</string>
     <string name="occupation">Occupation</string>
@@ -111,6 +112,7 @@
     <string name="bio">Hi! I am Naaz</string>
     <string name="country">India</string>
     <string name="select_lang">Select Preffered Language</string>
+    <string name="family_medicine">Family Medicine</string>
 
     <string-array name="exercise_category">
         <item>Pushups</item>

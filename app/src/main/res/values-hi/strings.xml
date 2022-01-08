@@ -88,6 +88,30 @@
     <string name="finish">खत्म हो</string>
     <string name="bio">नमस्ते! मैं नाज़ी हूँ</string>
     <string name="country">इंडिया</string>
+    <string name="family_medicine">पारिवार की दवा</string>
+    <string name="select_lang">पसंदीदा भाषा चुनें</string>
+    <string name="total_rewards">अर्जित कुल पुरस्कार</string>
+    <string name="total_rewards_value">₹ 70</string>
+    <string name="rewards_value">₹ 100</string>
+    <string name="rewards_value2">₹ 250</string>
+    <string name="rewards_value3">₹ 50</string>
+    <string name="rewards_value4">₹ 10</string>
+    <string name="rewards_value5">₹15</string>
+    <string name="profile_verification">प्रोफ़ाइल सत्यापन</string>
+    <string name="profile_verify_details">अपनी प्रोफ़ाइल पूरी करें \nऔर पाएं ₹100</string>
+    <string name="doctor_consultation">डॉक्टर परामर्श</string>
+    <string name="doctor_consultation_details">डॉक्टर से परामर्श करें\na और पाएं ₹100</string>
+    <string name="friends_referrals_details">अपने दोस्तों को आमंत्रित करें\nऔर कमाएंमित्रों को आमंत्रित करें</string>
+    <string name="refer_friends">पूरी चुनौती</string>
+    <string name="challenge_completion">स्वीकार करें और पूरा करें\na चुनौती</string>
+    <string name="challenge_rewards">स्वयंसेवी सहायता</string>
+    <string name="volunteer_work">जब आप हमारे\nसमुदाय की मदद करते हैं तो आपको ₹15 . मिलते हैंसत्यापित करें</string>
+    <string name="volunteer_rewards">तुम जीते</string>
+    <string name="verify">सीपीए का मतलब है कोसापा-सिक्के</string>
+    <string name="you_won"> सीपीए = ₹ 0.2</string>
+    <string name="cpa">एक टिप्पणी छोड़ें</string>
+    <string name="cpa_info">1 CPA = ₹ 0.2</string>
+    <string name="comment">परामर्श शुल्क</string>
     <string-array name="exercise_category">
         <item>पुश अप</item>
         <item>उठक बैठक</item>

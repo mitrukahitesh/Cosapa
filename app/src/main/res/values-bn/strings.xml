@@ -88,6 +88,29 @@
     <string name="bio">ওহে! আমি নাজ</string>
     <string name="country">ভারত</string>
     <string name="select_lang">পছন্দের ভাষা নির্বাচন করুন</string>
+    <string name="family_medicine">পরিবার ঔষধ</string>
+    <string name="total_rewards">মোট পুরস্কার অর্জিত</string>
+    <string name="total_rewards_value">₹70</string>
+    <string name="rewards_value">₹ 100</string>
+    <string name="rewards_value2">₹ 250</string>
+    <string name="rewards_value3">₹50</string>
+    <string name="rewards_value4">₹ 10</string>
+    <string name="rewards_value5">₹ 15</string>
+    <string name="profile_verification">প্রোফাইল যাচাইকরণ</string>
+    <string name="profile_verify_details">আপনার প্রোফাইল সম্পূর্ণ করুন \ এবং ₹ 100 পান</string>
+    <string name="doctor_consultation">ডাক্তারের পরামর্শ</string>
+    <string name="doctor_consultation_details">ডাক্তারের সাথে পরামর্শ বুক করুন এবং ₹ 100 পান</string>
+    <string name="friends_referrals_details">আপনার বন্ধুদের আমন্ত্রণ করুন\ এবং উপার্জন করুন</string>
+    <string name="refer_friends">বন্ধুদের আমন্ত্রণ জানান</string>
+    <string name="challenge_completion">সম্পূর্ণ চ্যালেঞ্জ</string>
+    <string name="challenge_rewards">চ্যালেঞ্জ গ্রহণ করুন এবং সম্পূর্ণ করুন</string>
+    <string name="volunteer_work">স্বেচ্ছাসেবক সাহায্য</string>
+    <string name="volunteer_rewards">আপনি আমাদের\nকমিউনিটিকে সাহায্য করলে আপনি পাবেন ₹ 15</string>
+    <string name="verify">যাচাই করুন</string>
+    <string name="you_won">তুমি জিতেছিলে</string>
+    <string name="cpa">CPA মানে Cosapa-মুদ্রা</string>
+    <string name="cpa_info">1 CPA = ₹ 0.2</string>
+    <string name="comment">মতামত দিন</string>
     <string-array name="exercise_category">
         <item>উপরে তুলে ধরা</item>
         <item>সিটআপস</item>

@@ -88,6 +88,30 @@
     <string name="finish">સમાપ્ત કરો</string>
     <string name="bio">હાય! હું નાઝ છું</string>
     <string name="country">ભારત</string>
+    <string name="family_medicine">કૌટુંબિક દવા</string>
+    <string name="select_lang">પસંદગીની ભાષા પસંદ કરો</string>
+    <string name="total_rewards">કુલ પુરસ્કારો કમાયા</string>
+    <string name="total_rewards_value">₹70</string>
+    <string name="rewards_value">₹ 100</string>
+    <string name="rewards_value2">₹ 250</string>
+    <string name="rewards_value3">₹ 50</string>
+    <string name="rewards_value4">₹ 10</string>
+    <string name="rewards_value5">₹ 15</string>
+    <string name="profile_verification">પ્રોફાઇલ ચકાસણી</string>
+    <string name="profile_verify_details">તમારી પ્રોફાઇલ પૂર્ણ કરો \અને ₹ 100 મેળવો</string>
+    <string name="doctor_consultation">ડૉક્ટર કન્સલ્ટેશન</string>
+    <string name="doctor_consultation_details">ડૉક્ટર સાથે કન્સલ્ટેશન બુક કરો અને ₹ 100 મેળવો</string>
+    <string name="friends_referrals_details">તમારા મિત્રોને આમંત્રિત કરો\અને કમાઓ</string>
+    <string name="refer_friends">મિત્રોને આમંત્રિત કરો</string>
+    <string name="challenge_completion">પૂર્ણ ચેલેન્જ</string>
+    <string name="challenge_rewards">પડકારને સ્વીકારો અને પૂર્ણ કરો</string>
+    <string name="volunteer_work">સ્વયંસેવક મદદ</string>
+    <string name="volunteer_rewards">જ્યારે તમે અમારા\nસમુદાયને મદદ કરો છો ત્યારે તમને ₹ 15 મળે છે</string>
+    <string name="verify">ચકાસો</string>
+    <string name="you_won">Yતમે જીત્યા</string>
+    <string name="cpa">CPA એટલે કોસાપા-સિક્કા</string>
+    <string name="cpa_info">1 CPA = ₹ 0.2</string>
+    <string name="comment">એક ટિપ્પણી મૂકો</string>
     <string-array name="exercise_category">
         <item>પુશઅપ્સ</item>
         <item>ઉઠક બેઠક</item>

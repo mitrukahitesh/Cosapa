@@ -88,6 +88,30 @@
     <string name="finish">ਸਮਾਪਤ</string>
     <string name="bio">ਹੈਲੋ! ਮੈਂ ਨਾਜ਼ ਹਾਂ</string>
     <string name="country">ਭਾਰਤ</string>
+    <string name="family_medicine">ਪਰਿਵਾਰਕ ਦਵਾਈ</string>
+    <string name="select_lang">ਤਰਜੀਹੀ ਭਾਸ਼ਾ ਚੁਣੋ</string>
+    <string name="total_rewards">ਕੁੱਲ ਇਨਾਮ ਕਮਾਏ ਗਏ</string>
+    <string name="total_rewards_value">₹ 70</string>
+    <string name="rewards_value">₹ 100</string>
+    <string name="rewards_value2">₹ 250</string>
+    <string name="rewards_value3">₹ 50</string>
+    <string name="rewards_value4">₹ 10</string>
+    <string name="rewards_value5">₹ 15</string>
+    <string name="profile_verification">ਪ੍ਰੋਫਾਈਲ ਪੁਸ਼ਟੀਕਰਨ</string>
+    <string name="profile_verify_details">ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਪੂਰਾ ਕਰੋ \ ਅਤੇ ₹ 100 ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="doctor_consultation">ਡਾਕਟਰ ਦੀ ਸਲਾਹ</string>
+    <string name="doctor_consultation_details">ਡਾਕਟਰ ਨਾਲ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਬੁੱਕ ਕਰੋ ਅਤੇ ₹ 100 ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="friends_referrals_details">ਆਪਣੇ ਦੋਸਤਾਂ ਨੂੰ ਸੱਦਾ ਦਿਓ\ਅਤੇ ਕਮਾਓ</string>
+    <string name="refer_friends">ਦੋਸਤਾਂ ਨੂੰ ਸੱਦਾ ਦਿਓ</string>
+    <string name="challenge_completion">ਪੂਰੀ ਚੁਣੌਤੀ</string>
+    <string name="challenge_rewards">ਚੁਣੌਤੀ ਨੂੰ ਸਵੀਕਾਰ ਕਰੋ ਅਤੇ ਪੂਰਾ ਕਰੋ</string>
+    <string name="volunteer_work">ਜਦੋਂ ਤੁਸੀਂ ਸਾਡੇ ਭਾਈਚਾਰੇ ਦੀ ਮਦਦ ਕਰਦੇ ਹੋ ਤਾਂ ਤੁਹਾਨੂੰ ₹ 15 ਮਿਲਦੇ ਹਨ</string>
+    <string name="volunteer_rewards">ਪੁਸ਼ਟੀ ਕਰੋ</string>
+    <string name="verify">ਤੁਸੀ ਜਿੱਤੇ</string>
+    <string name="you_won">CPA ਦਾ ਮਤਲਬ ਹੈ ਕੋਸਾਪਾ-ਸਿੱਕੇ</string>
+    <string name="cpa">1 CPA = ₹ 0.2</string>
+    <string name="cpa_info">ਇੱਕ ਟਿੱਪਣੀ ਛੱਡੋ</string>
+    <string name="comment"></string>
     <string-array name="exercise_category">
         <item>ਪੁਸ਼ਅਪਸ</item>
         <item>ਸਿਟਅਪਸ</item>

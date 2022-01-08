@@ -445,7 +445,7 @@
                             android:fontFamily="@font/poppins_semibold"
                             android:text="@string/seedoctor"
                             android:textColor="@color/col1"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.795"
                             app:layout_constraintStart_toStartOf="parent"
@@ -488,7 +488,7 @@
                                 android:fontFamily="@font/poppins_semibold"
                                 android:text="@string/call_now"
                                 android:textColor="@color/col1"
-                                android:textSize="16sp" />
+                                android:textSize="12sp" />
 
                         </androidx.cardview.widget.CardView>
 

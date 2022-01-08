@@ -131,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:paddingHorizontal="4dp"
-                            android:text="Family Medicine"
+                            android:text="@string/family_medicine"
                             android:textAllCaps="false"
                             android:textSize="14sp" />
                     </androidx.cardview.widget.CardView>
