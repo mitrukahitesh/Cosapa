@@ -116,7 +116,7 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
 
-        app:layout_constraintEnd_toStartOf="@+id/urducard"
+        app:layout_constraintEnd_toStartOf="@+id/bengalicard"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/engcard">
@@ -150,7 +150,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/urducard"
+        android:id="@+id/bengalicard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -176,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="اردو"
+                android:text="বাংলা"
                 android:textColor="@color/black"
                 android:textSize="24dp" />
 
@@ -184,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Urdu"
+                android:text="Bengali"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
@@ -251,7 +251,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/telugucard"
-        app:layout_constraintTop_toBottomOf="@+id/urducard">
+        app:layout_constraintTop_toBottomOf="@+id/bengalicard">
 
         <LinearLayout
             android:layout_width="match_parent"

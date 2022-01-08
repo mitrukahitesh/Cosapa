@@ -1,96 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Cosapa</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="topic">مقبول موضوع</string>
-    <string name="oxygen">آکسیجن سلنڈر</string>
-    <string name="beds">ہسپتال کے بستر</string>
-    <string name="trending">ٹرینڈنگ پوسٹ</string>
-    <string name="GM">صبح بخیر !</string>
-    <string name="username">ناز</string>
-    <string name="health_status">آپ کی صحت اچھی ہے۔</string>
-    <string name="seedoctor">ڈاکٹر سے مشورہ کرنا چاہتے ہیں؟</string>
-    <string name="seedoctor2">تو آپ کیوں انتظار کر رہے ہیں؟</string>
-    <string name="resend_code_in">کوڈ دوبارہ بھیجیں۔ </string>
-    <string name="resend_code">کوڈ پھر سے بھیجو</string>
-    <string name="well_i_think">ویسے مجھے لگتا ہے...</string>
-    <string name="add_post">پوسٹ شامل کریں۔</string>
-    <string name="add_a_post">ایک پوسٹ شامل کریں۔</string>
-    <string name="post">پوسٹ</string>
-    <string name="what_do_you_want_to_post">آپ کیا پوسٹ کرنا چاہتے ہیں؟</string>
-    <string name="city">شہر شامل کریں۔</string>
-    <string name="requirement">ضرورت شامل کریں۔</string>
-    <string name="add_a_challenge">ایک چیلنج شامل کریں۔</string>
-    <string name="occupationgreet">ارے!</string>
-    <string name="title">عنوان</string>
-    <string name="dumble_squat">گونگا بیٹھنا</string>
-    <string name="steps">قدم</string>
-    <string name="step_1_n_step_2_n_step_3">- مرحلہ 1\n- مرحلہ 2\n- مرحلہ 3</string>
-    <string name="add_media_files">میڈیا / فائلیں شامل کریں۔</string>
-    <string name="challenges">چیلنجز</string>
-    <string name="challenge_image">چیلنج امیج</string>
-    <string name="done">ہو گیا</string>
-    <string name="start_now">اب شروع کریں</string>
-    <string name="completed">مکمل</string>
-    <string name="count">شمار</string>
-    <string name="save">محفوظ کریں۔</string>
-    <string name="challenge_completed">چیلنج مکمل ہو گیا۔</string>
-    <string name="congratulations">مبارک ہو!</string>
-    <string name="party_popper">🎉</string>
-    <string name="doctor_name">ڈاکٹر جبین نوتیال</string>
-    <string name="doctor_category">جنرل سرجن</string>
-    <string name="doctor_price">500$</string>
-    <string name="profile_picture">پروفائل تصویر</string>
-    <string name="get_details">تفصیلات حاصل کریں۔</string>
-    <string name="dummytextdocdetails">ڈاکٹر جوبن نوٹیال پرنٹنگ اور ٹائپ سیٹنگ انڈسٹری کا محض ڈمی ٹیکسٹ ہیں۔ Lorem Ipsum 1500 کی دہائی سے انڈسٹری کا معیاری ڈمی ٹیکسٹ رہا ہے، جب ایک نامعلوم پرنٹر نے قسم کی ایک گیلی لی اور اسے ایک قسم کے نمونے کی کتاب بنانے کے لیے گھسایا۔</string>
-    <string name="book_appointment">بک اپائنٹمنٹ</string>
-    <string name="location">مقام</string>
-    <string name="total">کل</string>
-    <string name="navigate">نیویگیٹ کریں۔</string>
-    <string name="lab">لیب</string>
-    <string name="store">اسٹور</string>
-    <string name="order_id">آرڈر کی شناخت #2034560</string>
-    <string name="confirmdocname">ڈاکٹر وینا خان سے مشاورت</string>
-    <string name="confirmdoccat">ڈرمیٹولوجی</string>
-    <string name="confirmdocloc">اچھا ہیلتھ کلینک</string>
-    <string name="watch_video">ویڈیو دیکھئیے</string>
-    <string name="locate_me">مجھے تلاش کریں۔</string>
-    <string name="note_please_wear_your_device">نوٹ: براہ کرم اپنا آلہ پہنیں۔</string>
-    <string name="make_sure">Make sure</string>
-    <string name="challenge_start_instruction">آلے کو صحیح طریقے سے رکھیں\ایک بار آرام سے "ابھی شروع کریں" پر کلک کریں۔</string>
-    <string name="_0">0</string>
-    <string name="calories_burned">کیلوریز جل گئیں۔</string>
-    <string name="essentials">آپ کے ارد گرد کی ضرورت ہے</string>
-    <string name="about_me">میرے بارے میں</string>
-    <string name="occupation">پیشہ</string>
-    <string name="contact">رابطہ کریں۔</string>
-    <string name="appointment">تقرری</string>
-    <string name="appointment_days">3 دن میں</string>
-    <string name="pay_now">اب ادا</string>
-    <string name="appointment_confirm">ملاقات کی تصدیق</string>
-    <string name="download_receipt">رسید ڈاؤن لوڈ کریں۔</string>
-    <string name="call_now">ابھی کال کریں۔</string>
-    <string name="timing_details">ٹائمنگ کی تفصیلات</string>
-    <string name="search_doctor">ڈاکٹر کے زمرے کے لحاظ سے تلاش کریں۔</string>
-    <string name="category_all">تمام</string>
-    <string name="category_med">فیملی میڈیسن</string>
-    <string name="category_ent">ENT</string>
-    <string name="doctors">ڈاکٹروں</string>
-    <string name="heartbeat">دل کی دھڑکن</string>
-    <string name="heartbeat_val">80 bpm</string>
-    <string name="temperature">درجہ حرارت</string>
-    <string name="temperature_val">37°C</string>
-    <string name="calories_val">50 kcal</string>
-    <string name="o2">O2</string>
-    <string name="o2level">95 %</string>
-    <string name="finish">ختم کرنا</string>
-    <string name="bio">ہائے! میں ناز ہوں۔</string>
-    <string name="country">انڈیا</string>
-    <string-array name="exercise_category">
-        <item>پش اپس</item>
-        <item>سیٹ اپس</item>
-        <item>اسکواٹس</item>
-    </string-array>
-</resources>
