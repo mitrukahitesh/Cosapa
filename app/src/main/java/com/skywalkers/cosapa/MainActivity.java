@@ -22,7 +22,10 @@ import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
+import com.skywalkers.cosapa.utility.RewardPopup;
 import com.skywalkers.cosapa.utility.SocketObject;
+
+import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -97,17 +100,23 @@ public class MainActivity extends AppCompatActivity {
         Map<String, Boolean> map = new HashMap<>();
         map.put("status", true);
         FirebaseFirestore.getInstance().collection("online").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).set(map);
-//        RetrofitAccessObject.getRetrofitAccessObject().getDoctorsByNameOfSymptom(RetrofitAccessObject.getBodyDoctor()).enqueue(new Callback<ArrayList<Doctor>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<Doctor>> call, Response<ArrayList<Doctor>> response) {
-//                Log.i("Cosapa", response.body().get(0).getMessage().getCatalog().getBppProviders().get(0).getDescriptor().getName());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ArrayList<Doctor>> call, Throwable t) {
-//
-//            }
-//        });
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(FirebaseAuth.getInstance().getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (task.getResult() != null) {
+                                if (task.getResult().contains("coins"))
+                                    return;
+                                RewardPopup rewardPopup = new RewardPopup(MainActivity.this, "100");
+                                rewardPopup.showDialog();
+                            }
+                        }
+                    }
+                });
     }
 
     @Override
@@ -167,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base));

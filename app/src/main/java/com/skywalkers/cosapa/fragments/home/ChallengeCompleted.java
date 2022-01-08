@@ -15,8 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
+import com.skywalkers.cosapa.utility.RewardPopup;
 
 public class ChallengeCompleted extends Fragment {
 
@@ -51,6 +53,8 @@ public class ChallengeCompleted extends Fragment {
                 navigateToHome(Navigation.findNavController(view));
             }
         });
+        RewardPopup rewardPopup = new RewardPopup(requireContext(), "10");
+        rewardPopup.showDialog();
         save = view.findViewById(R.id.save);
         countDisplay = view.findViewById(R.id.count_display);
         save.setOnClickListener(new View.OnClickListener() {

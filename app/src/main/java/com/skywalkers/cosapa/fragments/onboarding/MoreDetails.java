@@ -72,7 +72,7 @@ public class MoreDetails extends Fragment {
                     email.requestFocus();
                     return;
                 }
-                Map<String, String> details = new HashMap<>();
+                Map<String, Object> details = new HashMap<>();
                 details.put("name", name.getText().toString());
                 details.put("email", email.getText().toString());
                 details.put("number", bundle.getString("number"));
@@ -80,7 +80,7 @@ public class MoreDetails extends Fragment {
                 FirebaseFirestore.getInstance()
                         .collection("users")
                         .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                        .set(details)
+                        .update(details)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

@@ -35,6 +35,7 @@ import com.skywalkers.cosapa.MainActivity;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.adapters.CommentAdapter;
 import com.skywalkers.cosapa.models.Comment;
+import com.skywalkers.cosapa.utility.RewardPopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +128,10 @@ public class Comments extends Fragment {
                         .document(bundle.getString("id"))
                         .collection("COMMENTS")
                         .add(c);
+                if (MainActivity.POSITION.equalsIgnoreCase("General"))
+                    return;
+                RewardPopup rewardPopup = new RewardPopup(requireContext(), "15");
+                rewardPopup.showDialog();
             }
         });
     }

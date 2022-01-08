@@ -25,6 +25,7 @@ import com.skywalkers.cosapa.adapters.DoctorAdapter;
 import com.skywalkers.cosapa.models.doctorStatus.DoctorStatus;
 import com.skywalkers.cosapa.models.doctorStatus.Location;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
+import com.skywalkers.cosapa.utility.RewardPopup;
 
 import java.util.ArrayList;
 
@@ -70,6 +71,8 @@ public class Confirmation extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_confirmation_to_healthDashboard, null, options);
             }
         });
+        RewardPopup rewardPopup = new RewardPopup(requireContext(), "250");
+        rewardPopup.showDialog();
         root = view.findViewById(R.id.root);
         confirmdoctorname = view.findViewById(R.id.confirm_docname);
         confirmcategory = view.findViewById(R.id.confirmdoccattv);
