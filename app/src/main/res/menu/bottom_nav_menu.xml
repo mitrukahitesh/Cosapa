@@ -12,6 +12,7 @@
         android:id="@+id/nearby"
         android:icon="@drawable/ic_navigationarrow"
         tools:ignore="MenuTitle" />
+
     <item
         android:id="@+id/health_dashboard"
         android:icon="@drawable/ic_dashicon1"

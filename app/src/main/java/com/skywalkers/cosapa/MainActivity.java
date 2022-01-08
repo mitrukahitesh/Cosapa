@@ -22,6 +22,7 @@ import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
+import com.skywalkers.cosapa.rewards.RewardsFragment;
 import com.skywalkers.cosapa.utility.RewardPopup;
 import com.skywalkers.cosapa.utility.SocketObject;
 
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment2 = new MapFragment();
     final Fragment fragment3 = new HealthDashboardFragment();
     final Fragment fragment4 = new DoctorsFragment();
+    final Fragment fragment5= new RewardsFragment();
     final FragmentManager fm = getSupportFragmentManager();
+
     private Fragment active = fragment1;
     private Context contextOfApplication;
     public static String NAME = "Username";
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         contextOfApplication = getApplicationContext();
 
+        fm.beginTransaction().add(R.id.main_container,fragment5,"5").hide(fragment5).commit();
         fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
@@ -144,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
                     fm.beginTransaction().hide(active).show(fragment2).commit();
                     active = fragment2;
                     return true;
+
+                /*case R.id.rewards:
+                    fm.beginTransaction().hide(active).show(fragment5).commit();
+                    active = fragment5;
+                    return true;*/
 
                 case R.id.health_dashboard:
 

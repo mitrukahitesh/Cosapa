@@ -113,6 +113,7 @@
     <string name="country">India</string>
     <string name="select_lang">Select Preffered Language</string>
     <string name="family_medicine">Family Medicine</string>
+    <string name="send_to">Send to</string>
 
     <string-array name="exercise_category">
         <item>Pushups</item>

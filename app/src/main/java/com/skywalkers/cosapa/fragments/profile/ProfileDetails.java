@@ -1,15 +1,21 @@
 package com.skywalkers.cosapa.fragments.profile;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +37,7 @@ import com.skywalkers.cosapa.LocaleHelper;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.fragments.onboarding.TakePicture;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Map;
 import java.util.Objects;
 
@@ -41,7 +48,8 @@ public class ProfileDetails extends Fragment {
     private TextView name, status, occupation, location, phone, email;
     private FrameLayout root;
     private CircleImageView dp;
-    private ImageView languageSelection;
+    private ImageView languageSelection,profileShare;
+    private ConstraintLayout shareLayout;
     public static final String TAG = "bottom_sheet";
 
     public ProfileDetails() {
@@ -71,6 +79,7 @@ public class ProfileDetails extends Fragment {
         phone = view.findViewById(R.id.phone);
         email = view.findViewById(R.id.email);
         dp = view.findViewById(R.id.profile_image);
+        profileShare=view.findViewById(R.id.profile_share);
         languageSelection=view.findViewById(R.id.profile_edit);
         view.findViewById(R.id.card1).setBackgroundResource(R.drawable.dashed_border);
         view.findViewById(R.id.card2).setBackgroundResource(R.drawable.dashed_border);
@@ -83,6 +92,60 @@ public class ProfileDetails extends Fragment {
                 fragment.show(getParentFragmentManager(), TAG);
             }
         });
+        profileShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareLayout = (ConstraintLayout) LayoutInflater.from(getActivity().getApplicationContext()).inflate(R.layout.patient_details_card, null);
+                shareLayout.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                ConstraintLayout contentView = (ConstraintLayout) shareLayout.findViewById(R.id.shareLayout);
+                try {
+                    Bitmap bitmap = getBitmapFromView(contentView);
+
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, getImageUri(getActivity().getApplicationContext(), bitmap));
+                    shareIntent.setType("image/jpeg");
+                    startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
+
+                }catch (Exception e){
+                    e.getMessage();
+                }
+            }
+        });
+
+
+    }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        if (ActivityCompat.checkSelfPermission(inContext, Manifest.permission. WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            //Ask for permission
+           requestPermissions( new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        }
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
+    private Bitmap getBitmapFromView(ConstraintLayout view) {
+        try {
+
+            view.setDrawingCacheEnabled(true);
+
+            view.measure(View.MeasureSpec.makeMeasureSpec(720, View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.makeMeasureSpec(1280, View.MeasureSpec.EXACTLY));
+            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+
+            view.buildDrawingCache(true);
+            Bitmap returnedBitmap = Bitmap.createBitmap(view.getDrawingCache());
+
+            //Define a bitmap with the same size as the view
+            view.setDrawingCacheEnabled(false);
+
+            return returnedBitmap;
+        }catch (Exception e){
+
+        }
+        return null;
     }
 
     private void fetchData() {
