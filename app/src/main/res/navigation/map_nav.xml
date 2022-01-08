@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nearbyFragment"
-        android:name="com.skywalkers.cosapa.fragments.nearby.NearbyFragment"
+        android:name="com.skywalkers.cosapa.azuremaps.AzureMapsFragment"
         android:label="fragment_nearby"
-        tools:layout="@layout/fragment_nearby" />
+        tools:layout="@layout/fragment_azure_maps" />
 </navigation>

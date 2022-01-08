@@ -27,7 +27,7 @@
                     android:id="@+id/profile_edit"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/ic_notepencil"
+                    android:src="@drawable/ic_baseline_language_24"
 
                     app:layout_constraintBottom_toBottomOf="@+id/profile_image"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:padding="16sp"
-                    android:text="I am Naaz"
+                    android:text="@string/bio"
                     android:textAlignment="center"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="About me"
+                    android:text="@string/about_me"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -134,7 +134,7 @@
                                 android:fontFamily="@font/poppins_regular"
                                 android:includeFontPadding="false"
                                 android:maxLines="1"
-                                android:text="Occupation"
+                                android:text="@string/occupation"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -179,7 +179,7 @@
                                 android:fontFamily="@font/poppins_regular"
                                 android:includeFontPadding="false"
                                 android:maxLines="1"
-                                android:text="Location"
+                                android:text="@string/location"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -190,7 +190,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
                                 android:includeFontPadding="false"
-                                android:text="India"
+                                android:text="@string/country"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="Contact"
+                    android:text="@string/contact"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"

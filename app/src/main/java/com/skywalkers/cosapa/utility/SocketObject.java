@@ -7,7 +7,7 @@ import io.socket.client.Socket;
 
 public class SocketObject {
     private static Socket socket;
-    private static final String URL = "http://192.168.1.68:3000";
+    private static final String URL = "https://cosapa-server.herokuapp.com";
 
     public static Socket getSocket() throws URISyntaxException {
         if (socket == null) {

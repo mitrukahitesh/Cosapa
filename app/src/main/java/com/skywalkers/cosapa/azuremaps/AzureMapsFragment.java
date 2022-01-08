@@ -1,6 +1,5 @@
 package com.skywalkers.cosapa.azuremaps;
 
-
 import static com.azure.android.maps.control.options.AnimationOptions.animationDuration;
 import static com.azure.android.maps.control.options.AnimationOptions.animationType;
 import static com.azure.android.maps.control.options.CameraOptions.center;
@@ -8,11 +7,16 @@ import static com.azure.android.maps.control.options.CameraOptions.zoom;
 import static com.azure.android.maps.control.options.StyleOptions.style;
 
 import android.os.Bundle;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
@@ -20,13 +24,21 @@ import com.azure.android.maps.control.controls.TrafficControl;
 import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.AnimationType;
 import com.azure.android.maps.control.options.MapStyle;
+import com.azure.android.maps.control.options.SymbolLayerOptions;
 import com.azure.android.maps.control.source.DataSource;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.skywalkers.cosapa.R;
 
-public class MapActivity extends AppCompatActivity {
+public class AzureMapsFragment extends Fragment {
+    MapControl mapControl;
+    CardView cardViewmap;
 
+
+    public AzureMapsFragment() {
+        // Required empty public constructor
+    }
     static {
         AzureMaps.setSubscriptionKey("gOkBubrRwmfVe8i7HNfwS3YAzlDCMS-lL1cRW2lPmZ4");
 
@@ -34,41 +46,66 @@ public class MapActivity extends AppCompatActivity {
         //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
     }
 
-    MapControl mapControl;
-    CardView cardViewmap;
+    public static AzureMapsFragment newInstance(String param1, String param2) {
+        AzureMapsFragment fragment = new AzureMapsFragment();
+        Bundle args = new Bundle();
+
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        if (getArguments() != null) {
 
-        mapControl = findViewById(R.id.mapcontrol);
+        }
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+       return inflater.inflate(R.layout.fragment_azure_maps, container, false);
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mapControl=view.findViewById(R.id.mapcontrol);
         mapControl.onCreate(savedInstanceState);
-        cardViewmap= findViewById(R.id.mapcard);
+        cardViewmap=view.findViewById(R.id.mapcard);
         cardViewmap.setBackgroundResource(R.drawable.bottomsheet_curved);
-
-        //Wait until the map resources are ready.
         mapControl.onReady(map -> {
             //Add your post map load code here.
             map.setStyle(style(MapStyle.ROAD));
             map.controls.add(new TrafficControl());
-            map.setCamera(center(Point.fromLngLat(81.878357,
-                    25.473034)),
+            map.setCamera(center(Point.fromLngLat(81.8229,
+                    25.4319)),
                     zoom(30),
                     animationType(AnimationType.FLY),
                     animationDuration(3000));
+
+            //loading geojson
+            map.images.add("hospital",R.drawable.ic_heart);
+            DataSource source = new DataSource();
+            map.sources.add(source);
+            Feature feature = Feature.fromGeometry(Point.fromLngLat(81.8229, 25.4319));
+            source.add(feature);
+
+
         });
-        Button exploreButton= findViewById(R.id.explorebtn);
+        Button exploreButton= view.findViewById(R.id.explorebtn);
         exploreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MapActivity.this, R.style.TransparentBottomSheetDialogTheme);
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext(), R.style.TransparentBottomSheetDialogTheme);
                 bottomSheetDialog.setContentView(R.layout.nearby_bottomsheet);
                 bottomSheetDialog.show();
             }
         });
-
     }
 
     @Override
@@ -78,7 +115,7 @@ public class MapActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    public void onStart(){
         super.onStart();
         mapControl.onStart();
     }
@@ -102,13 +139,14 @@ public class MapActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         mapControl.onDestroy();
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapControl.onSaveInstanceState(outState);
-    }}
+    }
+}

@@ -57,7 +57,7 @@ public class FeedFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (recyclerView == null) {
-            adapter = new PostAdapter(getContext());
+            adapter = new PostAdapter(getContext(), Navigation.findNavController(view));
         } else {
             adapter = (PostAdapter) recyclerView.getAdapter();
         }

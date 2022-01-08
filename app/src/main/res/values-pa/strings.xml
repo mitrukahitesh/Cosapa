@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cosapa</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="topic">ਪ੍ਰਸਿੱਧ ਵਿਸ਼ਾ</string>
+    <string name="oxygen">ਆਕਸੀਜਨ ਸਿਲੰਡਰ</string>
+    <string name="beds">ਹਸਪਤਾਲ ਦੇ ਬਿਸਤਰੇ</string>
+    <string name="trending">ਪ੍ਰਚਲਿਤ ਪੋਸਟ</string>
+    <string name="GM">ਸ਼ੁਭ ਸਵੇਰ !</string>
+    <string name="username">ਨਾਜ਼</string>
+    <string name="health_status">ਤੁਹਾਡੀ ਸਿਹਤ ਚੰਗੀ ਹੈ</string>
+    <string name="seedoctor">ਡਾਕਟਰ ਨਾਲ ਸਲਾਹ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+    <string name="seedoctor2">ਤਾਂ ਤੁਸੀਂ ਇੰਤਜ਼ਾਰ ਕਿਉਂ ਕਰ ਰਹੇ ਹੋ?</string>
+    <string name="resend_code_in">ਵਿੱਚ ਕੋਡ ਦੁਬਾਰਾ ਭੇਜੋ </string>
+    <string name="resend_code">ਕੋਡ ਦੁਬਾਰਾ ਭੇਜੋ</string>
+    <string name="well_i_think">ਖੈਰ ਮੈਂ ਸੋਚਦਾ ਹਾਂ ...</string>
+    <string name="add_post">ਪੋਸਟ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="add_a_post">ਇੱਕ ਪੋਸਟ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="post">ਪੋਸਟ</string>
+    <string name="what_do_you_want_to_post">ਤੁਸੀਂ ਕੀ ਪੋਸਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+    <string name="city">ਸ਼ਹਿਰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="requirement">Add ਲੋੜ</string>
+    <string name="add_a_challenge">Add ਇੱਕ ਚੁਣੌਤੀ</string>
+    <string name="occupationgreet">ਹੇ!</string>
+    <string name="title">ਸਿਰਲੇਖ</string>
+    <string name="dumble_squat">ਡੰਬਲ squat</string>
+    <string name="steps">ਕਦਮ</string>
+    <string name="step_1_n_step_2_n_step_3">- ਕਦਮ 1\n- ਕਦਮ 2\n- ਕਦਮ 3</string>
+    <string name="add_media_files">ਮੀਡੀਆ / ਫਾਈਲਾਂ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="challenges">ਚੁਣੌਤੀਆਂ</string>
+    <string name="challenge_image">ਚੁਣੌਤੀ ਚਿੱਤਰ</string>
+    <string name="done">ਹੋ ਗਿਆ</string>
+    <string name="start_now">ਹੁਣੇ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="completed">ਪੂਰਾ ਹੋਇਆ</string>
+    <string name="count">ਗਿਣਤੀ</string>
+    <string name="save">ਸੇਵ ਕਰੋ</string>
+    <string name="challenge_completed">ਚੁਣੌਤੀ ਪੂਰੀ ਹੋਈ</string>
+    <string name="congratulations">ਵਧਾਈਆਂ!</string>
+    <string name="party_popper">🎉</string>
+    <string name="doctor_name">ਜੁਬਿਨ ਨੌਟਿਆਲ ਡਾ</string>
+    <string name="doctor_category">ਜਨਰਲ ਸਰਜਨ</string>
+    <string name="doctor_price">500$</string>
+    <string name="profile_picture">ਪ੍ਰੋਫਾਈਲ ਤਸਵੀਰ</string>
+    <string name="get_details">ਵੇਰਵੇ ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="dummytextdocdetails">ਡਾ. ਜੁਬਿਨ ਨੌਟਿਆਲ ਛਪਾਈ ਅਤੇ ਟਾਈਪਸੈਟਿੰਗ ਉਦਯੋਗ ਦਾ ਸਿਰਫ਼ ਨਕਲੀ ਟੈਕਸਟ ਹੈ। Lorem Ipsum 1500 ਦੇ ਦਹਾਕੇ ਤੋਂ ਉਦਯੋਗਿਕ ਮਿਆਰੀ ਡਮੀ ਟੈਕਸਟ ਰਿਹਾ ਹੈ, ਜਦੋਂ ਇੱਕ ਅਣਜਾਣ ਪ੍ਰਿੰਟਰ ਨੇ ਕਿਸਮ ਦੀ ਇੱਕ ਗੈਲੀ ਲੈ ਲਈ ਅਤੇ ਇੱਕ ਕਿਸਮ ਦੇ ਨਮੂਨੇ ਦੀ ਕਿਤਾਬ ਬਣਾਉਣ ਲਈ ਇਸਨੂੰ ਰਗੜਿਆ।</string>
+    <string name="book_appointment">ਬੁੱਕ ਮੁਲਾਕਾਤ</string>
+    <string name="location">ਸਥਾਨ</string>
+    <string name="total">ਟੋਟਾl</string>
+    <string name="navigate">ਨੈਵੀਗੇਟ ਕਰੋ</string>
+    <string name="lab">ਲੈਬ</string>
+    <string name="store">ਸਟੋਰ</string>
+    <string name="order_id">ਆਰਡਰ ਆਈ.ਡੀ #2034560</string>
+    <string name="confirmdocname">ਡਾ.ਵੀਨਾ ਖਾਨ ਨਾਲ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਕੀਤਾ</string>
+    <string name="confirmdoccat">ਚਮੜੀ ਵਿਗਿਆਨ</string>
+    <string name="confirmdocloc">ਚੰਗੀ ਸਿਹਤ ਕਲੀਨਿਕ</string>
+    <string name="watch_video">ਵੀਡੀਓ ਦੇਖੋ</string>
+    <string name="locate_me">ਮੈਨੂੰ ਲੱਭੋ </string>
+    <string name="note_please_wear_your_device">ਨੋਟ: ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਡਿਵਾਈਸ ਪਹਿਨੋ</string>
+    <string name="make_sure">ਯਕੀਨੀ ਕਰ ਲਓ</string>
+    <string name="challenge_start_instruction">Place the device properly\nClick on "Start Now" once comfortable</string>
+    <string name="_0">0</string>
+    <string name="calories_burned"> ਕੈਲੋਰੀ ਬਰਨ</string>
+    <string name="essentials">ਤੁਹਾਡੀ ਆਸ-ਪਾਸ ਜ਼ਰੂਰੀ</string>
+    <string name="about_me">ਮੇਰੇ ਵਿੱਚ</string>
+    <string name="occupation">ਪੇਸ਼ਾ</string>
+    <string name="contact">ਸੰਪਰਕ ਕਰੋ</string>
+    <string name="appointment">ਮੁਲਾਕਾਤ</string>
+    <string name="appointment_days">3 ਦਿਨਾਂ ਵਿੱਚ</string>
+    <string name="pay_now">ਹੁਣੇ ਭੁਗਤਾਨ ਕਰੋ</string>
+    <string name="appointment_confirm">ਮੁਲਾਕਾਤ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
+    <string name="download_receipt">ਰਸੀਦ ਡਾਊਨਲੋਡ ਕਰੋ</string>
+    <string name="call_now">ਹੁਣੇ ਕਾਲ ਕਰੋ</string>
+    <string name="timing_details">ਟਾਈਮਿੰਗ ਵੇਰਵੇ</string>
+    <string name="search_doctor">ਡਾਕਟਰ ਸ਼੍ਰੇਣੀ ਦੁਆਰਾ ਖੋਜ ਕਰੋ</string>
+    <string name="category_all">ਸਾਰੇ</string>
+    <string name="category_med">ਪਰਿਵਾਰਕ ਦਵਾਈ</string>
+    <string name="category_ent">ਈ.ਐਨ.ਟੀ</string>
+    <string name="doctors">ਡਾਕਟਰ</string>
+    <string name="heartbeat">ਦਿਲ ਦੀ ਧੜਕਣ</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">ਤਾਪਮਾਨ </string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">ਸਮਾਪਤ</string>
+    <string name="bio">ਹੈਲੋ! ਮੈਂ ਨਾਜ਼ ਹਾਂ</string>
+    <string name="country">ਭਾਰਤ</string>
+    <string-array name="exercise_category">
+        <item>ਪੁਸ਼ਅਪਸ</item>
+        <item>ਸਿਟਅਪਸ</item>
+        <item>ਸਕੁਐਟਸ</item>
+    </string-array>
+</resources>

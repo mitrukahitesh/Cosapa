@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cosapa</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="topic">લોકપ્રિય વિષય</string>
+    <string name="oxygen">ઓક્સિજન સિલિન્ડર</string>
+    <string name="beds">હોસ્પિટલ પથારી</string>
+    <string name="trending">ટ્રેન્ડિંગ પોસ્ટ</string>
+    <string name="GM">સુપ્રભાત !</string>
+    <string name="username">નાઝ</string>
+    <string name="health_status">તમારું સ્વાસ્થ્ય સારું છે</string>
+    <string name="seedoctor">ડૉક્ટરની સલાહ લેવી છે?</string>
+    <string name="seedoctor2">ડૉક્ટરની સલાહ લેવી છે?</string>
+    <string name="resend_code_in">માં કોડ ફરીથી મોકલો </string>
+    <string name="resend_code">કોડ ફરીથી મોકલો</string>
+    <string name="well_i_think">કોડ ફરીથી મોકલો...</string>
+    <string name="add_post">પોસ્ટ ઉમેરો</string>
+    <string name="add_a_post">એક પોસ્ટ ઉમેરો</string>
+    <string name="post">પોસ્ટ</string>
+    <string name="what_do_you_want_to_post">તમે શું પોસ્ટ કરવા માંગો છો?</string>
+    <string name="city">શહેર ઉમેરો</string>
+    <string name="requirement">જરૂરિયાત ઉમેરો</string>
+    <string name="add_a_challenge">એક પડકાર ઉમેરો</string>
+    <string name="occupationgreet">અરે!</string>
+    <string name="title">શીર્ષક</string>
+    <string name="dumble_squat">ડમ્બેલ સ્ક્વોટ</string>
+    <string name="steps">પગલાં</string>
+    <string name="step_1_n_step_2_n_step_3">- પગલું 1\n- પગલું 2\n- પગલું 3</string>
+    <string name="add_media_files">મીડિયા / ફાઇલો ઉમેરો</string>
+    <string name="challenges">પડકારો</string>
+    <string name="challenge_image">ચેલેન્જ ઈમેજ</string>
+    <string name="done">થઈ ગયું</string>
+    <string name="start_now">અત્યારે શરુ કરો</string>
+    <string name="completed">પૂર્ણ થયું</string>
+    <string name="count">ગણતરી</string>
+    <string name="save">સાચવો</string>
+    <string name="challenge_completed">પડકાર પૂર્ણ થયો</string>
+    <string name="congratulations">અભિનંદન!</string>
+    <string name="party_popper">🎉</string>
+    <string name="doctor_name">ડો.જુબીન નૌટીયાલ</string>
+    <string name="doctor_category">જનરલ સર્જન</string>
+    <string name="doctor_price">500$</string>
+    <string name="profile_picture">પ્રોફાઇલ ચિત્ર</string>
+    <string name="get_details">વિગતો મેળવો</string>
+    <string name="dummytextdocdetails">ડૉ. જુબિન નૌટિયાલ એ પ્રિન્ટિંગ અને ટાઇપસેટિંગ ઉદ્યોગનું ખાલી ડમી ટેક્સ્ટ છે. 1500 ના દાયકાથી લોરેમ ઇપ્સમ એ ઇન્ડસ્ટ્રી સ્ટાન્ડર્ડ ડમી ટેક્સ્ટ છે, જ્યારે એક અજ્ઞાત પ્રિન્ટરે ટાઇપની ગેલી લીધી અને તેને ટાઇપ સ્પેસિમેન બુક બનાવવા માટે સ્ક્રેમ્બલ કર્યું.</string>
+    <string name="book_appointment">બુક એપોઇન્ટમેન્ટ</string>
+    <string name="location">સ્થળ</string>
+    <string name="total">કુલ</string>
+    <string name="navigate">નેવિગેટ કરો</string>
+    <string name="lab">લેબ</string>
+    <string name="store">દુકાન</string>
+    <string name="order_id">ઓર્ડર આઈડી #2034560</string>
+    <string name="confirmdocname">ડૉ.વીણા ખાન સાથે પરામર્શ</string>
+    <string name="confirmdoccat">ત્વચારોગવિજ્ઞાન</string>
+    <string name="confirmdocloc">સારું આરોગ્ય ક્લિનિક</string>
+    <string name="watch_video">વિડીયો જુઓ</string>
+    <string name="locate_me">મને શોધો</string>
+    <string name="note_please_wear_your_device">નોંધ: કૃપા કરીને તમારું ઉપકરણ પહેરો</string>
+    <string name="make_sure">ખાત્રિ કર</string>
+    <string name="challenge_start_instruction">ઉપકરણને યોગ્ય રીતે મૂકો\nજ્યારે આરામદાયક લાગે ત્યારે "હવે પ્રારંભ કરો" પર ક્લિક કરો</string>
+    <string name="_0">0</string>
+    <string name="calories_burned">કેલરી બળી</string>
+    <string name="essentials">તમારી આસપાસ જરૂરી છે</string>
+    <string name="about_me">.</string>
+    <string name="occupation">વ્યવસાય</string>
+    <string name="contact">સંપર્ક કરો</string>
+    <string name="appointment">નિમણૂક</string>
+    <string name="appointment_days">3 દિવસમાં</string>
+    <string name="pay_now">હવે પૈસા આપો</string>
+    <string name="appointment_confirm">એપોઇન્ટમેન્ટ કન્ફર્મ</string>
+    <string name="download_receipt">રસીદ ડાઉનલોડ કરો</string>
+    <string name="call_now">હવે કૉલ કરો</string>
+    <string name="timing_details">સમયની વિગતો</string>
+    <string name="search_doctor">ડૉક્ટર શ્રેણી દ્વારા શોધો</string>
+    <string name="category_all">બધા</string>
+    <string name="category_med">કૌટુંબિક દવા</string>
+    <string name="category_ent">ENT</string>
+    <string name="doctors">ડોકટરો</string>
+    <string name="heartbeat">ધબકારા</string>
+    <string name="heartbeat_val">80 bpm</string>
+    <string name="temperature">તાપમાન</string>
+    <string name="temperature_val">37°C</string>
+    <string name="calories_val">50 kcal</string>
+    <string name="o2">O2</string>
+    <string name="o2level">95 %</string>
+    <string name="finish">સમાપ્ત કરો</string>
+    <string name="bio">હાય! હું નાઝ છું</string>
+    <string name="country">ભારત</string>
+    <string-array name="exercise_category">
+        <item>પુશઅપ્સ</item>
+        <item>ઉઠક બેઠક</item>
+        <item>સ્ક્વોટ્સ</item>
+    </string-array>
+</resources>
