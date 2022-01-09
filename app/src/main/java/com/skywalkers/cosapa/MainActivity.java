@@ -6,15 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,11 +24,9 @@ import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
-import com.skywalkers.cosapa.rewards.RewardsFragment;
+import com.skywalkers.cosapa.rewards.RewardsActivity;
 import com.skywalkers.cosapa.utility.RewardPopup;
 import com.skywalkers.cosapa.utility.SocketObject;
-
-import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment2 = new MapFragment();
     final Fragment fragment3 = new HealthDashboardFragment();
     final Fragment fragment4 = new DoctorsFragment();
-    final Fragment fragment5= new RewardsFragment();
     final FragmentManager fm = getSupportFragmentManager();
+
+    FloatingActionButton rewardsFab;
 
     private Fragment active = fragment1;
     private Context contextOfApplication;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        rewardsFab= findViewById(R.id.fab);
         try {
             SocketObject.getSocket();
         } catch (URISyntaxException e) {
@@ -67,12 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
         contextOfApplication = getApplicationContext();
 
-        fm.beginTransaction().add(R.id.main_container,fragment5,"5").hide(fragment5).commit();
         fm.beginTransaction().add(R.id.main_container, fragment4, "4").hide(fragment4).commit();
         fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
         active = fragment1;
+
+        rewardsFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RewardsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         getPersonalDetails();
     }
@@ -149,10 +158,6 @@ public class MainActivity extends AppCompatActivity {
                     active = fragment2;
                     return true;
 
-                /*case R.id.rewards:
-                    fm.beginTransaction().hide(active).show(fragment5).commit();
-                    active = fragment5;
-                    return true;*/
 
                 case R.id.health_dashboard:
 
