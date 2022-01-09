@@ -114,6 +114,8 @@
     <string name="select_lang">Select Preffered Language</string>
     <string name="family_medicine">Family Medicine</string>
     <string name="send_to">Send to</string>
+    <string name="speech_prompt">Say Something..</string>
+    <string name="speech_not_supported">Speech not supported</string>
 
     <string-array name="exercise_category">
         <item>Pushups</item>

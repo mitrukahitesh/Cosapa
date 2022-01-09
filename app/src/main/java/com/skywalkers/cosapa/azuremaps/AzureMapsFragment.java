@@ -1,17 +1,22 @@
 package com.skywalkers.cosapa.azuremaps;
 
+import static android.app.Activity.RESULT_OK;
 import static com.azure.android.maps.control.options.AnimationOptions.animationDuration;
 import static com.azure.android.maps.control.options.AnimationOptions.animationType;
 import static com.azure.android.maps.control.options.CameraOptions.center;
 import static com.azure.android.maps.control.options.CameraOptions.zoom;
 import static com.azure.android.maps.control.options.StyleOptions.style;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,13 +32,19 @@ import com.azure.android.maps.control.options.MapStyle;
 import com.azure.android.maps.control.options.SymbolLayerOptions;
 import com.azure.android.maps.control.source.DataSource;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.skywalkers.cosapa.R;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class AzureMapsFragment extends Fragment {
     MapControl mapControl;
     CardView cardViewmap;
+    private String searchedLocation;
+    private final int REQ_CODE_SPEECH_INPUT = 100;
 
 
     public AzureMapsFragment() {
@@ -76,15 +87,15 @@ public class AzureMapsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mapControl=view.findViewById(R.id.mapcontrol);
         mapControl.onCreate(savedInstanceState);
-        cardViewmap=view.findViewById(R.id.mapcard);
-        cardViewmap.setBackgroundResource(R.drawable.bottomsheet_curved);
+        FloatingActionButton findFab= view.findViewById(R.id.findFab);
+
         mapControl.onReady(map -> {
             //Add your post map load code here.
             map.setStyle(style(MapStyle.ROAD));
             map.controls.add(new TrafficControl());
             map.setCamera(center(Point.fromLngLat(81.8229,
                     25.4319)),
-                    zoom(30),
+                    zoom(16),
                     animationType(AnimationType.FLY),
                     animationDuration(3000));
 
@@ -97,14 +108,78 @@ public class AzureMapsFragment extends Fragment {
 
 
         });
-        Button exploreButton= view.findViewById(R.id.explorebtn);
-        exploreButton.setOnClickListener(new View.OnClickListener() {
+        findFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext(), R.style.TransparentBottomSheetDialogTheme);
-                bottomSheetDialog.setContentView(R.layout.nearby_bottomsheet);
-                bottomSheetDialog.show();
+                promptSpeechInput();
             }
+        });
+
+    }
+    private void promptSpeechInput() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speech_prompt));
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getActivity().getApplicationContext(),
+                    getString(R.string.speech_not_supported),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    //txtSpeechInput.setText(result.get(0));
+                    searchedLocation= result.get(0);
+                    Toast.makeText(getActivity().getApplicationContext(), result.get(0), Toast.LENGTH_SHORT).show();
+                    if(searchedLocation.equalsIgnoreCase("Hospital Bed"))
+                    {
+                        onMapRefresh(81.82171305531897,25.427889005315237);
+                        //,
+                    }
+                    else if(searchedLocation.equalsIgnoreCase("Medical Store"))
+                    {
+                        onMapRefresh(81.81974808592769,25.43062813370959);
+                    }
+                    //,
+                    else if(searchedLocation.equalsIgnoreCase("Oxygen"))
+                    {
+                        onMapRefresh(81.81831698407267,25.430756965742464);
+                    }
+                    else if(searchedLocation.equalsIgnoreCase("Blood Test"))
+                    {
+                        onMapRefresh(81.81614752454469,25.427420947778323);
+                    }
+
+
+                }
+                break;
+            }
+
+        }
+    }
+    public void onMapRefresh(Double longitude, Double latitude)
+    {
+        mapControl.onReady(map -> {
+            //Add your post map load code here.
+            map.setStyle(style(MapStyle.ROAD));
+            map.setCamera(center(Point.fromLngLat(longitude,
+                    latitude)),
+                    zoom(16),
+                    animationType(AnimationType.FLY),
+                    animationDuration(3000));
         });
     }
 
