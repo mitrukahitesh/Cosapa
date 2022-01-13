@@ -108,7 +108,7 @@ The .apk file produced on building the project will require an Android device/em
 These are the results of survey conducted by us<br>
 
 <div>
-  <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/videos/architecture.gif"  height=480 width=1296/>
+  <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/videos/survey.gif"  height=480 width=1296/>
 </div>
 
 ## Technologies that have been used in this project
