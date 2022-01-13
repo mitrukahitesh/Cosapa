@@ -22,9 +22,7 @@ Additionally, fitness experts can post challenges for various exercises which ar
 - HC-SR04
 
 <p>
-<figure class="video_container">
-  <iframe src="https://github.com/mitrukahitesh/Cosapa/blob/main/videos/cosapa_device.gif" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+![Cosapa Device](https://github.com/mitrukahitesh/Cosapa/blob/main/videos/cosapa_device.gif)
 <img height=350px src = "https://github.com/naazkakria/Beckn-a-thon/blob/main/assets/WhatsApp%20Image%202021-10-12%20at%204.34.07%20PM%20(5).jpeg?raw=true" />
 </p>
 
