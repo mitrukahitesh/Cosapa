@@ -2,17 +2,17 @@
 
 # Cosapa
 
-## Built at Beckn-a-thon
+## Built at Microsoft Imagine Cup
 
 ### A one stop solution for remote health-care and fitness
 
 ## What is Cosapa?
 
-Cosapa is a platform driven by Android, IoT and Beckn protocol that aims in making health consultation services completely virtual, physical fitness a engaging activity and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during online consultation. Our app, with the help of Beckn protocol, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigate to the exact location of the same.
+Cosapa is a platform driven by Android, IoT and Microsoft Azure Services that aims in making health consultation services completely virtual, physical fitness an engaging activity, and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during online consultation. Our app, with the help of Azure Maps, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigate to the exact location of the same through Google Assistant powered voice interaction.
 
-Users can also post help requests like blood requirement, hospital bed requirement, etc which is transmitted to every user of our app in form of feed which helps in attracting help from a larger community.
+Users can also post about emergency requirements like oxygen, hospital beds, etc and verified volunteers from Cosapa would help them. For every helping hand, Cosapa volunteers get rewarded with Cosapa coins.
 
-Additionally, users can post challenges for various exercises which are taken by other users which makes fitness activity fun, interactive and engaging. The best part about this feature is that the number of sets of exercise performed is monitored by our IoT device, thus making our platform more fun and authentic.
+Additionally, fitness experts can post challenges for various exercises which are taken by other users which makes fitness activity fun, interactive, and engaging. The best part about this feature is that the number of sets of exercise performed is monitored by our IoT device, thus making our platform more fun and authentic. Cosapa platform is completely gamified and rewards users with in-app currency, Cosapa coins which can further be exchanged for goods and services among Cosapa partner services.
 
 ### Hardware Used
 
