@@ -192,5 +192,5 @@ These are the results of survey conducted by us<br>
 <h1 align=center>Happy Learning 👨‍💻 </h1>
 
 <p align="center">
-	<img src="assets/robo.gif?raw=true" width="300px"/>
+	<img src="https://github.com/IoT-Buzz/IoT/blob/main/assets/robo.gif" width="300px"/>
 </p>
