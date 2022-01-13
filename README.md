@@ -131,11 +131,13 @@ These are the results of survey conducted by us<br>
 ## Links
 
 [Android App](https://drive.google.com/file/d/1yeJ8yikNXCaZAQ1WIk0SvFAaidjnn_Nc/view?usp=sharing)<br>
-[IoT Code Repository](https://github.com/naazkakria/Beckn-a-thon)<br>
+
+<!-- [IoT Code Repository](https://github.com/naazkakria/Beckn-a-thon)<br> -->
+
 [Beckn](https://github.com/beckn)<br>
 [About Cosapa](https://www.youtube.com/watch?v=8h2DhV9YSqw)
 
-## Our Team
+<!-- ## Our Team
 
 <div>
     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/naaz.png?raw=true"  height=72 width=72 style="border-radius: 50%;"/>
@@ -164,4 +166,31 @@ These are the results of survey conducted by us<br>
     <a href="https://in.linkedin.com/in/nxsumityadav"><b>Sumit Kumar</b></a>
     <br>
     <br>
-  </div>
+  </div> -->
+
+<p align = "center"><h1  align = "center"> ❤️ Our Team </h1> </p>
+<table align = "center">
+<tr>
+<td align="center"><a href="https://github.com/naazkakria"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/naaz.png?raw=true" width=100px height=100px /></a></br> 
+	<a href = "https://www.linkedin.com/in/naaz-kakria-b63a30193/" ">Naaz</a>
+</td>
+
+<td align="center" ><a href="https://github.com/shikhar8434"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/shikhar.png?raw=true" width=100px height=100px /></a></br> 	<a href = "https://www.linkedin.com/in/shikhar236/" style="color:red;">Shikhar</a>
+</td>
+
+<td align="center"><a href="https://github.com/mitrukahitesh"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/hitesh.png?raw=true" width=100px height=100px /></a></br> 
+<a href = "https://www.linkedin.com/in/mitrukahitesh">Hardik Chopra</a>
+</td>
+
+<td align="center"><a href="https://github.com/nxsumityadav"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/sumit.png?raw=true" width=100px height=100px /></a></br> 
+		<a href = "https://www.linkedin.com/in/nxsumityadav/">Arpit Jha</a>
+</td>
+
+</tr>
+</table>
+
+<h1 align=center>Happy Learning 👨‍💻 </h1>
+
+<p align="center">
+	<img src="assets/robo.gif?raw=true" width="300px"/>
+</p>
