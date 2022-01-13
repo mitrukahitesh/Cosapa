@@ -179,11 +179,11 @@ These are the results of survey conducted by us<br>
 </td>
 
 <td align="center"><a href="https://github.com/mitrukahitesh"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/hitesh.png?raw=true" width=100px height=100px /></a></br> 
-<a href = "https://www.linkedin.com/in/mitrukahitesh">Hardik Chopra</a>
+<a href = "https://www.linkedin.com/in/mitrukahitesh">Hitesh</a>
 </td>
 
 <td align="center"><a href="https://github.com/nxsumityadav"><img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/sumit.png?raw=true" width=100px height=100px /></a></br> 
-		<a href = "https://www.linkedin.com/in/nxsumityadav/">Arpit Jha</a>
+		<a href = "https://www.linkedin.com/in/nxsumityadav/">Sumit</a>
 </td>
 
 </tr>
