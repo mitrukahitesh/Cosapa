@@ -23,7 +23,6 @@ Additionally, fitness experts can post challenges for various exercises which ar
 
 <p>
 <img height=350px src = "https://github.com/mitrukahitesh/Cosapa/blob/main/videos/cosapa_device.gif" />
-<img height=350px src = "https://github.com/naazkakria/Beckn-a-thon/blob/main/assets/WhatsApp%20Image%202021-10-12%20at%204.34.07%20PM%20(5).jpeg?raw=true" />
 </p>
 
 ## Development Setup
@@ -42,7 +41,7 @@ The .apk file produced on building the project will require an Android device/em
 
 <ol type='A'>
 <li>Clone the repository on your device, and build the project using Android Studio and run on the connected Android device/emulator.</li>
-<li>Download the apk from <a href="https://drive.google.com/file/d/1PjXGN77MkfmyZtQnq2E78M0geBRLxJiR/view?usp=sharing">here </a>
+<li>Download the apk from <a href="https://drive.google.com/file/d/1yeJ8yikNXCaZAQ1WIk0SvFAaidjnn_Nc/view?usp=sharing">here </a>
    and install and run on your Android device.</li>
 </ol>
 
@@ -91,7 +90,7 @@ The .apk file produced on building the project will require an Android device/em
 ## Architecture of App
 
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/architecture.png?raw=true"  height=480 width=1296/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/architecture.mov"  height=480 width=1296/>
   </div>
 
 ## Survey Results
@@ -116,7 +115,7 @@ These are the results of survey conducted by us<br>
 
 ## Links
 
-[Android App](https://drive.google.com/file/d/1PjXGN77MkfmyZtQnq2E78M0geBRLxJiR/view)<br>
+[Android App](https://drive.google.com/file/d/1yeJ8yikNXCaZAQ1WIk0SvFAaidjnn_Nc/view?usp=sharing)<br>
 [IoT Code Repository](https://github.com/naazkakria/Beckn-a-thon)<br>
 [Beckn](https://github.com/beckn)<br>
 [About Cosapa](https://www.youtube.com/watch?v=8h2DhV9YSqw)
