@@ -14,6 +14,10 @@ Users can also post about emergency requirements like oxygen, hospital beds, etc
 
 Additionally, fitness experts can post challenges for various exercises which are taken by other users which makes fitness activity fun, interactive, and engaging. The best part about this feature is that the number of sets of exercise performed is monitored by our IoT device, thus making our platform more fun and authentic. Cosapa platform is completely gamified and rewards users with in-app currency, Cosapa coins which can further be exchanged for goods and services among Cosapa partner services.
 
+### Our Achievements
+
+We were rewarded the <b>first runner up's</b> postion at Beckn Protocol's Beckn-a-thon 2021 this December. Here is the link for official [Linkedin Post](https://www.linkedin.com/posts/becknprotocol_beckn-a-thon-first-runner-up-cosapa-activity-6874972556143706112-PKcW)
+
 ### Hardware Used
 
 - ESP8266
@@ -50,39 +54,45 @@ The .apk file produced on building the project will require an Android device/em
 <ol>
   <li><b>Help Posts: </b>Seek medical help from the community</li>
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-24-47-590_com.skywalkers.cosapa.jpg?raw=true" height=300/>
-     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-20-615_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/1.jpg?raw=true" height=300/>
+     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/2.jpg?raw=true" height=300/>
   </div>
 
   <li><b>Challenges: </b>Add fitness challenge and complete challenges using IoT device</li>
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-24-47-590_com.skywalkers.cosapa.jpg?raw=true" height=300/>
-     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-26-848_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-28-726_com.skywalkers.cosapa.jpg?raw=true" height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-34-736_com.skywalkers.cosapa.jpg?raw=true" height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-46-024_com.skywalkers.cosapa.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/1.jpg?raw=true" height=300/>
+     <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/3.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/4.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/5.jpg?raw=true" height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/6.jpg?raw=true" height=300/>
   </div>
 
   <li><b>Health Dashboard: </b>Monitor health with our IoT device and keep it updated on dashboard</li>
   <div style='display:flex;flex-direction:row'>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-26-53-816_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-29-44-974_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-30-14-738_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-30-20-096_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/7.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/8.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/9.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/11.jpg?raw=true"  height=300/>
   </div>
 
   <li><b>Online consultation: </b>Appoint a doctor for online consultation</li>
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-03-459_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-11-719_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-27-19-885_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-28-02-108_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/12.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/13.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/14.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/6.jpg?raw=true"  height=300/>
+  </div>
+
+  <li><b>Rewards and Recognization: </b>Get Cosapa coins for in-app activities</li>
+  <div>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/18.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/6.jpg?raw=true"  height=300/>
   </div>
 
   <li><b>Nearby Services: </b>Search nearby pharmacies and labs for prescribed medicine and test</li>
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-19-25-46-966_com.skywalkers.cosapa.jpg?raw=true"  height=300/>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/Screenshot_2021-10-16-20-28-51-379_com.google.android.apps.maps.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/16.jpg?raw=true"  height=300/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/screenshots/17.jpg?raw=true"  height=300/>
   </div>
 
 </ol>
@@ -105,12 +115,18 @@ These are the results of survey conducted by us<br>
 ## Technologies that have been used in this project
 
 <ol>
-  <li>Beckn Protocol</li>
   <li>IoT</li>
+  <li>Azure IoT Hub</li>
+  <li>Azure Data Explorer</li>
+  <li>Azure Active Directory</li>
+  <li>Azure Maps</li>
   <li>Android</li>
+  <li>Node.js</li>
   <li>Firebase Firestore</li>
   <li>Firebase Realtime Database</li>
+  <li>Firebase Storage</li>
   <li>Firebase Authentication</li>
+  <li>Beckn Protocol</li>
 </ol>
 
 ## Links
