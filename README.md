@@ -132,7 +132,7 @@ These are the results of survey conducted by us<br>
 
 [Android App](https://drive.google.com/file/d/1yeJ8yikNXCaZAQ1WIk0SvFAaidjnn_Nc/view?usp=sharing)<br>
 
-<!-- [IoT Code Repository](https://github.com/naazkakria/Beckn-a-thon)<br> -->
+[IoT Code Repository](https://github.com/naazkakria/Cosapa-imagine-cup)<br>
 
 [Beckn](https://github.com/beckn)<br>
 [About Cosapa](https://www.youtube.com/watch?v=8h2DhV9YSqw)
@@ -188,9 +188,3 @@ These are the results of survey conducted by us<br>
 
 </tr>
 </table>
-
-<h1 align=center>Happy Learning 👨‍💻 </h1>
-
-<p align="center">
-	<img src="https://github.com/IoT-Buzz/IoT/blob/main/assets/robo.gif" width="300px"/>
-</p>
