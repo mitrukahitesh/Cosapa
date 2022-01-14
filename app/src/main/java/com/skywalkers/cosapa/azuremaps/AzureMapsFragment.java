@@ -51,7 +51,7 @@ public class AzureMapsFragment extends Fragment {
         // Required empty public constructor
     }
     static {
-        AzureMaps.setSubscriptionKey("gOkBubrRwmfVe8i7HNfwS3YAzlDCMS-lL1cRW2lPmZ4");
+        AzureMaps.setSubscriptionKey("8SHf9GjUSMs_NLwAM59IPu9k-Pwgsbm8z09WpMbNh8E");
 
         //Alternatively use Azure Active Directory authenticate.
         //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
