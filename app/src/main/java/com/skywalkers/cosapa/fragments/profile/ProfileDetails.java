@@ -143,7 +143,7 @@ public class ProfileDetails extends Fragment {
         //
         userId.setText(String.format("ID: %s##", Objects.requireNonNull(FirebaseAuth.getInstance().getUid()).substring(0, 7)));
         pic.setImageDrawable(dp.getDrawable());
-        username.setText(name.getText().toString().substring(0, name.getText().toString().indexOf(" ")));
+        username.setText(name.getText().toString().substring(0, name.getText().toString().indexOf(" ") == -1 ? name.getText().toString().length() : name.getText().toString().indexOf(" ")));
         heart.setText(String.format("%s bpm", preferences.getString(_2, "80")));
         o2.setText(preferences.getString(_3, "95") + " %");
         cal.setText(cals);
