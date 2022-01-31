@@ -87,7 +87,17 @@ public class MoreDetails extends Fragment {
                                 if (task.isSuccessful()) {
                                     controller.navigate(R.id.action_moreDetails_to_takePicture);
                                 } else {
-                                    Snackbar.make(frameLayout, "Please try again", Snackbar.LENGTH_SHORT).show();
+                                    FirebaseFirestore.getInstance()
+                                            .collection("users")
+                                            .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                                            .set(details)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            controller.navigate(R.id.action_moreDetails_to_takePicture);
+//                                            Snackbar.make(frameLayout, "Please try again", Snackbar.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             }
                         });

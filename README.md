@@ -45,7 +45,7 @@ The .apk file produced on building the project will require an Android device/em
 
 <ol type='A'>
 <li>Clone the repository on your device, and build the project using Android Studio and run on the connected Android device/emulator.</li>
-<li>Download the app from <a href="https://play.google.com/store/apps/details?id=com.skywalkers.cosapa">here </a>
+<li>Download the app from <a href="https://drive.google.com/file/d/1OajE-k5Fc-akZRQpNgq53g9yXl_f6gfO/view?usp=sharing">here </a>
    and run on your Android device.</li>
 </ol>
 
@@ -130,7 +130,7 @@ These are the results of survey conducted by us<br>
 
 ## Links
 
-[Android App](https://play.google.com/store/apps/details?id=com.skywalkers.cosapa)<br>
+[Android App](https://drive.google.com/file/d/1OajE-k5Fc-akZRQpNgq53g9yXl_f6gfO/view?usp=sharing)<br>
 [Our Website (Buy device here)](https://cosapa.team)<br>
 [IoT Repository](https://github.com/naazkakria/Cosapa-imagine-cup)<br>
 [Beckn](https://github.com/beckn)<br>
