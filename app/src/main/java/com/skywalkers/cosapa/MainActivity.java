@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,12 +22,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.skywalkers.cosapa.fragments.rootfragments.DoctorsFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HealthDashboardFragment;
 import com.skywalkers.cosapa.fragments.rootfragments.HomeFragment;
-import com.skywalkers.cosapa.fragments.rootfragments.MapFragment;
+import com.skywalkers.cosapa.fragments.rootfragments.ProfileFragment;
 import com.skywalkers.cosapa.rewards.RewardsActivity;
 import com.skywalkers.cosapa.utility.RewardPopup;
-import com.skywalkers.cosapa.utility.SocketObject;
 
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -37,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     final Fragment fragment1 = new HomeFragment();
-    final Fragment fragment2 = new MapFragment();
+    final Fragment fragment2 = new DoctorsFragment();
     final Fragment fragment3 = new HealthDashboardFragment();
-    final Fragment fragment4 = new DoctorsFragment();
+    final Fragment fragment4 = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
     FloatingActionButton rewardsFab;
@@ -54,14 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rewardsFab= findViewById(R.id.fab);
-        try {
-            SocketObject.getSocket();
-        } catch (URISyntaxException e) {
-            Log.i("cosapa", "Socket error in main activity");
-            e.printStackTrace();
-            finish();
-        }
+        rewardsFab = findViewById(R.id.fab);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -152,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                     active = fragment1;
                     return true;
 
-                case R.id.nearby:
+                case R.id.doctor:
 
                     fm.beginTransaction().hide(active).show(fragment2).commit();
                     active = fragment2;
                     return true;
 
 
-                case R.id.health_dashboard:
+                case R.id.dashboard:
 
                     fm.beginTransaction().hide(active).show(fragment3).commit();
                     active = fragment3;

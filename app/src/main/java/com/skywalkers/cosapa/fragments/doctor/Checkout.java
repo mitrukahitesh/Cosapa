@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments.healthDashboard;
+package com.skywalkers.cosapa.fragments.doctor;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -34,8 +34,6 @@ import com.skywalkers.cosapa.adapters.DoctorAdapter;
 import com.skywalkers.cosapa.models.doctorConfirm.DoctorConfirm;
 import com.skywalkers.cosapa.models.doctorSelect.Breakup;
 import com.skywalkers.cosapa.models.doctorSelect.DoctorSelect;
-import com.skywalkers.cosapa.models.doctorSelect.Quote;
-import com.skywalkers.cosapa.models.doctorStatus.DoctorStatus;
 import com.skywalkers.cosapa.utility.RetrofitAccessObject;
 
 

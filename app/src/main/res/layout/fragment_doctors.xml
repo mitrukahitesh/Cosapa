@@ -12,7 +12,7 @@
         android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.healthDashboard.Doctors">
+        tools:context=".fragments.doctor.Doctors">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/sub_root"
@@ -49,20 +49,22 @@
                 app:cardCornerRadius="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputEditText" >
+                app:layout_constraintTop_toBottomOf="@+id/textInputEditText">
+
                 <ImageView
+                    android:id="@+id/map"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/mapbanner"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mapbanner" />
             </androidx.cardview.widget.CardView>
 
             <HorizontalScrollView
                 android:id="@+id/scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
                 android:clipToPadding="false"
+                android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView3">

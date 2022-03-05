@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.skywalkers.cosapa.R;
 
-public class MapFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    public MapFragment() {
+    public ProfileFragment() {
     }
 
     @Override
@@ -23,6 +23,6 @@ public class MapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }

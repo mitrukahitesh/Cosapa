@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doctor_nav"
+    app:startDestination="@id/doctors3">
+
+    <fragment
+        android:id="@+id/doctors3"
+        android:name="com.skywalkers.cosapa.fragments.doctor.Doctors"
+        android:label="fragment_doctors"
+        tools:layout="@layout/fragment_doctors" >
+        <action
+            android:id="@+id/action_doctors3_to_doctorDetails"
+            app:destination="@id/doctorDetails" />
+        <action
+            android:id="@+id/action_doctors3_to_azureMapsFragment"
+            app:destination="@id/azureMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorDetails"
+        android:name="com.skywalkers.cosapa.fragments.doctor.DoctorDetails"
+        android:label="DoctorDetails" >
+        <action
+            android:id="@+id/action_doctorDetails_to_checkout"
+            app:destination="@id/checkout" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkout"
+        android:name="com.skywalkers.cosapa.fragments.doctor.Checkout"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkout_to_confirmation"
+            app:destination="@id/confirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.skywalkers.cosapa.fragments.doctor.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmation_to_doctors3"
+            app:destination="@id/doctors3" />
+    </fragment>
+    <fragment
+        android:id="@+id/azureMapsFragment"
+        android:name="com.skywalkers.cosapa.fragments.doctor.azuremaps.AzureMapsFragment"
+        android:label="fragment_azure_maps"
+        tools:layout="@layout/fragment_azure_maps" />
+</navigation>

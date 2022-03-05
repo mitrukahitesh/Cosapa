@@ -40,7 +40,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HealthDashboard extends Fragment {
 
-    private CardView callNow;
     private ConstraintLayout heartbeat, o2, temperature;
     private NavController controller;
     private String heartbeatIns = "Please place the device correctly\nPress \"Start now\" button\nTake deep breaths\nPress \"Finish\" after countdown";
@@ -71,7 +70,6 @@ public class HealthDashboard extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
-        callNow = view.findViewById(R.id.call_now);
         heartbeat = view.findViewById(R.id.heartbeat);
         o2 = view.findViewById(R.id.o2);
         temperature = view.findViewById(R.id.temperature);
@@ -82,13 +80,6 @@ public class HealthDashboard extends Fragment {
         name1 = view.findViewById(R.id.name1);
         name2 = view.findViewById(R.id.name2);
         calories = view.findViewById(R.id.cal_count);
-
-        callNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_healthDashboard_to_doctors3);
-            }
-        });
         heartbeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

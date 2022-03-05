@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class Payment extends AppCompatActivity implements PaymentResultListener {
 
     private final Intent intent = new Intent();
-    private com.skywalkers.cosapa.fragments.healthDashboard.Checkout.PaymentOption option;
+    private com.skywalkers.cosapa.fragments.doctor.Checkout.PaymentOption option;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

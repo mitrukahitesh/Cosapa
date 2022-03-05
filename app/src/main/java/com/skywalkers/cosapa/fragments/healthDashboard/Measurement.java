@@ -5,7 +5,6 @@ import static com.skywalkers.cosapa.fragments.healthDashboard.HealthDashboard._2
 import static com.skywalkers.cosapa.fragments.healthDashboard.HealthDashboard._3;
 import static com.skywalkers.cosapa.fragments.healthDashboard.HealthDashboard._7;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,16 +33,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.skywalkers.cosapa.R;
-import com.skywalkers.cosapa.utility.SocketObject;
 
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 
 public class Measurement extends Fragment {
 
@@ -54,40 +48,6 @@ public class Measurement extends Fragment {
     private boolean measuring = false;
     private NavController controller;
     private ConstraintLayout root;
-    private Socket socket;
-    private String reading;
-    private SharedPreferences preferences;
-    private Activity activity;
-    private Emitter emitter;
-
-    private final Emitter.Listener newCount = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            Log.i("cosapa", args[0].toString());
-            reading = args[0].toString();
-        }
-    };
-
-    private final Emitter.Listener onStop = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            Log.i("cosapa", args[0].toString());
-            reading = args[0].toString();
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString(keyNames.get(test.getId()), reading);
-            editor.apply();
-            FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child("ID")
-                    .setValue(0);
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    controller.popBackStack(R.id.healthDashboard, false);
-                }
-            });
-        }
-    };
 
     public Measurement() {
     }
@@ -95,6 +55,9 @@ public class Measurement extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            test = getArguments().getParcelable("test");
+        }
         keyNames.put(3, _3);
         keyNames.put(7, _7);
         keyNames.put(2, _2);
@@ -112,25 +75,9 @@ public class Measurement extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                socket.emit("stop", test.getId());
-                FirebaseDatabase.getInstance()
-                        .getReference()
-                        .child("ID")
-                        .setValue(0);
                 Navigation.findNavController(view).popBackStack();
             }
         });
-        if (getArguments() != null) {
-            test = getArguments().getParcelable("test");
-        }
-        try {
-            socket = SocketObject.getSocket();
-        } catch (URISyntaxException e) {
-            Log.i("cosapa", "Socket error in measurement fragment");
-            e.printStackTrace();
-        }
-        activity = requireActivity();
-        preferences = requireContext().getSharedPreferences(MEASUREMENTS, Context.MODE_PRIVATE);
         root = view.findViewById(R.id.root);
         name = view.findViewById(R.id.name);
         instruction = view.findViewById(R.id.instruction_tv);
@@ -153,7 +100,6 @@ public class Measurement extends Fragment {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Snackbar.make(root, "Measurement started..", Snackbar.LENGTH_SHORT).show();
-                                    socket.emit("health", test.getId());
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -175,7 +121,6 @@ public class Measurement extends Fragment {
                                                     e.printStackTrace();
                                                 }
                                             }
-                                            socket.emit("stop", test.getId());
                                         }
                                     }).start();
                                 }
@@ -186,21 +131,35 @@ public class Measurement extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                measuring = false;
+                getResult();
             }
         });
-        socket.once("final_reading", onStop);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        emitter = socket.on("reading", newCount);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        emitter.off();
+    private void getResult() {
+        measuring = false;
+        countdown.setText("Done!");
+        FirebaseDatabase.getInstance()
+                .getReference()
+                .child(Objects.requireNonNull(keyNames.get(test.getId())))
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null && task.getResult().getValue() != null) {
+                            Log.i("Cosapa: Measurement", task.getResult().getValue().toString());
+                            SharedPreferences preferences = requireContext().getSharedPreferences(MEASUREMENTS, Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString(keyNames.get(test.getId()), task.getResult().getValue().toString());
+                            editor.commit();
+                            FirebaseDatabase.getInstance()
+                                    .getReference()
+                                    .child("ID")
+                                    .setValue(0);
+                            NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.healthDashboard, true).build();
+                            controller.navigate(R.id.action_measurement_to_healthDashboard, new Bundle(), navOptions);
+                        }
+                    }
+                });
     }
 }

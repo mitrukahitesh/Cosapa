@@ -1,23 +1,19 @@
 package com.skywalkers.cosapa.fragments.home;
 
-import android.content.SharedPreferences;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
-import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.navigation.Navigation;
 
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -25,7 +21,6 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,16 +31,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.skywalkers.cosapa.R;
 import com.skywalkers.cosapa.models.Challenge;
-import com.skywalkers.cosapa.utility.SocketObject;
 
-import java.net.URISyntaxException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 
 public class CompleteChallenge extends Fragment {
 
@@ -57,54 +46,6 @@ public class CompleteChallenge extends Fragment {
     private boolean playing = false;
     private Map<String, Pair<String, Integer>> exerciseId = new HashMap<>();
     private Map<String, Float> calories = new HashMap<>();
-    private Socket socket;
-    private NavController controller;
-    private Emitter emitter;
-
-    private final Emitter.Listener newCount = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            Log.i("cosapa", args[0].toString());
-            CompleteChallenge.this.requireActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    counter.setText(args[0].toString() + "");
-                }
-            });
-        }
-    };
-
-    private final Emitter.Listener onStop = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            Log.i("cosapa", args[0].toString());
-            CompleteChallenge.this.requireActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    counter.setText(args[0].toString() + "");
-                }
-            });
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("challenge", challenge);
-            bundle.putString("count", counter.getText().toString());
-            saveChallengeCompletion(FirebaseAuth.getInstance().getUid(), Integer.parseInt(counter.getText().toString()));
-            FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child("ID")
-                    .setValue(0)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            CompleteChallenge.this.requireActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    controller.navigate(R.id.action_completeChallenge_to_challengeCompleted, bundle);
-                                }
-                            });
-                        }
-                    });
-        }
-    };
 
     public CompleteChallenge() {
     }
@@ -135,23 +76,9 @@ public class CompleteChallenge extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                socket.emit("stop", Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).second);
-                FirebaseDatabase.getInstance()
-                        .getReference()
-                        .child("ID")
-                        .setValue(0);
                 Navigation.findNavController(view).popBackStack();
             }
         });
-        try {
-            socket = SocketObject.getSocket();
-        } catch (URISyntaxException e) {
-            Log.i("cosapa", "Socket error in measurement fragment");
-            e.printStackTrace();
-        }
-        socket.once("final_reading", onStop);
-        socket.emit("exercise", Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).second);
-        controller = Navigation.findNavController(view);
         playing = false;
         counter = view.findViewById(R.id.counter);
         root = view.findViewById(R.id.root);
@@ -165,7 +92,20 @@ public class CompleteChallenge extends Fragment {
         completed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                socket.emit("stop", Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).second);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("challenge", challenge);
+                bundle.putString("count", counter.getText().toString());
+                saveChallengeCompletion(FirebaseAuth.getInstance().getUid(), Integer.parseInt(counter.getText().toString()));
+                FirebaseDatabase.getInstance()
+                        .getReference()
+                        .child("ID")
+                        .setValue(0)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Navigation.findNavController(view).navigate(R.id.action_completeChallenge_to_challengeCompleted, bundle);
+                            }
+                        });
             }
         });
         play.setOnClickListener(new View.OnClickListener() {
@@ -212,12 +152,6 @@ public class CompleteChallenge extends Fragment {
         startDevice();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        emitter = socket.on("reading", newCount);
-    }
-
     private void saveChallengeCompletion(String uid, int c) {
         Map<String, Object> map = new HashMap<>();
         map.put("count", c);
@@ -240,7 +174,24 @@ public class CompleteChallenge extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseDatabase.getInstance()
+                                    .getReference()
+                                    .child(Objects.requireNonNull(exerciseId.get(challenge.getTitle().toUpperCase())).first)
+                                    .addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.exists() && snapshot.getValue() != null) {
+                                                counter.setText(snapshot.getValue().toString());
+                                            }
+                                        }
 
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                        }
                     }
                 });
     }
@@ -249,6 +200,5 @@ public class CompleteChallenge extends Fragment {
     public void onStop() {
         super.onStop();
         exoPlayer.stop();
-        emitter.off();
     }
 }

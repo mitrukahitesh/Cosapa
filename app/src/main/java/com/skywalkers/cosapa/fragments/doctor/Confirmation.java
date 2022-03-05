@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments.healthDashboard;
+package com.skywalkers.cosapa.fragments.doctor;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -68,7 +68,7 @@ public class Confirmation extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 NavOptions options = new NavOptions.Builder().setPopUpTo(R.id.healthDashboard, true).build();
-                Navigation.findNavController(view).navigate(R.id.action_confirmation_to_healthDashboard, null, options);
+                Navigation.findNavController(view).navigate(R.id.action_confirmation_to_doctors3, null, options);
             }
         });
         RewardPopup rewardPopup = new RewardPopup(requireContext(), "250");

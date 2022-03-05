@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments.healthDashboard;
+package com.skywalkers.cosapa.fragments.doctor;
 
 import android.os.Bundle;
 
@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skywalkers.cosapa.R;
@@ -24,6 +25,7 @@ import com.skywalkers.cosapa.adapters.DoctorAdapter;
 
 public class Doctors extends Fragment {
 
+    private ImageView map;
     private RecyclerView recyclerView;
     private NavController controller;
     private CardView cardView1, cardView2, cardView3, cardView4;
@@ -51,13 +53,8 @@ public class Doctors extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Navigation.findNavController(view).popBackStack();
-            }
-        });
         controller = Navigation.findNavController(view);
+        map = view.findViewById(R.id.map);
         cardView1 = view.findViewById(R.id.card1);
         cardView2 = view.findViewById(R.id.card2);
         cardView3 = view.findViewById(R.id.card3);
@@ -72,6 +69,12 @@ public class Doctors extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
         root = view.findViewById(R.id.root);
         recyclerView.setAdapter(new DoctorAdapter(getContext(), ALL, root, controller));
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.navigate(R.id.action_doctors3_to_azureMapsFragment);
+            }
+        });
     }
 
     private void setCardListeners() {

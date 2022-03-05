@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/health_dashboard_nav"
+    app:startDestination="@id/healthDashboard">
+
+    <fragment
+        android:id="@+id/healthDashboard"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.HealthDashboard"
+        android:label="fragment_health_dashboard"
+        tools:layout="@layout/fragment_health_dashboard" >
+        <action
+            android:id="@+id/action_healthDashboard_to_measurement"
+            app:destination="@id/measurement" />
+    </fragment>
+    <fragment
+        android:id="@+id/measurement"
+        android:name="com.skywalkers.cosapa.fragments.healthDashboard.Measurement"
+        android:label="fragment_measurement"
+        tools:layout="@layout/fragment_measurement" >
+        <action
+            android:id="@+id/action_measurement_to_healthDashboard"
+            app:destination="@id/healthDashboard" />
+    </fragment>
+</navigation>

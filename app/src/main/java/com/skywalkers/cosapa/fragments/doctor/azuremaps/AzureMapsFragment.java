@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.azuremaps;
+package com.skywalkers.cosapa.fragments.doctor.azuremaps;
 
 import static android.app.Activity.RESULT_OK;
 import static com.azure.android.maps.control.options.AnimationOptions.animationDuration;
@@ -15,23 +15,21 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
 import com.azure.android.maps.control.controls.TrafficControl;
-import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.AnimationType;
 import com.azure.android.maps.control.options.MapStyle;
-import com.azure.android.maps.control.options.SymbolLayerOptions;
 import com.azure.android.maps.control.source.DataSource;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
@@ -50,6 +48,7 @@ public class AzureMapsFragment extends Fragment {
     public AzureMapsFragment() {
         // Required empty public constructor
     }
+
     static {
         AzureMaps.setSubscriptionKey("8SHf9GjUSMs_NLwAM59IPu9k-Pwgsbm8z09WpMbNh8E");
 
@@ -78,16 +77,22 @@ public class AzureMapsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       return inflater.inflate(R.layout.fragment_azure_maps, container, false);
+        return inflater.inflate(R.layout.fragment_azure_maps, container, false);
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mapControl=view.findViewById(R.id.mapcontrol);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
+        mapControl = view.findViewById(R.id.mapcontrol);
         mapControl.onCreate(savedInstanceState);
-        FloatingActionButton findFab= view.findViewById(R.id.findFab);
+        FloatingActionButton findFab = view.findViewById(R.id.findFab);
 
         mapControl.onReady(map -> {
             //Add your post map load code here.
@@ -100,7 +105,7 @@ public class AzureMapsFragment extends Fragment {
                     animationDuration(3000));
 
             //loading geojson
-            map.images.add("hospital",R.drawable.ic_heart);
+            map.images.add("hospital", R.drawable.ic_heart);
             DataSource source = new DataSource();
             map.sources.add(source);
             Feature feature = Feature.fromGeometry(Point.fromLngLat(81.8229, 25.4319));
@@ -116,6 +121,7 @@ public class AzureMapsFragment extends Fragment {
         });
 
     }
+
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -142,25 +148,19 @@ public class AzureMapsFragment extends Fragment {
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     //txtSpeechInput.setText(result.get(0));
-                    searchedLocation= result.get(0);
+                    searchedLocation = result.get(0);
                     Toast.makeText(getActivity().getApplicationContext(), result.get(0), Toast.LENGTH_SHORT).show();
-                    if(searchedLocation.equalsIgnoreCase("Hospital Bed"))
-                    {
-                        onMapRefresh(81.82171305531897,25.427889005315237);
+                    if (searchedLocation.equalsIgnoreCase("Hospital Bed")) {
+                        onMapRefresh(81.82171305531897, 25.427889005315237);
                         //,
-                    }
-                    else if(searchedLocation.equalsIgnoreCase("Medical Store"))
-                    {
-                        onMapRefresh(81.81974808592769,25.43062813370959);
+                    } else if (searchedLocation.equalsIgnoreCase("Medical Store")) {
+                        onMapRefresh(81.81974808592769, 25.43062813370959);
                     }
                     //,
-                    else if(searchedLocation.equalsIgnoreCase("Oxygen"))
-                    {
-                        onMapRefresh(81.81831698407267,25.430756965742464);
-                    }
-                    else if(searchedLocation.equalsIgnoreCase("Blood Test"))
-                    {
-                        onMapRefresh(81.81614752454469,25.427420947778323);
+                    else if (searchedLocation.equalsIgnoreCase("Oxygen")) {
+                        onMapRefresh(81.81831698407267, 25.430756965742464);
+                    } else if (searchedLocation.equalsIgnoreCase("Blood Test")) {
+                        onMapRefresh(81.81614752454469, 25.427420947778323);
                     }
 
 
@@ -170,8 +170,8 @@ public class AzureMapsFragment extends Fragment {
 
         }
     }
-    public void onMapRefresh(Double longitude, Double latitude)
-    {
+
+    public void onMapRefresh(Double longitude, Double latitude) {
         mapControl.onReady(map -> {
             //Add your post map load code here.
             map.setStyle(style(MapStyle.ROAD));
@@ -190,7 +190,7 @@ public class AzureMapsFragment extends Fragment {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         mapControl.onStart();
     }

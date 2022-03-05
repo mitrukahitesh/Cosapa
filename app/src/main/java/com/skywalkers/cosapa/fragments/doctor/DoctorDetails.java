@@ -1,4 +1,4 @@
-package com.skywalkers.cosapa.fragments.healthDashboard;
+package com.skywalkers.cosapa.fragments.doctor;
 
 import android.content.Intent;
 import android.net.Uri;
