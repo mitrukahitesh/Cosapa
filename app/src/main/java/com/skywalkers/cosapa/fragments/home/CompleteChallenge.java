@@ -1,6 +1,6 @@
 package com.skywalkers.cosapa.fragments.home;
 
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;

@@ -14,8 +14,8 @@
             android:id="@+id/action_doctors3_to_doctorDetails"
             app:destination="@id/doctorDetails" />
         <action
-            android:id="@+id/action_doctors3_to_azureMapsFragment"
-            app:destination="@id/azureMapsFragment" />
+            android:id="@+id/action_doctors3_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorDetails"
@@ -44,8 +44,8 @@
             app:destination="@id/doctors3" />
     </fragment>
     <fragment
-        android:id="@+id/azureMapsFragment"
-        android:name="com.skywalkers.cosapa.fragments.doctor.azuremaps.AzureMapsFragment"
-        android:label="fragment_azure_maps"
-        tools:layout="@layout/fragment_azure_maps" />
+        android:id="@+id/mapsFragment"
+        android:name="com.skywalkers.cosapa.fragments.doctor.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

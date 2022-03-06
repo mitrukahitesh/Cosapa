@@ -72,7 +72,7 @@ public class Doctors extends Fragment {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.navigate(R.id.action_doctors3_to_azureMapsFragment);
+                controller.navigate(R.id.action_doctors3_to_mapsFragment);
             }
         });
     }
