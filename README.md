@@ -2,8 +2,6 @@
 
 # Cosapa
 
-## Built at Microsoft Imagine Cup
-
 ### A one stop solution for remote health-care and fitness
 
 ## What is Cosapa?
