@@ -6,11 +6,11 @@
 
 ## What is Cosapa?
 
-Cosapa is a platform driven by Android, IoT and Microsoft Azure Services that aims in making health consultation services completely virtual, physical fitness an engaging activity, and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during online consultation. Our app, with the help of Azure Maps, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigate to the exact location of the same through Google Assistant powered voice interaction.
+​​Cosapa is a platform driven by Android, IoT, and Firebase’s Backend Services that aims in making health consultation services completely virtual, physical fitness and engaging activity, and bridge the gap between people who need help and people who can provide help. The IoT device built by us helps in monitoring health factors like heartbeat rate, oxygen level, and temperature which can be shared with the doctor, appointed on our platform itself with the help of Beckn protocol, during an online consultation. Our app, with the help of Google Maps, also supports the task of finding the stores for prescribed medicine and labs for recommended tests nearby us and navigating to the exact location of the same through Google Assistant-powered voice interaction.
 
-Users can also post about emergency requirements like oxygen, hospital beds, etc and verified volunteers from Cosapa would help them. For every helping hand, Cosapa volunteers get rewarded with Cosapa coins.
+Users can also post about emergency requirements like oxygen, hospital beds, etc, and verified volunteers from Cosapa would help them. For every helping hand, Cosapa volunteers get rewarded with Cosapa coins.
 
-Additionally, fitness experts can post challenges for various exercises which are taken by other users which makes fitness activity fun, interactive, and engaging. The best part about this feature is that the number of sets of exercise performed is monitored by our IoT device, thus making our platform more fun and authentic. Cosapa platform is completely gamified and rewards users with in-app currency, Cosapa coins which can further be exchanged for goods and services among Cosapa partner services.
+Additionally, fitness experts can post challenges for various exercises which are taken by other users which makes fitness activities fun, interactive, and engaging. The best part about this feature is that the number of sets of exercises performed is monitored by our IoT device, thus making our platform more fun and authentic. Cosapa platform is completely gamified and rewards users with in-app currency, Cosapa coins which can further be exchanged for goods and services among Cosapa partner services.
 
 ### Our Achievements
 
@@ -43,7 +43,7 @@ The .apk file produced on building the project will require an Android device/em
 
 <ol type='A'>
 <li>Clone the repository on your device, and build the project using Android Studio and run on the connected Android device/emulator.</li>
-<li>Download the app from <a href="https://drive.google.com/file/d/1OajE-k5Fc-akZRQpNgq53g9yXl_f6gfO/view?usp=sharing">here </a>
+<li>Download the app from <a href="https://play.google.com/store/apps/details?id=com.skywalkers.cosapa">here </a>
    and run on your Android device.</li>
 </ol>
 
@@ -98,7 +98,7 @@ The .apk file produced on building the project will require an Android device/em
 ## Architecture of App
 
   <div>
-    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/videos/architecture.gif"  height=480 width=1296/>
+    <img src="https://github.com/mitrukahitesh/Cosapa/blob/main/videos/architecture.png"  height=480 width=1296/>
   </div>
 
 ## Survey Results
@@ -113,12 +113,9 @@ These are the results of survey conducted by us<br>
 
 <ol>
   <li>IoT</li>
-  <li>Azure IoT Hub</li>
-  <li>Azure Data Explorer</li>
-  <li>Azure Active Directory</li>
-  <li>Azure Maps</li>
+  <li>Google Maps SDK</li>
+  <li>Google Places API</li>
   <li>Android</li>
-  <li>Node.js</li>
   <li>Firebase Firestore</li>
   <li>Firebase Realtime Database</li>
   <li>Firebase Storage</li>
@@ -128,11 +125,10 @@ These are the results of survey conducted by us<br>
 
 ## Links
 
-[Android App](https://drive.google.com/file/d/1OajE-k5Fc-akZRQpNgq53g9yXl_f6gfO/view?usp=sharing)<br>
+[Android App](https://play.google.com/store/apps/details?id=com.skywalkers.cosapa)<br>
 [Our Website (Buy device here)](https://cosapa.team)<br>
-[IoT Repository](https://github.com/naazkakria/Cosapa-imagine-cup)<br>
 [Beckn](https://github.com/beckn)<br>
-[About Cosapa](https://www.youtube.com/watch?v=8h2DhV9YSqw)
+[About Cosapa](https://youtu.be/hRaCMKt4Lbo)
 
 <!-- ## Our Team
 

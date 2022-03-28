@@ -33,7 +33,7 @@ android {
         applicationId "com.skywalkers.cosapa"
         minSdkVersion 26
         targetSdkVersion 30
-        versionCode 5
+        versionCode 6
         versionName "1.0"
         multiDexEnabled true
 
